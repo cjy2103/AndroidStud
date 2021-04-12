@@ -16,3 +16,4 @@
 
 ### 참고 사이트
 * 리사이클러뷰 : https://webnautes.tistory.com/1214
+* AlertDialog : https://webnautes.tistory.com/1094
