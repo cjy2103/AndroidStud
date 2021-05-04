@@ -22,6 +22,9 @@ import java.util.List;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+//    public void setVideoList(List<VideoYT> videoList) {
+//        this.videoList = videoList;
+//    }
 
     private Context context;
     private List<VideoYT> videoList;
@@ -87,6 +90,6 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return videoList.size();
     }
 }
