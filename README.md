@@ -9,3 +9,4 @@
 * Fragment    : https://tedrepository.tistory.com/5
 * YouTubeAPI  : https://www.youtube.com/channel/UCo7PzCcLt9Q9g7p1Wqd-yvA
 * Thread      : https://recipes4dev.tistory.com/150?category=768056
+* InAPP       : https://developer.android.com/google/play/billing/test?hl=ko
