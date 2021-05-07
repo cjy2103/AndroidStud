@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
      ********************************** 변수 선언 부 ************************************
      ************************************************************************************/
 
-    Button button,button2;
+    Button button;
 
     private List<String> skuList = new ArrayList<>();
     BillingClient billingClient;
