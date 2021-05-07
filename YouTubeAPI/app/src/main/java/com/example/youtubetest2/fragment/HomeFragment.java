@@ -70,9 +70,8 @@ public class HomeFragment extends Fragment {
 
     private void getJson() {
         String url = YoutubeAPI.BASC_URL + YoutubeAPI.sch + YoutubeAPI.part + YoutubeAPI.type
-                + YoutubeAPI.query + YoutubeAPI.KEY  + YoutubeAPI.mx + YoutubeAPI.safe + YoutubeAPI.embeddable;
-//                String url = YoutubeAPI.BASC_URL + YoutubeAPI.sch + YoutubeAPI.KEY + YoutubeAPI.chid + YoutubeAPI.mx
-//                        +YoutubeAPI.ord+YoutubeAPI.part;
+                + YoutubeAPI.query + YoutubeAPI.KEY  + YoutubeAPI.mx + YoutubeAPI.safe + YoutubeAPI.embeddable
+                + YoutubeAPI.ord;
         Call<ModelHome> data = YoutubeAPI.getHomeVideo().getYT(url);
         data.enqueue(new Callback<ModelHome>() {
             @Override
@@ -89,8 +88,6 @@ public class HomeFragment extends Fragment {
                     ModelHome mh = response.body();
                     videoList.addAll(mh.getItems());
 
-//                    List<VideoYT> videoList = mh.getItems();
-//                    adapter.setVideoList(videoList);
 
                     adapter.notifyDataSetChanged();
                 }

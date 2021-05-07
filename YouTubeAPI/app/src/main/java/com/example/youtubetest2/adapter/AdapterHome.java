@@ -1,6 +1,7 @@
 package com.example.youtubetest2.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.telecom.Call;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,11 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.youtubetest2.R;
+import com.example.youtubetest2.activity.YoutubePlayer;
 import com.example.youtubetest2.models.VideoYT;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -22,9 +25,6 @@ import java.util.List;
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
 public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-//    public void setVideoList(List<VideoYT> videoList) {
-//        this.videoList = videoList;
-//    }
 
     private Context context;
     private List<VideoYT> videoList;
@@ -32,45 +32,6 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public AdapterHome(Context context, List<VideoYT> videoList) {
         this.context    = context;
         this.videoList  = videoList;
-    }
-
-    class YouTubeHolder extends RecyclerView.ViewHolder {
-
-        ImageView thumbnail;
-        TextView test, tanggal;
-
-        public YouTubeHolder(@NonNull View itemView) {
-            super(itemView);
-            thumbnail   =   itemView.findViewById(R.id.iv_thumbnail);
-            test        =   itemView.findViewById(R.id.tv_test);
-            tanggal     =   itemView.findViewById(R.id.tv_tglUpdate);
-        }
-
-        public void setData(VideoYT data) {
-            String getTest  =   data.getSnippet().getTitle();
-            String getTgl   =   data.getSnippet().getPublishedAt();
-            String getThumb =   data.getSnippet().getThumbnails().getMedium().getUrl();
-            test.setText(getTest);
-            tanggal.setText(getTgl);
-            Picasso.get()
-                    .load(getThumb)
-                    .placeholder(R.mipmap.ic_launcher)
-                    .fit()
-                    .centerCrop()
-                    .into(thumbnail, new Callback() {
-                        @Override
-                        public void onSuccess() {
-                            Log.d(TAG, "Thumbnail load Sucess");
-                        }
-
-                        @Override
-                        public void onError(Exception e) {
-                            Log.d(TAG, "Thumbnail error : ",e);
-                        }
-                    });
-
-
-        }
     }
 
     @NonNull
@@ -91,5 +52,58 @@ public class AdapterHome extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     @Override
     public int getItemCount() {
         return videoList.size();
+    }
+
+
+    class YouTubeHolder extends RecyclerView.ViewHolder {
+
+        ImageView thumbnail;
+        TextView test, tanggal;
+
+        public YouTubeHolder(@NonNull View itemView) {
+            super(itemView);
+            thumbnail   =   itemView.findViewById(R.id.iv_thumbnail);
+            test        =   itemView.findViewById(R.id.tv_test);
+            tanggal     =   itemView.findViewById(R.id.tv_tglUpdate);
+
+
+        }
+
+
+        public void setData(VideoYT data) {
+            String getTest  =   data.getSnippet().getTitle();
+            String getTgl   =   data.getSnippet().getPublishedAt();
+            String getThumb =   data.getSnippet().getThumbnails().getMedium().getUrl();
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent play = new Intent(context, YoutubePlayer.class);
+                    play.putExtra("video_id",data.getId().getVideoId());
+                    play.putExtra("video_title",getTest);
+                    context.startActivity(play);
+                }
+            });
+
+            test.setText(getTest);
+            tanggal.setText(getTgl);
+            Picasso.get()
+                    .load(getThumb)
+                    .placeholder(R.mipmap.ic_launcher)
+                    .fit()
+                    .centerCrop()
+                    .into(thumbnail, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            Log.d(TAG, "Thumbnail load Sucess");
+                        }
+
+                        @Override
+                        public void onError(Exception e) {
+                            Log.d(TAG, "Thumbnail error : ",e);
+                        }
+                    });
+        }
+
     }
 }

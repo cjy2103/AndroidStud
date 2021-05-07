@@ -26,12 +26,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setFragment(homeFragment);
 
         menuBawah = findViewById(R.id.menu_bawah);
 
-        setFragment(homeFragment);
+
         menuBawah.setSelectedItemId(R.id.menu_home);
         menuBawah.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -71,7 +73,10 @@ public class MainActivity extends AppCompatActivity {
     private void setFragment(Fragment fragment) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.main_frame, fragment);
+        getSupportActionBar().setTitle("Home");
         ft.commit();
 
     }
+
+
 }

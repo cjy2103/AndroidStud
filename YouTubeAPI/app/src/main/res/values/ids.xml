@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="input_query" type="id" />
+    <item name="btn_serach" type="id" />
+    <item name="recycler_search" type="id" />
+</resources>
