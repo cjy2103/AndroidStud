@@ -35,7 +35,7 @@ public class MainActivity extends YouTubeBaseActivity {
 //    AsyncTask<?, ?, ?> searchTask;
 //    //ArrayList<SearchData> sdata = new ArrayList<SearchData>();
 //
-//    final String serverKey="AIzaSyCrQkBhJyvylYUc4wTJE6naXYsQ9-YqiVk"; //콘솔에서 받아온 서버키를 넣어줍니다
+//    final String serverKey="키값"; //콘솔에서 받아온 서버키를 넣어줍니다
 //
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {

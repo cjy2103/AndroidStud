@@ -29,7 +29,7 @@ import java.util.List;
 
 public class MainActivity_save extends YouTubeBaseActivity {
 
-//    private String API_KEY = "AIzaSyCrQkBhJyvylYUc4wTJE6naXYsQ9-YqiVk";
+//    private String API_KEY = "키값";
 //
 //    private TextView tv_result;
 //    private String result;

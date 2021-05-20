@@ -154,7 +154,7 @@ public class YouTubePlay extends YouTubeBaseActivity {
 //        btn.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                youTubePlayerView.initialize("AIzaSyCrQkBhJyvylYUc4wTJE6naXYsQ9-YqiVk",listener);
+//                youTubePlayerView.initialize("키값",listener);
 //
 ////                int fulltime = mYouTubePlayer.getDurationMillis()/1000;
 ////
