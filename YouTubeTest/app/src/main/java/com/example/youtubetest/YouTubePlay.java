@@ -1,10 +1,14 @@
 package com.example.youtubetest;
 
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,21 +22,32 @@ import com.google.android.youtube.player.YouTubePlayerView;
 import java.util.ArrayList;
 
 public class YouTubePlay extends YouTubeBaseActivity {
+
+    /****************************************************************************************************
+     ***************************************** 변수 선언단 **********************************************
+     ***************************************************************************************************/
+
+    private static final String TAG = YouTubePlay.class.getSimpleName();
+
     YouTubePlayerView youTubePlayerView;
-    Button btn;
-    YouTubePlayer.OnInitializedListener listener;
     YouTubePlayer mYouTubePlayer;
     String videoId = "0-q1KafFCLU";
 
-    /**
-     * 테스트 부분
-     */
+
     private RecyclerView listView;
     private MyAdapter adapter;
     private int minute;
     private int fullTime;
 
-    private static final String TAG = YouTubePlay.class.getSimpleName();
+    private boolean moveLineFinish = false;
+
+
+
+
+
+    /****************************************************************************************************
+     ******************************************** onCreate **********************************************
+     ***************************************************************************************************/
 
 
     @Override
@@ -40,7 +55,81 @@ public class YouTubePlay extends YouTubeBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
-        //btn = findViewById(R.id.playBtn);
+
+        init();
+
+    }
+
+
+
+    /****************************************************************************************************
+     **************************************** 뷰 이벤트 영역 *******************************************
+     ***************************************************************************************************/
+
+    /**
+     * @DESC 빨간선 이동 시키는 함수
+     */
+    private void startMove(){
+        View redLine = (View) findViewById(R.id.red_line);
+
+        redLine.setVisibility(View.VISIBLE);
+
+        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.translate_anim);
+        redLine.startAnimation(anim);
+
+        if(moveLineFinish){
+            moveView();
+        }
+
+    }
+    
+
+    /**
+     * @DESC 화면을 오른쪽으로 이동시키는 함수
+     */
+    private void moveView(){
+        RecyclerView listView = (RecyclerView) findViewById(R.id.main_listview);
+
+
+    }
+
+    /***************************************************************************************************
+     ****************************************** 내부 클래스 ********************************************
+     **************************************************************************************************/
+
+    /**
+     * @DESC : 선 이동 이벤트가 발생했을때 애니메이션이 종료되는 시점을 감지하기 위해 사용
+     */
+    private class MoveLine implements Animation.AnimationListener{
+
+
+        @Override
+        public void onAnimationStart(Animation animation) {
+
+        }
+
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            moveLineFinish = true;
+        }
+
+        @Override
+        public void onAnimationRepeat(Animation animation) {
+
+        }
+    }
+
+
+
+
+    /****************************************************************************************************
+     **************************************** 사용자 정의 함수 ******************************************
+     ***************************************************************************************************/
+
+    /**
+     * @DESC 유튜브 초기화 하는 부분 ( 유튜브 동영상 로드 하는 부분 )
+     */
+    private void init(){
         youTubePlayerView = findViewById(R.id.youtubeView);
 
         youTubePlayerView.initialize("develop", new YouTubePlayer.OnInitializedListener() {
@@ -60,7 +149,6 @@ public class YouTubePlay extends YouTubeBaseActivity {
                     public void onLoading() {
                         Log.v(TAG,"유튜브 상태 리스너 - onLoading");
 
-
                     }
 
                     @Override
@@ -70,7 +158,7 @@ public class YouTubePlay extends YouTubeBaseActivity {
                         fullTime = mYouTubePlayer.getDurationMillis()/1000;
                         Log.v(TAG,"새로구한 전체 시간은? : "+fullTime);
 
-                        init();
+                        durationLoad();
                     }
 
                     @Override
@@ -80,7 +168,7 @@ public class YouTubePlay extends YouTubeBaseActivity {
 
                     @Override
                     public void onVideoStarted() {
-
+                        startMove();
                     }
 
                     @Override
@@ -128,56 +216,22 @@ public class YouTubePlay extends YouTubeBaseActivity {
 
             }
         });
-
-        /***
-         * 기존 소스
-         */
-//        listener = new YouTubePlayer.OnInitializedListener() {
-//            @Override
-//            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-//                youTubePlayer.loadVideo("0-q1KafFCLU");
-//            }
-//
-//            @Override
-//            public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-//
-//            }
-//        };
-
-
-
-
-
-        /***
-         * 기존 소스
-         */
-//        btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                youTubePlayerView.initialize("키값",listener);
-//
-////                int fulltime = mYouTubePlayer.getDurationMillis()/1000;
-////
-////                Log.v(TAG,"이거 될까? fulltime : " + fulltime);
-//            }
-//        });
-
-
-
-
     }
 
-    private void init() {
+
+
+    /**
+     * @DESC 영상 길이별 시간 설정해서 리사이클러 뷰에 넣는 함수
+     */
+    private void durationLoad() {
         listView = findViewById(R.id.main_listview);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         listView.setLayoutManager(layoutManager);
-//        int fulltime = mYouTubePlayer.getDurationMillis()/1000;
-        //int temp = Integer.parseInt(duration);
-        Log.v(TAG,"duration 값은 : "+mYouTubePlayer);
-        Log.v(TAG,"여기서 fulltime값은? : "+fullTime);
+        
         ArrayList<String> itemList = new ArrayList<>();
         for(int i=1;i<=fullTime;i++){
-            if(i<10) {
+
+             if(i<10) {
                 itemList.add("0"+String.valueOf(i));
             }
             else if(i>59){
@@ -195,19 +249,17 @@ public class YouTubePlay extends YouTubeBaseActivity {
         }
 
 
-        adapter = new MyAdapter(itemList, this, onClickItem);
+        adapter = new MyAdapter(itemList,this);
+
         listView.setAdapter(adapter);
 
-        MyListDecoration decoration = new MyListDecoration();
-        listView.addItemDecoration(decoration);
+
+
     }
 
-    private View.OnClickListener onClickItem = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            String str = (String) v.getTag();
-            Toast.makeText(YouTubePlay.this, str, Toast.LENGTH_SHORT).show();
-        }
-    };
+
+
+
+
 
 }

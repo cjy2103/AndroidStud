@@ -7,7 +7,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="horizontal" />
+        android:layout_height="match_parent" />
 
 </LinearLayout>

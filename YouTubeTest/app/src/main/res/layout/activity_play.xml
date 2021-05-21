@@ -7,41 +7,48 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="413dp"
-        android:layout_height="294dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-1dp">
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/youtubeView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="294dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints">
+
+
+        <com.google.android.youtube.player.YouTubePlayerView
+            android:id="@+id/youtubeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <include
-        android:id="@+id/include"
+        android:id="@+id/time_list"
         layout="@layout/activity_time"
-        android:layout_width="369dp"
+        android:layout_width="match_parent"
         android:layout_height="335dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.38"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <View
+        android:id="@+id/red_line"
         android:layout_width="1dp"
         android:layout_height="250dp"
+        android:layout_marginStart="0dp"
         android:background="#FF0000"
-        app:layout_constraintBottom_toBottomOf="@+id/include"
-        app:layout_constraintStart_toStartOf="@+id/include"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintBottom_toBottomOf="@+id/time_list"
+        app:layout_constraintStart_toStartOf="@+id/time_list"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.606"
+        android:visibility="invisible"
+        />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
