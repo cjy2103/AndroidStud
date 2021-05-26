@@ -46,7 +46,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         Log.v(TAG,"onCreateViewHolder 탔음");
 
         //context 와 parent.getContext()는 같다
-        View view = LayoutInflater.from(context).inflate(R.layout.time,parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.time, parent, false);
         return new ViewHolder(view);
     }
 
@@ -65,6 +65,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public int getItemCount() {
         return itemList.size();
     }
+
+//    @Override
+//    public int getItemViewType(int position) {
+//        return position;
+//    }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {

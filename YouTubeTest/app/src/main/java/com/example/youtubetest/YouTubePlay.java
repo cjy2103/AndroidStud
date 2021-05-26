@@ -1,16 +1,24 @@
 package com.example.youtubetest;
 
+import android.animation.Animator;
+import android.animation.ObjectAnimator;
 import android.graphics.Canvas;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.youtubetest.Adapter.MyAdapter;
@@ -34,13 +42,14 @@ public class YouTubePlay extends YouTubeBaseActivity {
     String videoId = "0-q1KafFCLU";
 
 
-    private RecyclerView listView;
+    private RecyclerView recyclerView;
     private MyAdapter adapter;
     private int minute;
     private int fullTime;
 
-    private boolean moveLineFinish = false;
-
+    boolean youTubePlayerFlag = true;
+    private int animCount = 0;
+    int deCocount =0;
 
 
 
@@ -56,42 +65,88 @@ public class YouTubePlay extends YouTubeBaseActivity {
         setContentView(R.layout.activity_play);
 
 
+        recyclerView = findViewById(R.id.main_listview);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+
         init();
 
-    }
 
+    }
 
 
     /****************************************************************************************************
      **************************************** 뷰 이벤트 영역 *******************************************
      ***************************************************************************************************/
 
-    /**
-     * @DESC 빨간선 이동 시키는 함수
-     */
-    private void startMove(){
-        View redLine = (View) findViewById(R.id.red_line);
+//    /**
+//     * @DESC 빨간선 이동 시키는 함수
+//     */
+//    private void startMove(){
+//
+//
+//
+//        View redLine = (View) findViewById(R.id.red_line);
+//
+//        redLine.setVisibility(View.VISIBLE);
+//
+////        int layoutWidth = recyclerView.getWidth()/2;
+////
+////        ObjectAnimator anim = ObjectAnimator.ofFloat(redLine, View.TRANSLATION_X, 50f).setDuration(10000);
+////        anim.setRepeatCount(Animation.INFINITE);
+////        anim.setInterpolator(new LinearInterpolator());
+////
+////        new Animator.AnimatorListener() {
+////            private String Tag;
+////
+////            @Override
+////            public void onAnimationStart(Animator animation) {
+////
+////            }
+////
+////            @Override
+////            public void onAnimationEnd(Animator animation) {
+////                Log.v(Tag, "애니메이션이 종료되었다");
+////                //moveView();
+////                RecyclerViewMove nr = new RecyclerViewMove();
+////                Thread t = new Thread(nr);
+////                t.start();
+////            }
+////
+////            @Override
+////            public void onAnimationCancel(Animator animation) {
+////
+////            }
+////
+////            @Override
+////            public void onAnimationRepeat(Animator animation) {
+////
+////            }
+////        };
+////
+////        anim.start();
+//
+//
+//
+//        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.translate_anim);
+//
+//        anim.setAnimationListener(new MoveLine());
+//
+//
+//
+//        //redLine.startAnimation(anim);
+//        if(youTubePlayerFlag == true){
+//            redLine.startAnimation(anim);
+//            Log.v(TAG,"애니메이션 단계 여기는 트루임");
+//        } else {
+//            Log.v(TAG,"이거 일단 먹히나?");
+//        }
+//////         애니메이션이 종료되면 public void onAnimationEnd -> 애니메이션 종료 이벤트로 이동
+//
+//    }
 
-        redLine.setVisibility(View.VISIBLE);
-
-        Animation anim = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.translate_anim);
-        redLine.startAnimation(anim);
-
-        if(moveLineFinish){
-            moveView();
-        }
-
-    }
-    
-
-    /**
-     * @DESC 화면을 오른쪽으로 이동시키는 함수
-     */
-    private void moveView(){
-        RecyclerView listView = (RecyclerView) findViewById(R.id.main_listview);
-
-
-    }
 
     /***************************************************************************************************
      ****************************************** 내부 클래스 ********************************************
@@ -103,6 +158,9 @@ public class YouTubePlay extends YouTubeBaseActivity {
     private class MoveLine implements Animation.AnimationListener{
 
 
+        private String Tag = MoveLine.class.getSimpleName();;
+
+
         @Override
         public void onAnimationStart(Animation animation) {
 
@@ -110,16 +168,46 @@ public class YouTubePlay extends YouTubeBaseActivity {
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            moveLineFinish = true;
+            
+            Log.v(Tag, "애니메이션이 종료되었다");
+            //moveView();
+
         }
 
         @Override
         public void onAnimationRepeat(Animation animation) {
 
         }
+
+
     }
 
 
+    /**
+     * @DESC 화면을 오른쪽으로 이동시키는 클래스
+     */
+
+    class RecyclerViewMove implements Runnable {
+        RecyclerView rv = (RecyclerView) findViewById(R.id.main_listview);
+        Handler handler = new Handler();
+
+        @Override
+        public void run() {
+            while (true) {
+                if(youTubePlayerFlag) {
+                    recyclerView.scrollBy (1,0);
+
+                    try {
+                        Thread.sleep(5);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+        }
+    }
 
 
     /****************************************************************************************************
@@ -168,7 +256,11 @@ public class YouTubePlay extends YouTubeBaseActivity {
 
                     @Override
                     public void onVideoStarted() {
-                        startMove();
+                        //startMove();
+                        RecyclerViewMove nr = new RecyclerViewMove();
+                        Thread t = new Thread(nr);
+                        t.start();
+
                     }
 
                     @Override
@@ -185,11 +277,13 @@ public class YouTubePlay extends YouTubeBaseActivity {
                 youTubePlayer.setPlaybackEventListener(new YouTubePlayer.PlaybackEventListener() {
                     @Override
                     public void onPlaying() {
+                        youTubePlayerFlag = true;
 
                     }
 
                     @Override
                     public void onPaused() {
+                        youTubePlayerFlag = false;
 
                     }
 
@@ -219,47 +313,45 @@ public class YouTubePlay extends YouTubeBaseActivity {
     }
 
 
-
     /**
      * @DESC 영상 길이별 시간 설정해서 리사이클러 뷰에 넣는 함수
      */
     private void durationLoad() {
-        listView = findViewById(R.id.main_listview);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        listView.setLayoutManager(layoutManager);
-        
-        ArrayList<String> itemList = new ArrayList<>();
-        for(int i=1;i<=fullTime;i++){
 
-             if(i<10) {
-                itemList.add("0"+String.valueOf(i));
-            }
-            else if(i>59){
-                minute = i/60;
-                if((i%60) <10) {
-                    itemList.add("0" + String.valueOf(minute) + ": 0"+String.valueOf(i-60*minute));
+        int recyclerViewWidth = recyclerView.getWidth()/2;
+
+        if(deCocount == 0) {
+            ArrayList<String> itemList = new ArrayList<>();
+            recyclerView.addItemDecoration(new RecyclerViewItemDecoration(recyclerViewWidth));
+            deCocount++;
+
+            for(int i=0;i<=fullTime;i++){
+
+                if(i<10) {
+                    itemList.add("0"+String.valueOf(i));
+                }
+                else if(i>59){
+                    minute = i/60;
+                    if((i%60) <10) {
+                        itemList.add("0" + String.valueOf(minute) + ": 0"+String.valueOf(i-60*minute));
+                    }
+                    else{
+                        itemList.add("0" + String.valueOf(minute) + ": "+String.valueOf(i-60*minute));
+                    }
                 }
                 else{
-                    itemList.add("0" + String.valueOf(minute) + ": "+String.valueOf(i-60*minute));
+                    itemList.add(String.valueOf(i));
                 }
             }
-            else{
-                itemList.add(String.valueOf(i));
-            }
+
+            adapter = new MyAdapter(itemList,this);
+
+            recyclerView.setAdapter(adapter);
         }
-
-
-        adapter = new MyAdapter(itemList,this);
-
-        listView.setAdapter(adapter);
-
+        Log.v(TAG,"내 길이는 이거야 :" +recyclerViewWidth);
 
 
     }
-
-
-
-
 
 
 }
