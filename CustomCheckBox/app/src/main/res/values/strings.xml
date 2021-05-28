@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">CustomCheckBox</string>
+
+    <string name="test_title">
+        테스트 타이틀
+    </string>
+
+    <string name="test_Context">
+        테스트 내용
+    </string>
+
+</resources>
