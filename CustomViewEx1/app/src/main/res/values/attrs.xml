@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name = "selected" format="integer"/>
+
+    <declare-styleable name="MyCustomView">
+        <attr name="selected"/>
+    </declare-styleable>
+
+    <declare-styleable name="MyCustomView2">
+        <attr name="selected"/>
+    </declare-styleable>
+</resources>
