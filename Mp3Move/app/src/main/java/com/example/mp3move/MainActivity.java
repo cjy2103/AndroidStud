@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         Field[] fileds = R.raw.class.getFields();
         for(int i=0;i<fileds.length;i++) {
             int id = getRawResIdByName(fileds[i].getName());
-            Uri video = Uri.parse("android.resource://" + getPackageName() + "/" + id);
             String name = fileds[i].getName();
 
             copy(id,name);
