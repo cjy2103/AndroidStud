@@ -2,8 +2,7 @@ package com.example.youtubetest;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
+
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,41 +15,24 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 import java.util.ArrayList;
 
-public class YouTubePlay extends YouTubeBaseActivity
-        implements YouTubeView.YouTubeFormListner, View.OnTouchListener{
+public class YouTubePlay2 extends YouTubeBaseActivity {
 
     /****************************************************************************************************
      ***************************************** 변수 선언단 **********************************************
      ***************************************************************************************************/
 
-    private static final String TAG = YouTubePlay.class.getSimpleName();
+    private static final String TAG = YouTubePlay2.class.getSimpleName();
 
     YouTubePlayerView youTubePlayerView;
     YouTubePlayer mYouTubePlayer;
     String videoId = "0-q1KafFCLU";
 
-    private YouTubeView myouTubeView;
-    private float mDensity;   //디스플레이 dip?
+    public int currentTime;
 
-    private int mOffset;
-    private int mOffsetGoal;  // => offsetGoal은 player의 속도에 맞게 ui가 따라가려고 하는 변수?
-    private int mFlingVelocity;
-    private int mWidth;    //가로 길이
-
-    private int mMaxPos;
-    private int mStartPos;   // YouTubeView에서 mSelectionStart 변수로 받는거.
-    private int mEndPos;
-
-    private int mPlayEndMsec2; //updatedispaly에서 endpos를 받아 밀리초로 바꾼값을 저장해둘 변수이다.
-
-    private int mPlayEndMsec;     //mPlayEndMsec는 onplay될때 음악이 중지될 지점을 계산해서 저장해둔 변수이다.
-
-    /* 터치 관련 변수 */
-    private float mTouchStart;
-    private int mTouchInitialOffset;
-    private long mYouTubeFormTouchStartMsec;
-
-    private boolean mTouchDragging;
+    private RecyclerView recyclerView;
+    private MyAdapter adapter;
+    private int minute;
+    private int fullTime;
 
 
 
@@ -70,7 +52,15 @@ public class YouTubePlay extends YouTubeBaseActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
 
+
+        recyclerView = findViewById(R.id.main_listview);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+
         init();
+
 
     }
 
@@ -83,6 +73,29 @@ public class YouTubePlay extends YouTubeBaseActivity
 
 
 
+    /**
+     * @DESC 화면을 오른쪽으로 이동시키는 클래스
+     */
+
+
+    class RecyclerViewMove implements Runnable {
+
+        @Override
+        public void run() {
+            while (true) {
+                if(youTubePlayerFlag) {
+                    recyclerView.scrollBy (1,0);
+
+                    try {
+                        Thread.sleep(5);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        }
+    }
 
 
     /****************************************************************************************************
@@ -110,13 +123,18 @@ public class YouTubePlay extends YouTubeBaseActivity
                 youTubePlayer.setPlayerStateChangeListener(new YouTubePlayer.PlayerStateChangeListener() {
                     @Override
                     public void onLoading() {
-
+                        Log.v(TAG,"유튜브 상태 리스너 - onLoading");
 
                     }
 
                     @Override
                     public void onLoaded(String s) {
+                        Log.v(TAG,"플레이어에서 가져온 노래의 시간은? : " + mYouTubePlayer.getDurationMillis());
 
+                        fullTime = mYouTubePlayer.getDurationMillis()/1000;
+                        Log.v(TAG,"새로구한 전체 시간은? : "+fullTime);
+
+                        durationLoad();
                     }
 
                     @Override
@@ -126,7 +144,12 @@ public class YouTubePlay extends YouTubeBaseActivity
 
                     @Override
                     public void onVideoStarted() {
+                        //startMove();
+                        RecyclerViewMove nr = new RecyclerViewMove();
+                        Thread t = new Thread(nr);
+                        t.start();
 
+                        //moveView();
 
                     }
 
@@ -184,50 +207,45 @@ public class YouTubePlay extends YouTubeBaseActivity
     }
 
 
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
+    /**
+     * @DESC 영상 길이별 시간 설정해서 리사이클러 뷰에 넣는 함수
+     */
+    private void durationLoad() {
 
-        int id = v.getId();
-        float att = event.getRawX();
-        int action = event.getAction();
+        int recyclerViewWidth = recyclerView.getWidth()/2;
 
-        if(action == MotionEvent.ACTION_DOWN){
+        if(deCocount == 0) {
+            ArrayList<String> itemList = new ArrayList<>();
+            recyclerView.addItemDecoration(new RecyclerViewItemDecoration(recyclerViewWidth));
+            deCocount++;
 
-        } else if (action == MotionEvent.ACTION_MOVE) {
+            for(int i=0;i<=fullTime;i++){
 
-        } else if (action == MotionEvent.ACTION_UP) {
+                if(i<10) {
+                    itemList.add("0"+String.valueOf(i));
+                }
+                else if(i>59){
+                    minute = i/60;
+                    if((i%60) <10) {
+                        itemList.add("0" + String.valueOf(minute) + ": 0"+String.valueOf(i-60*minute));
+                    }
+                    else{
+                        itemList.add("0" + String.valueOf(minute) + ": "+String.valueOf(i-60*minute));
+                    }
+                }
+                else{
+                    itemList.add(String.valueOf(i));
+                }
+            }
 
+            adapter = new MyAdapter(itemList,this);
+
+            recyclerView.setAdapter(adapter);
         }
-        return false;
-    }
-
-    @Override
-    public void youTubeformTouchStart(float x) {
-        mTouchDragging = true;
-        mTouchStart = x;
-        mTouchInitialOffset = mOffset;
-        mFlingVelocity = 0;
-        mYouTubeFormTouchStartMsec = getCurrentTime();
-    }
-
-    @Override
-    public void youTubeformTouchMove(float x) {
-
-        updateDisplay();
-
-    }
-
-    @Override
-    public void youTubeformTouchEnd() {
-
-    }
-
-    private long getCurrentTime(){
-        return System.nanoTime() / 1000000;
-    }
-
-    private void updateDisplay() {
+        Log.v(TAG,"내 길이는 이거야 :" +recyclerViewWidth);
 
 
     }
+
+
 }

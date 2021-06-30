@@ -17,16 +17,32 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
-    <com.example.youtubetest.YouTubeView
-        android:id="@+id/youTubeFrom"
-        android:layout_width="413dp"
-        android:layout_height="638dp"
+
+    <include
+        android:id="@+id/time_list"
+        layout="@layout/activity_time"
+        android:layout_width="match_parent"
+        android:layout_height="526dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/youtubeView"
-        app:layout_constraintVertical_bias="0.243" />
+        app:layout_constraintTop_toBottomOf="@+id/youtubeView" />
+
+    <View
+        android:id="@+id/red_line"
+        android:layout_width="1dp"
+        android:layout_height="350dp"
+
+        android:background="#FF0000"
+        android:visibility="visible"
+
+
+        app:layout_constraintBottom_toBottomOf="@+id/time_list"
+        app:layout_constraintEnd_toEndOf="@+id/time_list"
+        app:layout_constraintStart_toStartOf="@+id/time_list"
+        app:layout_constraintTop_toTopOf="@+id/time_list" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

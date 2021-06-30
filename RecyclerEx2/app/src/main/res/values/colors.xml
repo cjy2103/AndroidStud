@@ -7,7 +7,4 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="chord_color">#555555</color>
-    <color name="timecode_shadow">#ffffff</color>
-    <color name="playback_indicator">#FF0000</color>
 </resources>

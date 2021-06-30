@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.youtubetest.R;
-import com.example.youtubetest.YouTubePlay;
 
 import java.util.ArrayList;
 
@@ -22,22 +21,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     private ArrayList<String> itemList;
     private Context context;
-   // private View.OnClickListener onClickItem;
 
-//    public MyAdapter(ArrayList<String> itemList, Context context, View.OnClickListener onClickItem) {
-//        this.itemList = itemList;
-//        this.context = context;
-//        //this.onClickItem = onClickItem;
-//    }
 
     public MyAdapter(ArrayList<String> itemList, Context context) {
         this.itemList = itemList;
         this.context = context;
     }
 
-//    public MyAdapter(ArrayList<String> itemList) {
-//        this.itemList = itemList;
-//    }
 
     @NonNull
     @Override
@@ -65,11 +55,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public int getItemCount() {
         return itemList.size();
     }
-
-//    @Override
-//    public int getItemViewType(int position) {
-//        return position;
-//    }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
