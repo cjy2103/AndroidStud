@@ -50,7 +50,7 @@ public class YouTubePlay2 extends YouTubeBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_play);
+        setContentView(R.layout.activity_play2);
 
 
         recyclerView = findViewById(R.id.main_listview);

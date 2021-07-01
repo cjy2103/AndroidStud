@@ -43,6 +43,8 @@ public class YouTubeView extends View {
 
     private int mZoomLevel;
 
+    Context context;
+
 
     public interface YouTubeFormListner {
         public void youTubeformTouchStart(float x);
@@ -305,6 +307,10 @@ public class YouTubeView extends View {
 
             }
         }
+    }
+
+    public void setContext(Context context){
+        this.context = context;
     }
     /**
      * Called the first time we need to draw when the zoom level has changed
