@@ -47,9 +47,10 @@ public class ExampleDialog extends AppCompatDialogFragment {
                                 tmpStr += checkState.get(i)+",";
                             }
                         }
-                        tmpStr = tmpStr.substring(0,tmpStr.length()-1);
-                        Log.v("저장된 문자열:",tmpStr);
-
+                        if(tmpStr.length()>0) {
+                            tmpStr = tmpStr.substring(0, tmpStr.length() - 1);
+                            Log.v("저장된 문자열:", tmpStr);
+                        }
                         listener.applyTexts(tmpStr);
                     }
                 });

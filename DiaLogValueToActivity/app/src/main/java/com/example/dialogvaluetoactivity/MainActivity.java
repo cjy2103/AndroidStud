@@ -53,7 +53,11 @@ public class MainActivity extends AppCompatActivity implements ExampleDialog.Exa
 
     @Override
     public void applyTexts(String tmpStr) {
-        txt_test.setText(tmpStr);
+        if(tmpStr=="") {
+            txt_test.setText("Hello World!");
+        } else {
+            txt_test.setText(tmpStr);
+        }
     }
 
 }
