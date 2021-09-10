@@ -11,3 +11,4 @@
 * 오픈소스 사용 : https://github.com/PierfrancescoSoffritti/android-youtube-player 
 * Thread      : https://recipes4dev.tistory.com/150?category=768056
 * InAPP       : https://developer.android.com/google/play/billing/test?hl=ko
+* SoundTouch  : https://gitlab.com/soundtouch/soundtouch
