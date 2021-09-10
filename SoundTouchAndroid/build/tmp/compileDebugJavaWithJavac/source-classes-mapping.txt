@@ -1,0 +1,9 @@
+net/surina/soundtouchexample/BuildConfig.java
+ net.surina.soundtouchexample.BuildConfig
+net/surina/soundtouch/SoundTouch.java
+ net.surina.soundtouch.SoundTouch
+net/surina/ExampleActivity.java
+ net.surina.ExampleActivity
+ net.surina.ExampleActivity$1
+ net.surina.ExampleActivity$ProcessTask
+ net.surina.ExampleActivity$ProcessTask$Parameters

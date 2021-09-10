@@ -1,0 +1,93 @@
+[
+  {
+    "level": "INFO",
+    "message": "Start JSON generation. Platform version: 16 min SDK version: x86",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "rebuilding JSON C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\.cxx\\ndkBuild\\release\\x86\\android_gradle_build.json due to:",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "- expected json C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\.cxx\\ndkBuild\\release\\x86\\android_gradle_build.json file is not present, will remove stale json folder",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "- missing previous command file C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\.cxx\\ndkBuild\\release\\x86\\build_command.txt, will remove stale json folder",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "- command changed from previous, will remove stale json folder",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "created folder \u0027C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\.cxx\\ndkBuild\\release\\x86\u0027",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "executing ndkBuild Executable : C:\\Users\\YallaFactory\\AppData\\Local\\Android\\Sdk\\ndk\\23.0.7599858\\ndk-build.cmd\narguments : \nNDK_PROJECT_PATH\u003dnull\nAPP_BUILD_SCRIPT\u003dC:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk\nNDK_APPLICATION_MK\u003dC:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Application.mk\nAPP_ABI\u003dx86\nNDK_ALL_ABIS\u003dx86\nNDK_DEBUG\u003d0\nAPP_PLATFORM\u003dandroid-16\nNDK_OUT\u003dC:/Users/YallaFactory/Desktop/soundtouch-master/source/Android-lib/build/intermediates/ndkBuild/release/obj\nNDK_LIBS_OUT\u003dC:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\build\\intermediates\\ndkBuild\\release\\lib\nNDK_APPLICATION\u003djni/Application.mk\nAPP_ALLOW_MISSING_DEPS:\u003dtrue\nAPP_SHORT_COMMANDS\u003dfalse\nLOCAL_SHORT_COMMANDS\u003dfalse\n-B\n-n\njvmArgs : \n\n",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "Executable : C:\\Users\\YallaFactory\\AppData\\Local\\Android\\Sdk\\ndk\\23.0.7599858\\ndk-build.cmd\narguments : \nNDK_PROJECT_PATH\u003dnull\nAPP_BUILD_SCRIPT\u003dC:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk\nNDK_APPLICATION_MK\u003dC:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Application.mk\nAPP_ABI\u003dx86\nNDK_ALL_ABIS\u003dx86\nNDK_DEBUG\u003d0\nAPP_PLATFORM\u003dandroid-16\nNDK_OUT\u003dC:/Users/YallaFactory/Desktop/soundtouch-master/source/Android-lib/build/intermediates/ndkBuild/release/obj\nNDK_LIBS_OUT\u003dC:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\build\\intermediates\\ndkBuild\\release\\lib\nNDK_APPLICATION\u003djni/Application.mk\nAPP_ALLOW_MISSING_DEPS:\u003dtrue\nAPP_SHORT_COMMANDS\u003dfalse\nLOCAL_SHORT_COMMANDS\u003dfalse\n-B\n-n\njvmArgs : \n\n",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "parse and convert ndk-build output to build configuration JSON",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "found application make file C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Application.mk",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "done executing ndkBuild",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "write command file C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\.cxx\\ndkBuild\\release\\x86\\build_command.txt",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON generation completed without problems",
+    "file": "C:\\Users\\YallaFactory\\Desktop\\soundtouch-master\\source\\Android-lib\\jni\\Android.mk",
+    "tag": "release|x86",
+    "diagnosticCode": "UNKNOWN"
+  }
+]

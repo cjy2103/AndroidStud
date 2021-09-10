@@ -1,0 +1,1 @@
+C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\build\intermediates\ndkBuild\debug\obj\local\arm64-v8a

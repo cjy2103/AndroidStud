@@ -1,0 +1,2 @@
+C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\jni\Android.mk
+C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\jni\Application.mk

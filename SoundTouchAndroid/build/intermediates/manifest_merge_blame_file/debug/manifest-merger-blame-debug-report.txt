@@ -1,0 +1,53 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="net.surina.soundtouchexample"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:8:5-11:42
+8        android:minSdkVersion="14"
+8-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:9:9-35
+9        android:targetSdkVersion="30" />
+9-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:10:9-38
+10
+11    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+11-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:13:5-80
+11-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:13:22-77
+12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+12-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:14:5-15:40
+12-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:14:22-78
+13
+14    <application
+14-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:17:5-32:19
+15        android:allowBackup="true"
+15-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:19:9-35
+16        android:debuggable="true"
+17        android:icon="@drawable/ic_launcher"
+17-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:20:9-45
+18        android:label="@string/app_name"
+18-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:21:9-41
+19        android:requestLegacyExternalStorage="true"
+19-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:18:9-52
+20        android:theme="@style/AppTheme" >
+20-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:22:9-40
+21        <activity
+21-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:23:9-31:20
+22            android:name="net.surina.ExampleActivity"
+22-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:24:13-54
+23            android:label="@string/app_name" >
+23-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:25:13-45
+24            <intent-filter>
+24-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:26:13-30:29
+25                <action android:name="android.intent.action.MAIN" />
+25-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:27:17-69
+25-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:27:25-66
+26
+27                <category android:name="android.intent.category.LAUNCHER" />
+27-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:29:17-77
+27-->C:\Users\YallaFactory\Desktop\soundtouch-master\source\Android-lib\AndroidManifest.xml:29:27-74
+28            </intent-filter>
+29        </activity>
+30    </application>
+31
+32</manifest>
