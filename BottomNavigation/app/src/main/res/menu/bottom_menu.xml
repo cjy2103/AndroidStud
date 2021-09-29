@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_home_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="아이템1"
+        />
+
+    <item
+        android:id="@+id/item_image_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_image_24"
+        android:title="아이템2"
+        />
+    <item
+        android:id="@+id/item_info_fragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="아이템3"
+        />
+
+</menu>
