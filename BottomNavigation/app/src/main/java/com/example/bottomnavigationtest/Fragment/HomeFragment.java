@@ -85,6 +85,9 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+
+
         changeText(v);
 
         return v;
@@ -107,6 +110,7 @@ public class HomeFragment extends Fragment {
             if(txtCount==0){
                 txtStr.setText("텍스트 변경");
                 txtCount++;
+
             } else {
                 txtStr.setText("아래 버튼을 클릭해보세요");
                 txtCount--;
