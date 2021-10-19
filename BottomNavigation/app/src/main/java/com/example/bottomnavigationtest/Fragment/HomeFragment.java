@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.bottomnavigationtest.Fragment.Dialog.CustomDialog;
 import com.example.bottomnavigationtest.R;
 
 import java.util.Objects;
@@ -32,7 +33,7 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
     TextView txtStr;
-    Button btnChange;
+    Button btnChange, btnCustomDialog;
 
     private int txtCount = 0;
 
@@ -85,10 +86,11 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
+        initBinding(v);
+        
+        changeText();
 
-
-
-        changeText(v);
+        openDialog();
 
         return v;
     }
@@ -99,13 +101,19 @@ public class HomeFragment extends Fragment {
      **********************************************************************************/
 
     /**
-     * @DESC: 텍스트 변경
+     * @DESC: 초기 바인딩
+     * @param view
      */
-    private void changeText(View view){
-
+    private void initBinding(View view){
         txtStr    = view.findViewById(R.id.txt_str);
         btnChange = view.findViewById(R.id.btn_change);
+        btnCustomDialog = view.findViewById(R.id.btn_dialog);
+    }
 
+    /**
+     * @DESC: 텍스트 변경
+     */
+    private void changeText(){
         btnChange.setOnClickListener(v->{
             if(txtCount==0){
                 txtStr.setText("텍스트 변경");
@@ -115,6 +123,17 @@ public class HomeFragment extends Fragment {
                 txtStr.setText("아래 버튼을 클릭해보세요");
                 txtCount--;
             }
+        });
+
+    }
+
+    /**
+     * @DESC: 다이얼로그 열기
+     */
+    private void openDialog(){
+        btnCustomDialog.setOnClickListener(v->{
+            CustomDialog customDialog = new CustomDialog();
+            customDialog.show(requireActivity().getSupportFragmentManager(), "CustomDialog");
         });
 
     }

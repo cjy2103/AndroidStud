@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_nav);
 
 
+
+
         fHome = new HomeFragment();
         //첫 화면
         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,fHome).commit();
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             changeFragment(item);
             return true;
         });
+
 
 
         bottomSoftBarHide();

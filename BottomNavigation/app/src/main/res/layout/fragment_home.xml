@@ -24,7 +24,7 @@
             android:id="@+id/txt_str"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="76dp"
             android:text="아래버튼을 클릭해보세요"
             app:layout_constraintBottom_toTopOf="@+id/btn_change"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,12 +35,23 @@
             android:id="@+id/btn_change"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="324dp"
+            android:layout_marginBottom="404dp"
             android:backgroundTint="@color/gray"
             android:text="Change"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="156dp"
+            android:layout_marginLeft="156dp"
+            android:layout_marginBottom="124dp"
+            android:text="다이얼로그 열기"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
 
