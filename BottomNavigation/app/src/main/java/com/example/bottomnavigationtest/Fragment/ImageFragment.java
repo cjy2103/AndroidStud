@@ -2,6 +2,8 @@ package com.example.bottomnavigationtest.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -12,6 +14,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.bottomnavigationtest.R;
+
+import org.jetbrains.annotations.NotNull;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,14 +83,22 @@ public class ImageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_image, container, false);
-
-        changeImg(v);
-
-        return v;
+        return inflater.inflate(R.layout.fragment_image, container, false);
     }
 
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        initBinding(view);
+
+        changeImg();
+    }
+
+    private void initBinding(View view){
+        imgChun     = view.findViewById(R.id.img_chun);
+        btnChange   = view.findViewById(R.id.btn_change);
+    }
 
     /**********************************************************************************
      *********************************** 이벤트함수 ************************************
@@ -95,9 +107,7 @@ public class ImageFragment extends Fragment {
     /**
      * @DESC: 이미지 변경
      */
-    private void changeImg(View view){
-        imgChun     = view.findViewById(R.id.img_chun);
-        btnChange   = view.findViewById(R.id.btn_change);
+    private void changeImg(){
 
         btnChange.setOnClickListener(v->{
             Log.v("값이 뭐지?",""+imgCount);

@@ -2,6 +2,8 @@ package com.example.bottomnavigationtest.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -12,7 +14,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.bottomnavigationtest.Fragment.Dialog.CustomDialog;
+import com.example.bottomnavigationtest.MainActivity;
 import com.example.bottomnavigationtest.R;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -33,7 +38,8 @@ public class HomeFragment extends Fragment {
     private String mParam2;
 
     TextView txtStr;
-    Button btnChange, btnCustomDialog;
+    Button btnChange, btnCustomDialog, btnMoveFragment;
+    MainActivity mainActivity;
 
     private int txtCount = 0;
 
@@ -84,20 +90,28 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_home, container, false);
 
-        initBinding(v);
-        
+        return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull @NotNull View view, @Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mainActivity = (MainActivity) requireActivity();
+
+        initBinding(view);
+
         changeText();
 
         openDialog();
 
-        return v;
+        changeFragment();
     }
 
 
     /**********************************************************************************
-     *********************************** 이벤트함수 ************************************
+     *********************************** 사용자 함수 ************************************
      **********************************************************************************/
 
     /**
@@ -108,7 +122,13 @@ public class HomeFragment extends Fragment {
         txtStr    = view.findViewById(R.id.txt_str);
         btnChange = view.findViewById(R.id.btn_change);
         btnCustomDialog = view.findViewById(R.id.btn_dialog);
+        btnMoveFragment = view.findViewById(R.id.btn_move_fragment);
     }
+
+
+    /**********************************************************************************
+     *********************************** 이벤트함수 ************************************
+     **********************************************************************************/
 
     /**
      * @DESC: 텍스트 변경
@@ -136,6 +156,15 @@ public class HomeFragment extends Fragment {
             customDialog.show(requireActivity().getSupportFragmentManager(), "CustomDialog");
         });
 
+    }
+
+    /**
+     * @DESC: 프래그먼트 이동
+     */
+    private void changeFragment(){
+        btnMoveFragment.setOnClickListener(v->{
+                mainActivity.homeFrgmentMove();
+        });
     }
 
 }

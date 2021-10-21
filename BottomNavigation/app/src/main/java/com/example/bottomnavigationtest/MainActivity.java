@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 
 
+import com.example.bottomnavigationtest.Fragment.AlbumFragment;
+import com.example.bottomnavigationtest.Fragment.HomeChildFragment;
 import com.example.bottomnavigationtest.Fragment.HomeFragment;
 import com.example.bottomnavigationtest.Fragment.ImageFragment;
 import com.example.bottomnavigationtest.Fragment.InfoFragment;
@@ -22,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     private View decorView;
     private int    uiOption;
-    private Fragment fHome, fImg, fInfo; // Fragment간 이동시 상태 저장을 위해
+    private Fragment fHome, fImg, fInfo, fChildHome, fAlbum; // Fragment간 이동시 상태 저장을 위해
+    private boolean isHaveChild = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
                 if(fHome != null) getSupportFragmentManager().beginTransaction().show(fHome).commit();
                 if(fImg != null) getSupportFragmentManager().beginTransaction().hide(fImg).commit();
                 if(fInfo != null) getSupportFragmentManager().beginTransaction().hide(fInfo).commit();
+                if(fAlbum != null) getSupportFragmentManager().beginTransaction().hide(fAlbum).commit();
+                if(isHaveChild){
+                    getSupportFragmentManager().beginTransaction().hide(fHome).commit();
+                    getSupportFragmentManager().beginTransaction().show(fChildHome).commit();
+                }
+
                 break;
             case R.id.item_image_fragment:
                 if(fImg==null){
@@ -71,6 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 if(fHome != null) getSupportFragmentManager().beginTransaction().hide(fHome).commit();
                 if(fImg != null) getSupportFragmentManager().beginTransaction().show(fImg).commit();
                 if(fInfo != null) getSupportFragmentManager().beginTransaction().hide(fInfo).commit();
+                if(fChildHome != null)getSupportFragmentManager().beginTransaction().hide(fChildHome).commit();
+                if(fAlbum != null) getSupportFragmentManager().beginTransaction().hide(fAlbum).commit();
                 break;
             case R.id.item_info_fragment:
                 if(fInfo==null){
@@ -80,6 +91,19 @@ public class MainActivity extends AppCompatActivity {
                 if(fHome != null) getSupportFragmentManager().beginTransaction().hide(fHome).commit();
                 if(fImg != null) getSupportFragmentManager().beginTransaction().hide(fImg).commit();
                 if(fInfo != null) getSupportFragmentManager().beginTransaction().show(fInfo).commit();
+                if(fChildHome != null)getSupportFragmentManager().beginTransaction().hide(fChildHome).commit();
+                if(fAlbum != null) getSupportFragmentManager().beginTransaction().hide(fAlbum).commit();
+                break;
+            case R.id.item_album_fragment:
+                if(fAlbum == null){
+                    fAlbum = new AlbumFragment();
+                    getSupportFragmentManager().beginTransaction().add(R.id.main_frame,fAlbum).commit();
+                }
+                if(fHome != null) getSupportFragmentManager().beginTransaction().hide(fHome).commit();
+                if(fImg != null) getSupportFragmentManager().beginTransaction().hide(fImg).commit();
+                if(fInfo != null) getSupportFragmentManager().beginTransaction().hide(fInfo).commit();
+                if(fChildHome != null)getSupportFragmentManager().beginTransaction().hide(fChildHome).commit();
+                if(fAlbum != null) getSupportFragmentManager().beginTransaction().show(fAlbum).commit();
                 break;
             default:
                 break;
@@ -100,6 +124,20 @@ public class MainActivity extends AppCompatActivity {
                 uiOption |= View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
 
         decorView.setSystemUiVisibility( uiOption );
+    }
+
+    public void homeFrgmentMove(){
+        isHaveChild = true;
+        fChildHome = new HomeChildFragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.main_frame, fChildHome).commit();
+
+        if(fHome != null) getSupportFragmentManager().beginTransaction().hide(fHome).commit();
+    }
+
+    public void backHomeFragment(){
+        isHaveChild = false;
+        getSupportFragmentManager().beginTransaction().remove(fChildHome).commit();
+        getSupportFragmentManager().beginTransaction().show(fHome).commit();
     }
 
 
