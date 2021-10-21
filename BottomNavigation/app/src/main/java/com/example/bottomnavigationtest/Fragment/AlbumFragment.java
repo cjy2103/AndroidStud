@@ -1,22 +1,31 @@
 package com.example.bottomnavigationtest.Fragment;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,6 +108,8 @@ public class AlbumFragment extends Fragment {
 
         new GetAudioAsyncTask(requireContext()).execute((Void) null);
 
+        mPermissionResult.launch(Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS);
+
 
     }
 
@@ -107,21 +118,30 @@ public class AlbumFragment extends Fragment {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.R)
     public ArrayList<MusicModel> getallAudio(){
+        Log.v("실행이되었는가?","테스트");
         //외부영역에서 가져오는 노래리스트들의 앨범id의 값들이 겹치지 않도록 하려고 사용하는 리스트.
         ArrayList<MusicModel> tempAlbumList = new ArrayList<>();
 
         // 외부저장소에서 노래 가져오기
         Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+
         final String[] musicCursor = {MediaStore.Audio.Media._ID,MediaStore.Audio.Media.ALBUM,MediaStore.Audio.Media.TITLE
                 , MediaStore.Audio.Media.DATA, MediaStore.Audio.Media.ALBUM_ID, MediaStore.Audio.Media.DURATION};
 
         String selection = MediaStore.Audio.Media.IS_MUSIC + "=1";
         ContentResolver contentResolver = requireActivity().getContentResolver();
         @SuppressLint("Recycle") Cursor cursor = contentResolver.query(uri, musicCursor, selection, null, null);
+//        @SuppressLint("Recycle") Cursor cursor = contentResolver.query(uri, null, selection, null, null);
+
+        cursor.moveToFirst();
 
         while (cursor.moveToNext()){
+            Log.v("커서가 실행이 되었는가?","실행이 되었나");
             String artist    = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ARTIST));
+//            String artist = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
+
             String album     = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM));
             String title     = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.TITLE));
             String songUri   = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA));
@@ -136,6 +156,28 @@ public class AlbumFragment extends Fragment {
         return tempAlbumList;
     }
 
+    public void permission(){
+        if(ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(requireActivity(),new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 101);
+        } else{
+            //permission granted
+            new GetAudioAsyncTask(requireContext()).execute((Void) null);
+        }
+    }
+
+    private ActivityResultLauncher<String> mPermissionResult = registerForActivityResult(
+            new ActivityResultContracts.RequestPermission(),
+            new ActivityResultCallback<Boolean>() {
+                @Override
+                public void onActivityResult(Boolean result) {
+                    if(result){
+                        new GetAudioAsyncTask(requireContext()).execute((Void) null);
+                    } else {
+                        ActivityCompat.requestPermissions(requireActivity(),new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 101);
+                    }
+                }
+            }
+    );
 
     public class GetAudioAsyncTask extends AsyncTask<Void,Void,Boolean>{
         private Context context;
@@ -154,6 +196,7 @@ public class AlbumFragment extends Fragment {
             super.onPreExecute();
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.R)
         @Override
         protected Boolean doInBackground(Void... voids) {
             try {

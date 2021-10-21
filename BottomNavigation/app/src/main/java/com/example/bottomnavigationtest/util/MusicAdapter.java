@@ -62,7 +62,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return 0;
+        return musicModels.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
