@@ -2,6 +2,7 @@ package com.example.edittexttest;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -61,5 +62,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        InputMethodManager imm = (InputMethodManager) MainActivity.this
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        if (imm.isAcceptingText()) {
+            Log.e("ㅇ렁먀널","ㅁㄴ럼ㄴㅇ");
+        } else {
+            Log.e("ㅇ렁먀널","2222222");
+        }
     }
 }
