@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,10 +17,14 @@ import com.example.permissiontest.databinding.ActivityMainBinding;
 
 import org.jetbrains.annotations.NotNull;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private Context mContext;
+    private Activity mActivity;
+    private SharedPreferences sharedPreferences;
+    private boolean permissionState = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
         initialize();
 
-        clickStoragePermssion();
+        storagePermissionCheck();
+
+        clickStoragePermission();
+
     }
 
     /**
@@ -45,22 +54,47 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initialize(){
         mContext = MainActivity.this;
+        mActivity = MainActivity.this;
+
+        sharedPreferences = mActivity.getSharedPreferences("StoragePermission",MODE_PRIVATE);
+    }
+
+    /**
+     * @DESC: 저장소 권한 확인
+     */
+    private void storagePermissionCheck(){
+        int writePermission = ContextCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int readPermission  = ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE);
+
+        if(writePermission != PackageManager.PERMISSION_GRANTED || readPermission != PackageManager.PERMISSION_GRANTED){
+            binding.tvStorageStatus.setText("저장소 상태: 권한 부여되지 않음");
+        } else {
+            binding.tvStorageStatus.setText("저장소 상태: 권한 부여됨");
+        }
     }
 
     /**
      * @DESC: 저장소 권한 요청
      */
-    private void clickStoragePermssion(){
+    private void clickStoragePermission(){
         binding.btnStoragePermission.setOnClickListener(v->{
-            int writePermission = ContextCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-            int readPermission  = ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE);
 
-            if(writePermission == PackageManager.PERMISSION_DENIED || readPermission == PackageManager.PERMISSION_DENIED){
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE},2022);
+            permissionState = sharedPreferences.getBoolean("PermissionState",true);
+    
+            if(permissionState) {
+                int writePermission = ContextCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                int readPermission = ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE);
+
+                if (writePermission != PackageManager.PERMISSION_GRANTED || readPermission != PackageManager.PERMISSION_GRANTED) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.READ_EXTERNAL_STORAGE}, 2002);
+                    }
+                } else {
+                    Toast.makeText(mContext, "이미 권한이 부여됨", Toast.LENGTH_SHORT).show();
                 }
             } else {
-                Toast.makeText(mContext,"이미 권한이 부여됨",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "권한이 거절되어 있음", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -72,9 +106,11 @@ public class MainActivity extends AppCompatActivity {
      * @param grantResults
      */
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions,
+                                           @NonNull @NotNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == 2022){
+
+        if(requestCode == 2002){
             boolean checkResult = true;
 
             for(int result : grantResults){
@@ -84,9 +120,13 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             if(checkResult){
-                binding.tvStorageStatus.setText("저장소 권한 부여됨");
+                binding.tvStorageStatus.setText("저장소 상태: 권한 부여됨");
 
             } else {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("PermissionState",false);
+                editor.apply();
+
                 Toast.makeText(mContext,"권한부여거절",Toast.LENGTH_SHORT).show();
             }
         }
