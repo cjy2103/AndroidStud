@@ -2,15 +2,13 @@
 
 ## Android Studio 개인공부
 
-## 블로그 포스팅
+## 블로그 포스팅 (JAVA)
 https://blog.naver.com/cjy2103
 
 
 
 
-
-
-## 참고 사이트
+## 참고 사이트 ( 회사 모듈 테스트 )
 * 리사이클러뷰 : https://webnautes.tistory.com/1214
 * AlterDialog : https://webnautes.tistory.com/1094
 * Fragment    : https://tedrepository.tistory.com/5
