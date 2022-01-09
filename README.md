@@ -2,6 +2,13 @@
 
 ## Android Studio 개인공부
 
+## 블로그 포스팅
+https://blog.naver.com/cjy2103
+
+
+
+
+
 
 ## 참고 사이트
 * 리사이클러뷰 : https://webnautes.tistory.com/1214
