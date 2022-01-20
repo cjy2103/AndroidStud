@@ -1,0 +1,6 @@
+com/example/alertdialogex/databinding/ActivityMainBinding.java
+ com.example.alertdialogex.databinding.ActivityMainBinding
+com/example/alertdialogex/BuildConfig.java
+ com.example.alertdialogex.BuildConfig
+com/example/alertdialogex/MainActivity.java
+ com.example.alertdialogex.MainActivity

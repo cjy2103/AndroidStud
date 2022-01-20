@@ -4,8 +4,14 @@
         android:right="3dp"
         android:bottom="3dp">
         <shape android:shape="rectangle">
-            <corners android:radius="25dp"/>
-            <solid android:color="#C8EFF4" />
+
+            <corners android:bottomRightRadius="10dp"
+                android:bottomLeftRadius="10dp"/>
+
+            <gradient
+                android:startColor="#8BE8F4"
+                android:endColor="#D6F9FD"/>
+
         </shape>
     </item>
 </layer-list>
