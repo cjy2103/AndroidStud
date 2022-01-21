@@ -9,8 +9,8 @@
                 android:bottomLeftRadius="10dp"/>
 
             <gradient
-                android:startColor="#8BE8F4"
-                android:endColor="#D6F9FD"/>
+                android:startColor="#FFF7EB"
+                android:endColor="#FFF8EF"/>
 
         </shape>
     </item>

@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         initBinding();
 
         dialogShow();
+
     }
 
     /**
@@ -42,4 +43,5 @@ public class MainActivity extends AppCompatActivity {
             dialogFragment.show(fm,"customDialog");
         });
     }
+
 }
