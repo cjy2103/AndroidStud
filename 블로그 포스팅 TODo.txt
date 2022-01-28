@@ -8,7 +8,7 @@
 
 커스텀 다이얼 로그 만들기 ( v )
 
-동적인 TextView 길이
+동적인 TextView 길이 ( v )
 
 동적으로 View 추가
 
