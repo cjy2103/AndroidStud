@@ -73,7 +73,7 @@ Room DB
 
 라이프 사이클 ( 프래그먼트 )
 
-ConstraintLayout
+ConstraintLayout ( v )
 
 
 === 시스템 제어 ====

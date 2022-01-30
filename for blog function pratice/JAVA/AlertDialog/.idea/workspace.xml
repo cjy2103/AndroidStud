@@ -9,7 +9,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cf6082e-5c86-4cf0-a38b-54d8e466b9dd" name="Default Changelist" comment="" />
+    <list default="true" id="7cf6082e-5c86-4cf0-a38b-54d8e466b9dd" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../블로그 포스팅 TODo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../블로그 포스팅 TODo.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
