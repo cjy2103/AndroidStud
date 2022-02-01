@@ -1,0 +1,2 @@
+rootProject.name = "ListViewItemSearch"
+include ':app'

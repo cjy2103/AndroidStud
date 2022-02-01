@@ -19,13 +19,15 @@ NumberPicker (가로 (GitHub))
 
 resource 파일 가져오기
 
-리스트뷰
+리스트뷰 ( v )
 
-EditText + ListView
+EditText + ListView ( v )
+
+커스텀 리스트뷰 
+
+리스트뷰 Intent 이동 
 
 리사이클러뷰
-
-ConstraintLayout
 
 프래그먼트
 
