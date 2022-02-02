@@ -23,7 +23,7 @@ resource 파일 가져오기
 
 EditText + ListView ( v )
 
-커스텀 리스트뷰 
+커스텀 리스트뷰 ( v )
 
 리스트뷰 Intent 이동 
 
