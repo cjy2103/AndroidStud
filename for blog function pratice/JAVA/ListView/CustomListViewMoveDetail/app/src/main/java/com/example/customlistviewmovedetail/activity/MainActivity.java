@@ -1,16 +1,26 @@
-package com.example.customlistviewmovedetail;
+package com.example.customlistviewmovedetail.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 
+import com.example.customlistviewmovedetail.R;
 import com.example.customlistviewmovedetail.databinding.ActivityMainBinding;
 import com.example.customlistviewmovedetail.listview.ListViewAdapter;
+import com.example.customlistviewmovedetail.listview.ListViewItem;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -36,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         addListItem();
 
         wordFilter();
+
+        clickItem();
     }
 
     /**
@@ -121,6 +133,28 @@ public class MainActivity extends AppCompatActivity {
         }
 
         adapter.notifyDataSetChanged();
+    }
 
+    /**
+     * @DESC: 아이템 클릭
+     */
+    private void clickItem(){
+        binding.listItem.setOnItemClickListener((adapterView, view, position, id) -> {
+            ListViewItem item = (ListViewItem) adapterView.getItemAtPosition(position);
+
+            Intent intent = new Intent(mContext, ListItemDetailActivity.class);
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) item.getImage();
+            Bitmap bitmap = bitmapDrawable.getBitmap();
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+            byte[] byteArray = stream.toByteArray();
+            Log.v("문제있나?", Arrays.toString(byteArray).length() +"");
+
+            intent.putExtra("image",byteArray);
+            intent.putExtra("title",item.getTitle());
+            intent.putExtra("describe",item.getDescribe());
+
+            startActivity(intent);
+        });
     }
 }

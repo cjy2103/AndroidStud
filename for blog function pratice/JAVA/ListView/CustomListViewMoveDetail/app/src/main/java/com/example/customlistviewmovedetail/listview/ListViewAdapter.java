@@ -1,7 +1,11 @@
 package com.example.customlistviewmovedetail.listview;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +13,7 @@ import android.widget.BaseAdapter;
 
 
 import com.example.customlistviewmovedetail.R;
+import com.example.customlistviewmovedetail.activity.ListItemDetailActivity;
 import com.example.customlistviewmovedetail.databinding.CustomListviewBinding;
 
 
@@ -17,6 +22,7 @@ import java.util.ArrayList;
 public class ListViewAdapter extends BaseAdapter {
 
     private ArrayList<ListViewItem> listViewItems = new ArrayList<ListViewItem>();
+    private Context mContext;
 
     /**
      * @DESC: Adapter에 사용되는 데이터의 개수
@@ -55,10 +61,10 @@ public class ListViewAdapter extends BaseAdapter {
      */
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
-        Context context = viewGroup.getContext();
+        mContext = viewGroup.getContext();
         CustomListviewBinding binding;
         if(view == null){
-            binding = CustomListviewBinding.inflate(LayoutInflater.from(context));
+            binding = CustomListviewBinding.inflate(LayoutInflater.from(mContext));
             view = binding.getRoot();
             view.setTag(R.id.list_view, binding);
         } else {
@@ -96,5 +102,6 @@ public class ListViewAdapter extends BaseAdapter {
     public void clearItem(){
         listViewItems.clear();
     }
+
 
 }
