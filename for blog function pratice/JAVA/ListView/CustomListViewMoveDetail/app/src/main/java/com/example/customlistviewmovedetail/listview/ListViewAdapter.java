@@ -89,4 +89,12 @@ public class ListViewAdapter extends BaseAdapter {
 
         listViewItems.add(item);
     }
+
+    /**
+     * @DESC: 아이템 초기화
+     */
+    public void clearItem(){
+        listViewItems.clear();
+    }
+
 }

@@ -5,6 +5,8 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 
 import com.example.customlistviewmovedetail.databinding.ActivityMainBinding;
 import com.example.customlistviewmovedetail.listview.ListViewAdapter;
@@ -27,12 +29,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         initBinding();
 
         initialize();
 
         addListItem();
+
+        wordFilter();
     }
 
     /**
@@ -66,6 +69,58 @@ public class MainActivity extends AppCompatActivity {
             adapter.addItem(ContextCompat.getDrawable(mContext,imageList.get(i))
                     ,titleList.get(i),describeList.get(i));
         }
+    }
+
+    /**
+     * @DESC: 검색
+     */
+    private void wordFilter(){
+        binding.edtSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String str = binding.edtSearch.getText().toString();
+                filterWord(str);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    /**
+     * @DESC: 단어 필터
+     */
+    private void filterWord(String str){
+        adapter.clearItem();
+        ArrayList<Integer> positionList = new ArrayList<>();
+        int index = 0;
+        if(str.length() == 0){
+            for(String word : titleList){
+                positionList.add(index);
+                index++;
+            }
+        } else {
+            for(String word : titleList){
+                if(word.toLowerCase().contains(str)){
+                    positionList.add(index);
+                }
+                index++;
+            }
+        }
+
+        for(int i=0;i<positionList.size();i++){
+            adapter.addItem(ContextCompat.getDrawable(mContext,imageList.get(positionList.get(i)))
+                    ,titleList.get(positionList.get(i)),describeList.get(positionList.get(i)));
+        }
+
+        adapter.notifyDataSetChanged();
 
     }
 }
