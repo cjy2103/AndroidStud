@@ -10,15 +10,6 @@
 
 동적인 TextView 길이 ( v )
 
-동적으로 View 추가
-
-쓰레드
-
-NumberPicker (세로 (디폴트))
-NumberPicker (가로 (GitHub))
-
-resource 파일 가져오기
-
 리스트뷰 ( v )
 
 EditText + ListView ( v )
@@ -26,6 +17,19 @@ EditText + ListView ( v )
 커스텀 리스트뷰 ( v )
 
 리스트뷰 Intent 이동 ( v )
+
+리스트뷰 (전화관련) 
+
+동적으로 View 추가
+
+쓰레드
+
+Splash화면
+
+NumberPicker (세로 (디폴트))
+NumberPicker (가로 (GitHub))
+
+resource 파일 가져오기
 
 체크박스
 
