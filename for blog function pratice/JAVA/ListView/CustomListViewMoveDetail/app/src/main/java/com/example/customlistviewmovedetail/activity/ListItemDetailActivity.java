@@ -17,6 +17,7 @@ public class ListItemDetailActivity extends AppCompatActivity {
     private ActivityListItemDetailBinding binding;
     private String title;
     private String describe;
+    private String youtubeLink;
     private byte[] byteArray;
     private Bitmap image;
 
@@ -46,10 +47,10 @@ public class ListItemDetailActivity extends AppCompatActivity {
     private void loadData(){
         Intent intent = getIntent();
         byteArray   = getIntent().getByteArrayExtra("image");
-        Log.v("여기까지는 왔어?",byteArray+"");
         image       = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
         title       = intent.getStringExtra("title");
         describe    = intent.getStringExtra("describe");
+        youtubeLink = intent.getStringExtra("youtubeLink");
     }
 
     /**
@@ -59,5 +60,6 @@ public class ListItemDetailActivity extends AppCompatActivity {
         binding.imgCover.setImageBitmap(image);
         binding.tvTitle.setText(title);
         binding.tvDescribe.setText(describe);
+        binding.tvYoutube.setText(youtubeLink);
     }
 }

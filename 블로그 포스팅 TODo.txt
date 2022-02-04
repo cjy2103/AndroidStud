@@ -25,7 +25,9 @@ EditText + ListView ( v )
 
 커스텀 리스트뷰 ( v )
 
-리스트뷰 Intent 이동 
+리스트뷰 Intent 이동 ( v )
+
+체크박스
 
 리사이클러뷰
 

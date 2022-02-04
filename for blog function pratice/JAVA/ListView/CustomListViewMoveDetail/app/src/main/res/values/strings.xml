@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CustomListViewMoveDetail</string>
+
+    <string name="bak_youtube">"https://www.youtube.com/channel/UCS3_H_feQRm4QbXipKTvSrw"</string>
+    <string name="djmax_youtube">"https://www.youtube.com/channel/UCyWiQldYO_-yeLJC0j5oq2g"</string>
+    <string name="djmax_falling_in_love">"https://www.youtube.com/watch?v=I3M_CNtzATY"</string>
+    <string name="mwama_youtube">"https://www.youtube.com/c/%EB%A7%88%EB%AB%84"</string>
+    <string name="tamtam_youtube">"https://www.youtube.com/channel/UCCA8UWUW80iHqK9ymdjRwPg"</string>
 </resources>

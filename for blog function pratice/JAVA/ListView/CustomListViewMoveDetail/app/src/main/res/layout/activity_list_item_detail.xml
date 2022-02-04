@@ -10,31 +10,72 @@
         android:id="@+id/img_cover"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baknana" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_border"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/custom_border"
+        app:layout_constraintBottom_toBottomOf="@+id/img_cover"
+        app:layout_constraintEnd_toEndOf="@+id/img_cover" />
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="15dp"
         android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_cover"
+        app:layout_constraintTop_toTopOf="@+id/img_cover" />
+
+    <TextView
+        android:id="@+id/tv_describe"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="TextView"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C8C8C8"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_cover" />
 
     <TextView
-        android:id="@+id/tv_describe"
+        android:id="@+id/tv_youtube"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_describe"
+        app:layout_constraintStart_toStartOf="@+id/tv_describe"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+        android:layout_marginTop="20dp"
+        android:text="유튜브 링크"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/img_cover"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
