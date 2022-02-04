@@ -3,7 +3,11 @@ package com.example.listviewcall;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.example.listviewcall.databinding.ActivityMainBinding;
@@ -29,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         listAdd();
 
         listConnection();
+
+        listItemClick();
     }
 
     /**
@@ -69,5 +75,18 @@ public class MainActivity extends AppCompatActivity {
     private void listConnection(){
         adapter = new ArrayAdapter<>(mContext,android.R.layout.simple_list_item_1,list);
         binding.listItem.setAdapter(adapter);
+    }
+
+    /**
+     * @DESC: 리스트 아이템 클릭 함수
+     */
+    private void listItemClick(){
+        binding.listItem.setOnItemClickListener((adapterView, view, position, id) -> {
+            String item = (String) adapterView.getAdapter().getItem(position);
+            String number = "tel:"+item;
+            Uri uri = Uri.parse(number);
+            Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+            startActivity(intent);
+        });
     }
 }
