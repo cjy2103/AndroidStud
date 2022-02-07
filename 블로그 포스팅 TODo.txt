@@ -18,7 +18,7 @@ EditText + ListView ( v )
 
 리스트뷰 Intent 이동 ( v )
 
-리스트뷰 (전화관련) 
+리스트뷰 (전화관련) ( v )
 
 동적으로 View 추가
 
