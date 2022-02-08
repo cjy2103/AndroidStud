@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
             public void handleMessage(@NonNull Message msg) {
                 super.handleMessage(msg);
                 Calendar calendar = Calendar.getInstance();
-                @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat =
+                        new SimpleDateFormat("HH:mm:ss");
                 String time = simpleDateFormat.format(calendar.getTime());
                 binding.tvTimer.setText(time);
             }
