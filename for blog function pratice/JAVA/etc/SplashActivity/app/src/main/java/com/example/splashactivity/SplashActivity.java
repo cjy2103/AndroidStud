@@ -2,7 +2,10 @@ package com.example.splashactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.bumptech.glide.Glide;
 import com.example.splashactivity.databinding.ActivitySplashBinding;
@@ -19,6 +22,9 @@ public class SplashActivity extends AppCompatActivity {
         initBinding();
         
         imageLoading();
+
+        moveMain();
+
     }
 
     /**
@@ -34,5 +40,18 @@ public class SplashActivity extends AppCompatActivity {
      */
     private void imageLoading(){
         Glide.with(this).load(R.drawable.overme).into(binding.ivSplash);
+    }
+
+    /**
+     * @DESC: Main 페이지 이동
+     */
+    private void moveMain(){
+        runOnUiThread(()->{
+            new Handler(Looper.myLooper()).postDelayed(() -> {
+                Intent intent = new Intent(this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            },2000);
+        });
     }
 }
