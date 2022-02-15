@@ -22,9 +22,9 @@ EditText + ListView ( v )
 
 동적으로 View 추가
 
-쓰레드
+쓰레드 (v)
 
-Splash화면
+Splash화면 (v)
 
 NumberPicker (세로 (디폴트))
 NumberPicker (가로 (GitHub))
