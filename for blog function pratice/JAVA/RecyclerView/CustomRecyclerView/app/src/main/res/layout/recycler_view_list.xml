@@ -2,8 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/custom_border"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/iv_art"
@@ -48,9 +49,4 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_title"
         tools:ignore="HardcodedText" />
 
-    <View
-        android:id="@+id/view_line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        app:layout_constraintTop_toBottomOf="@+id/iv_art" />
 </androidx.constraintlayout.widget.ConstraintLayout>
