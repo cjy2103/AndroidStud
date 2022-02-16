@@ -1,7 +1,5 @@
 package com.example.recyclerview.model;
 
-import android.net.Uri;
-
 public class ListItemModel {
     private String title;
     private String describe;

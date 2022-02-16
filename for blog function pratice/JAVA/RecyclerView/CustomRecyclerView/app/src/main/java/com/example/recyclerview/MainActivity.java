@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private ArrayList<MyListItem> myListItems;
-    private CustomRecyclerAdatper adatper;
-    private RecyclerView recyclerView;
+    private CustomRecyclerAdatper adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,22 +32,29 @@ public class MainActivity extends AppCompatActivity {
 
         listadd();
 
-        adatper = new CustomRecyclerAdatper(this,this,myListItems);
-        binding.recyclerList.setAdapter(adatper);
-
+        recyclerViewConnection();
 
     }
 
+    /**
+     * @DESC: 초기 바인딩
+     */
     private void initBinding(){
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
     }
 
+    /**
+     * @DESC: 초기화
+     */
     private void initialize(){
         myListItems = new ArrayList<>();
         binding.recyclerList.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    /**
+     * @DESC: 리스트 추가
+     */
     private void listadd(){
         String imageUri = "drawable://";
         addItem(getResources().getString(R.string.baknana),getResources().getString(R.string.bak_describe),imageUri + R.drawable.baknana);
@@ -58,11 +64,17 @@ public class MainActivity extends AppCompatActivity {
         addItem(getResources().getString(R.string.tamtam),getResources().getString(R.string.mwamwa_describe),imageUri + R.drawable.tamtam);
     }
 
-    private void addItem(String title, String describe, String uri){
+    /**
+     * @DESC: 아이템 추가
+     * @param title
+     * @param describe
+     * @param path
+     */
+    private void addItem(String title, String describe, String path){
         ListItemModel listItemModel = new ListItemModel();
         listItemModel.setTitle(title);
         listItemModel.setDescribe(describe);
-        listItemModel.setUri(uri);
+        listItemModel.setUri(path);
 
         MyListItem myListItem = new MyListItem();
 
@@ -73,5 +85,13 @@ public class MainActivity extends AppCompatActivity {
         myListItem.setList(items);
 
         myListItems.add(myListItem);
+    }
+
+    /**
+     * @DESC: RecyclerView에 어댑터 연결
+     */
+    private void recyclerViewConnection(){
+        adapter = new CustomRecyclerAdatper(this,this,myListItems);
+        binding.recyclerList.setAdapter(adapter);
     }
 }

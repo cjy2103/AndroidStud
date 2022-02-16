@@ -39,7 +39,8 @@ public class CustomRecyclerAdatper extends RecyclerView.Adapter<CustomRecyclerAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Uri imagePath = Uri.parse("android.resource://" + activity.getPackageName() + "/" + myListItem.get(position).getList().get(0).getUri());
+        Uri imagePath = Uri.parse("android.resource://" + activity.getPackageName() + "/"
+                + myListItem.get(position).getList().get(0).getUri());
         Glide.with(context).load(imagePath).into(holder.binding.ivArt);
         holder.binding.tvTitle.setText(myListItem.get(position).getList().get(0).getTitle());
         holder.binding.tvDescribe.setText(myListItem.get(position).getList().get(0).getDescribe());
