@@ -23,11 +23,27 @@ public class CustomRecyclerAdatper extends RecyclerView.Adapter<CustomRecyclerAd
     private Context context;
     private Activity activity;
     private ArrayList<MyListItem> myListItem;
+    private ArrayList<Integer> searchIndexList;
+    private int size;
+    private String word;
 
-    public CustomRecyclerAdatper(Context context, Activity activity, ArrayList<MyListItem> myListItem) {
+    public CustomRecyclerAdatper(Context context, Activity activity, ArrayList<MyListItem> myListItem
+            , ArrayList<Integer> searchIndexList, int size, String word) {
         this.context = context;
         this.activity = activity;
         this.myListItem = myListItem;
+        this.searchIndexList = searchIndexList;
+        this.size = size;
+        this.word = word;
+    }
+
+    public CustomRecyclerAdatper(Context context, Activity activity
+            , ArrayList<MyListItem> myListItem, int size, String word) {
+        this.context = context;
+        this.activity = activity;
+        this.myListItem = myListItem;
+        this.size = size;
+        this.word = word;
     }
 
     @NonNull
@@ -39,6 +55,19 @@ public class CustomRecyclerAdatper extends RecyclerView.Adapter<CustomRecyclerAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        if(word.equals("")) {
+            wordEmpty(holder,position);
+        } else {
+            notWordEmpty(holder,position);
+        }
+    }
+
+    /**
+     * @DESC: 검색창이 빈 경우
+     * @param holder
+     * @param position
+     */
+    private void wordEmpty(ViewHolder holder, int position){
         Uri imagePath = Uri.parse("android.resource://" + activity.getPackageName() + "/"
                 + myListItem.get(position).getList().get(0).getUri());
         Glide.with(context).load(imagePath).into(holder.binding.ivArt);
@@ -46,9 +75,24 @@ public class CustomRecyclerAdatper extends RecyclerView.Adapter<CustomRecyclerAd
         holder.binding.tvDescribe.setText(myListItem.get(position).getList().get(0).getDescribe());
     }
 
+
+    /**
+     * @DESC: 검색창에 단어가 있는경우
+     * @param holder
+     * @param position
+     */
+    private void notWordEmpty(ViewHolder holder, int position){
+        Uri imagePath = Uri.parse("android.resource://" + activity.getPackageName() + "/"
+                + myListItem.get(searchIndexList.get(position)).getList().get(0).getUri());
+        Glide.with(context).load(imagePath).into(holder.binding.ivArt);
+        holder.binding.tvTitle.setText(myListItem.get(searchIndexList.get(position)).getList().get(0).getTitle());
+        holder.binding.tvDescribe.setText(myListItem.get(searchIndexList.get(position)).getList().get(0).getDescribe());
+    }
+
+
     @Override
     public int getItemCount() {
-        return myListItem.size();
+        return size;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{

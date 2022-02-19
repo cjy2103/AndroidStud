@@ -2,7 +2,12 @@ package com.example.customrecyclerviewdetail;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 
 import com.example.customrecyclerviewdetail.R;
 import com.example.customrecyclerviewdetail.databinding.ActivityMainBinding;
@@ -17,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private ArrayList<MyListItem> myListItems;
     private CustomRecyclerAdatper adapter;
+    private ArrayList<Integer> searchIndexList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         listadd();
 
         recyclerViewConnection();
+
+        wordInput();
 
     }
 
@@ -46,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initialize(){
         myListItems = new ArrayList<>();
+        searchIndexList = new ArrayList<>();
         binding.recyclerList.setLayoutManager(new LinearLayoutManager(this));
     }
 
@@ -88,7 +97,57 @@ public class MainActivity extends AppCompatActivity {
      * @DESC: RecyclerView에 어댑터 연결
      */
     private void recyclerViewConnection(){
-        adapter = new CustomRecyclerAdatper(this,this,myListItems);
+        adapter = new CustomRecyclerAdatper(this,this,myListItems,myListItems.size(),binding.edtInput.getText().toString());
         binding.recyclerList.setAdapter(adapter);
+    }
+
+    /**
+     * @DESC: 단어 입력 감지 함수
+     */
+    private void wordInput(){
+        binding.edtInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String str = binding.edtInput.getText().toString().toLowerCase();
+                filterWord(str);
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    /**
+     * @DESC: 검색어 필터
+     * @param word
+     */
+    private void filterWord(String word){
+        searchIndexList.clear();
+
+        if(binding.edtInput.getText().toString().equals("")){
+            adapter = new CustomRecyclerAdatper(this, this, myListItems,myListItems.size(),word);
+
+            binding.recyclerList.setAdapter(adapter);
+
+        } else {
+            for(int i=0;i<myListItems.size();i++){
+                if(myListItems.get(i).getList().get(0).getTitle().toLowerCase().contains(word)){
+                    searchIndexList.add(i);
+                }
+            }
+
+            adapter = new CustomRecyclerAdatper(this, this, myListItems,searchIndexList,
+                    searchIndexList.size(),word);
+
+            binding.recyclerList.setAdapter(adapter);
+        }
+
     }
 }
