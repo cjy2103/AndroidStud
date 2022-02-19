@@ -20,11 +20,17 @@ EditText + ListView ( v )
 
 리스트뷰 (전화관련) ( v )
 
-동적으로 View 추가
+동적으로 View 추가 -> ListView 추가 , 수정, 삭제
 
 쓰레드 (v)
 
 Splash화면 (v)
+
+리사이클러뷰 ( v )
+
+리사이클러뷰 Intent 이동 ( v )
+
+EditText + RecyclerView 
 
 NumberPicker (세로 (디폴트))
 NumberPicker (가로 (GitHub))
@@ -33,7 +39,6 @@ resource 파일 가져오기
 
 체크박스
 
-리사이클러뷰
 
 프래그먼트
 
