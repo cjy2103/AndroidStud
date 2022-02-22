@@ -30,7 +30,7 @@ Splash화면 (v)
 
 EditText + RecyclerView ( v )
 
-리사이클러뷰 Intent 이동 
+리사이클러뷰 Intent 이동 ( v )
 
 리사이클러뷰 수정, 추가 , 삭제
 
