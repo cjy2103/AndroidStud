@@ -34,7 +34,7 @@ EditText + RecyclerView ( v )
 
 리사이클러뷰 수정, 추가 , 삭제
 
-파일선택 -> 갤러리 Intent에서 이미지 들고오기
+파일선택 -> 갤러리 Intent에서 이미지 들고오기 ( v )
 
 NumberPicker (세로 (디폴트))
 NumberPicker (가로 (GitHub))

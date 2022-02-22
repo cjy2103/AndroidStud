@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
 
     private ActivityResultLauncher<Intent> resultLauncher;
-    private static final int REQUEST_CODE = 2022;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
