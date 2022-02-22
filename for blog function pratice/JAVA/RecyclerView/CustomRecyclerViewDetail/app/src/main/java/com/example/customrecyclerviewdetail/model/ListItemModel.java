@@ -4,6 +4,7 @@ public class ListItemModel {
     private String title;
     private String describe;
     private String uri;
+    private String channelLink;
 
     public String getTitle() {
         return title;
@@ -27,5 +28,13 @@ public class ListItemModel {
 
     public void setUri(String uri) {
         this.uri = uri;
+    }
+
+    public String getChannelLink() {
+        return channelLink;
+    }
+
+    public void setChannelLink(String channelLink) {
+        this.channelLink = channelLink;
     }
 }

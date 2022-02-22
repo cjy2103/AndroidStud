@@ -28,9 +28,13 @@ Splash화면 (v)
 
 리사이클러뷰 ( v )
 
-리사이클러뷰 Intent 이동 ( v )
+EditText + RecyclerView ( v )
 
-EditText + RecyclerView 
+리사이클러뷰 Intent 이동 
+
+리사이클러뷰 수정, 추가 , 삭제
+
+파일선택 -> 갤러리 Intent에서 이미지 들고오기
 
 NumberPicker (세로 (디폴트))
 NumberPicker (가로 (GitHub))
@@ -39,12 +43,15 @@ resource 파일 가져오기
 
 체크박스
 
-
 프래그먼트
 
 상단탭
 
 바텀 네비게이션
+
+앱 툴바
+
+탭
 
 녹음권한
 
@@ -71,6 +78,12 @@ Room DB
 구글 인앱결제 (아이템)
 
 구글 인앱결제 (구독)
+
+크롤링
+
+웹뷰
+
+이미지 확대 , 축소 깃헙
 
 
 ==== 고민 ( 지난 강의랑 겹친거 같아서 ) ======= 

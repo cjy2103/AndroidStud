@@ -2,6 +2,7 @@ package com.example.customrecyclerviewdetail.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.customrecyclerviewdetail.R;
+import com.example.customrecyclerviewdetail.activity.RecyclerItemDetailActivity;
 import com.example.customrecyclerviewdetail.databinding.RecyclerViewListBinding;
 import com.example.customrecyclerviewdetail.model.MyListItem;
 
@@ -26,6 +28,16 @@ public class CustomRecyclerAdatper extends RecyclerView.Adapter<CustomRecyclerAd
     private ArrayList<Integer> searchIndexList;
     private int size;
     private String word;
+
+    public interface OnItemClickListener{
+        void onItemClick(View v, int position);
+    }
+
+    private CustomRecyclerAdatper.OnItemClickListener mListener = null;
+
+    public void setOnItemClickListener(CustomRecyclerAdatper.OnItemClickListener listener){
+        this.mListener = listener;
+    }
 
     public CustomRecyclerAdatper(Context context, Activity activity, ArrayList<MyListItem> myListItem
             , ArrayList<Integer> searchIndexList, int size, String word) {
@@ -95,17 +107,35 @@ public class CustomRecyclerAdatper extends RecyclerView.Adapter<CustomRecyclerAd
         return size;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
         RecyclerViewListBinding binding;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             initBinding();
+
+            itemClick(itemView);
         }
 
+        /**
+         * @DESC: 바인딩
+         */
         private void initBinding(){
             binding = RecyclerViewListBinding.bind(itemView);
+        }
+
+        /**
+         * @DESC: 클릭 이벤트
+         * @param itemView
+         */
+        private void itemClick(View itemView){
+            itemView.setOnClickListener(v->{
+                int pos = getBindingAdapterPosition();
+                if(pos != RecyclerView.NO_POSITION){
+                    mListener.onItemClick(v,pos);
+                }
+            });
         }
     }
 }

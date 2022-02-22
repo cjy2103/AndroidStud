@@ -1,9 +1,10 @@
-package com.example.customrecyclerviewdetail;
+package com.example.customrecyclerviewdetail.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         wordInput();
 
+        itemClick();
+
     }
 
     /**
@@ -63,11 +66,16 @@ public class MainActivity extends AppCompatActivity {
      */
     private void listadd(){
         String imageUri = "drawable://";
-        addItem(getResources().getString(R.string.baknana),getResources().getString(R.string.bak_describe),imageUri + R.drawable.baknana);
-        addItem(getResources().getString(R.string.djmax),getResources().getString(R.string.djmax_describe),imageUri + R.drawable.djmax_clear_fail);
-        addItem(getResources().getString(R.string.djmax_falling_love),getResources().getString(R.string.djmax_falling_love_describe),imageUri + R.drawable.djmax_falling_in_love);
-        addItem(getResources().getString(R.string.mwamwa),getResources().getString(R.string.mwamwa_describe),imageUri + R.drawable.mwama);
-        addItem(getResources().getString(R.string.tamtam),getResources().getString(R.string.mwamwa_describe),imageUri + R.drawable.tamtam);
+        addItem(getResources().getString(R.string.baknana),getResources().getString(R.string.bak_describe)
+                ,imageUri + R.drawable.baknana, getResources().getString(R.string.baknana_link));
+        addItem(getResources().getString(R.string.djmax),getResources().getString(R.string.djmax_describe)
+                ,imageUri + R.drawable.djmax_clear_fail, getResources().getString(R.string.djmax_archive));
+        addItem(getResources().getString(R.string.djmax_falling_love), getResources().getString(R.string.djmax_falling_love_describe)
+                ,imageUri + R.drawable.djmax_falling_in_love, getResources().getString(R.string.djmax_falling_love_link));
+        addItem(getResources().getString(R.string.mwamwa), getResources().getString(R.string.mwamwa_describe)
+                ,imageUri + R.drawable.mwama, getResources().getString(R.string.mwamwa_link));
+        addItem(getResources().getString(R.string.tamtam), getResources().getString(R.string.mwamwa_describe)
+                ,imageUri + R.drawable.tamtam, getResources().getString(R.string.tamtam_link));
     }
 
     /**
@@ -76,11 +84,12 @@ public class MainActivity extends AppCompatActivity {
      * @param describe
      * @param path
      */
-    private void addItem(String title, String describe, String path){
+    private void addItem(String title, String describe, String path, String link){
         ListItemModel listItemModel = new ListItemModel();
         listItemModel.setTitle(title);
         listItemModel.setDescribe(describe);
         listItemModel.setUri(path);
+        listItemModel.setChannelLink(link);
 
         MyListItem myListItem = new MyListItem();
 
@@ -135,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
             adapter = new CustomRecyclerAdatper(this, this, myListItems,myListItems.size(),word);
 
             binding.recyclerList.setAdapter(adapter);
+            itemClick();
 
         } else {
             for(int i=0;i<myListItems.size();i++){
@@ -147,7 +157,38 @@ public class MainActivity extends AppCompatActivity {
                     searchIndexList.size(),word);
 
             binding.recyclerList.setAdapter(adapter);
+            filterWordClick();
         }
+
+    }
+
+    /**
+     * @DESC: Recycler 아이템 클릭 case 빈칸
+     */
+    private void itemClick(){
+        adapter.setOnItemClickListener((v,position) ->{
+                Intent intent = new Intent(this, RecyclerItemDetailActivity.class);
+                intent.putExtra("imagePath", myListItems.get(position).getList().get(0).getUri());
+                intent.putExtra("title", myListItems.get(position).getList().get(0).getTitle());
+                intent.putExtra("describe", myListItems.get(position).getList().get(0).getDescribe());
+                intent.putExtra("youtubeLink", myListItems.get(position).getList().get(0).getChannelLink());
+                startActivity(intent);
+
+        });
+    }
+
+    /**
+     * @DESC: Recycler 아이템 클릭 case 단어입력
+     */
+    private void filterWordClick(){
+        adapter.setOnItemClickListener((v,position)->{
+            Intent intent = new Intent(this, RecyclerItemDetailActivity.class);
+            intent.putExtra("imagePath",myListItems.get(searchIndexList.get(position)).getList().get(0).getUri());
+            intent.putExtra("title",myListItems.get(searchIndexList.get(position)).getList().get(0).getTitle());
+            intent.putExtra("describe",myListItems.get(searchIndexList.get(position)).getList().get(0).getDescribe());
+            intent.putExtra("youtubeLink",myListItems.get(searchIndexList.get(position)).getList().get(0).getChannelLink());
+            startActivity(intent);
+        });
 
     }
 }
