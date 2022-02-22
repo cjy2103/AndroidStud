@@ -60,16 +60,12 @@ public class MainActivity extends AppCompatActivity {
         resultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(), result -> {
                     if(result.getResultCode() == Activity.RESULT_OK){
-                        try {
                             if(result.getData() == null){
                                 return;
                             }
                             Uri uri = result.getData().getData();
                             Glide.with(this).load(uri).into(binding.ivImg);
-                        } catch(Exception e){
-                            e.printStackTrace();
                         }
-                    }
                 }
         );
     }
