@@ -34,6 +34,8 @@ EditText + RecyclerView ( v )
 
 리사이클러뷰 수정, 추가 , 삭제
 
+화면 줌인, 줌아웃
+
 파일선택 -> 갤러리 Intent에서 이미지 들고오기 ( v )
 
 NumberPicker (세로 (디폴트))
@@ -58,6 +60,10 @@ resource 파일 가져오기
 녹음 파일 만들기
 
 Firebase Crashlity
+
+Firebase 회원가입
+
+Firebase RealTimeDB 사용
 
 YouTubeAPI
 
@@ -101,9 +107,13 @@ Room DB
 
 ConstraintLayout ( v )
 
+startActivityForResult deprecated ( v )
+
 
 === 시스템 제어 ====
 
 최상단 영역 ( 시간, 와이파이 뜨는거 ) 사용할수 있게 설정
 
 최하단 바텀 네비게이션 바 ( 홈, 뒤로가기 ) 비활성화
+
+인터넷 연결상태 ( 와이파이, 모바일 )
