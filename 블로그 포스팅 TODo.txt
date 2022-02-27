@@ -33,7 +33,7 @@ EditText + RecyclerView ( v )
 리사이클러뷰 Intent 이동 ( v )
 
 
-NumberPicker (세로 (디폴트))
+NumberPicker (세로 (디폴트)) ( v )
 NumberPicker (가로 (GitHub))
 
 프래그먼트
