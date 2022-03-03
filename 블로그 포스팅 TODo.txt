@@ -36,6 +36,7 @@ EditText + RecyclerView ( v )
 NumberPicker (세로 (디폴트)) ( v )
 NumberPicker (가로 (GitHub)) ( v )
 
+
 스피너
 
 프래그먼트
@@ -114,6 +115,9 @@ ConstraintLayout ( v )
 
 startActivityForResult deprecated ( v )
 
+Context란?
+
+
 
 === 시스템 제어 ====
 
@@ -122,3 +126,5 @@ startActivityForResult deprecated ( v )
 최하단 바텀 네비게이션 바 ( 홈, 뒤로가기 ) 비활성화
 
 인터넷 연결상태 ( 와이파이, 모바일 )
+
+SoftKeyBoard ( v )

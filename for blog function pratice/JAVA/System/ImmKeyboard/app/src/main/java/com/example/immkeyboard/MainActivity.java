@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @DESC: Imm 키보드열기
+     * @DESC: 키보드열기
      */
     private void clickOpen(){
         binding.btnOpen.setOnClickListener(v->{
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @DESC: Imm 키보드 닫기
+     * @DESC: 키보드 닫기
      */
     private void clickClose(){
         binding.btnClose.setOnClickListener(v->{

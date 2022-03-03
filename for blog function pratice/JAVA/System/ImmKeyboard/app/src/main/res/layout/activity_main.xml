@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="ImmKeyboard Open/Close"
+        android:text="Keyboard Open/Close"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,10 +33,10 @@
         android:id="@+id/btn_open"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Imm 키보드 열기"
-        android:background="@drawable/custom_button"
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
+        android:background="@drawable/custom_button"
+        android:text="키보드 열기"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_input" />
 
@@ -44,9 +44,9 @@
         android:id="@+id/btn_close"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Imm 키보드 닫기"
-        android:background="@drawable/custom_button"
         android:layout_marginEnd="40dp"
+        android:background="@drawable/custom_button"
+        android:text="키보드 닫기"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btn_open" />
 
