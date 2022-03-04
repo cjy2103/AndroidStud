@@ -36,21 +36,19 @@ EditText + RecyclerView ( v )
 NumberPicker (세로 (디폴트)) ( v )
 NumberPicker (가로 (GitHub)) ( v )
 
+화면 줌인, 줌아웃 ( v )
+
+파일선택 -> 갤러리 Intent에서 이미지 들고오기 ( v )
+
 스피너
 
 프래그먼트
 
 리사이클러뷰 수정, 추가 , 삭제
 
-화면 줌인, 줌아웃
-
-파일선택 -> 갤러리 Intent에서 이미지 들고오기 ( v )
-
-
 resource 파일 가져오기
 
 체크박스
-
 
 상단탭
 
