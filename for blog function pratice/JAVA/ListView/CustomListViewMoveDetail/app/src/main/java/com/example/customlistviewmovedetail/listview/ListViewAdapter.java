@@ -81,12 +81,13 @@ public class ListViewAdapter extends BaseAdapter {
      * @param title
      * @param describe
      */
-    public void addItem(Drawable image, String title, String describe){
+    public void addItem(Drawable image, String title, String describe, String youtubeLink){
         ListViewItem item = new ListViewItem();
 
         item.setImage(image);
         item.setTitle(title);
         item.setDescribe(describe);
+        item.setYoutubeLink(youtubeLink);
 
         listViewItems.add(item);
     }

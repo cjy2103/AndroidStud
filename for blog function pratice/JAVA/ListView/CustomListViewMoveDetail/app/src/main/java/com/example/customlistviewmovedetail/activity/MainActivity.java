@@ -86,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
         binding.listItem.setAdapter(adapter);
         for(int i=0;i<imageList.size();i++){
             adapter.addItem(ContextCompat.getDrawable(mContext,imageList.get(i))
-                    ,titleList.get(i),describeList.get(i));
+                    ,titleList.get(i),describeList.get(i)
+                    , youtubeLinkList.get(i));
         }
     }
 
@@ -136,7 +137,8 @@ public class MainActivity extends AppCompatActivity {
 
         for(int i=0;i<positionList.size();i++){
             adapter.addItem(ContextCompat.getDrawable(mContext,imageList.get(positionList.get(i)))
-                    ,titleList.get(positionList.get(i)),describeList.get(positionList.get(i)));
+                    ,titleList.get(positionList.get(i)),describeList.get(positionList.get(i))
+                    , youtubeLinkList.get(positionList.get(i)));
         }
 
         adapter.notifyDataSetChanged();
@@ -160,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("image",byteArray);
             intent.putExtra("title",item.getTitle());
             intent.putExtra("describe",item.getDescribe());
-            intent.putExtra("youtubeLink",youtubeLinkList.get(position));
+            intent.putExtra("youtubeLink",item.getYoutubeLink());
 
             startActivity(intent);
         });

@@ -6,8 +6,7 @@ public class ListViewItem {
     private Drawable image;
     private String title;
     private String describe;
-
-
+    private String youtubeLink;
 
     public Drawable getImage() {
         return image;
@@ -31,5 +30,13 @@ public class ListViewItem {
 
     public void setDescribe(String describe) {
         this.describe = describe;
+    }
+
+    public String getYoutubeLink() {
+        return youtubeLink;
+    }
+
+    public void setYoutubeLink(String youtubeLink) {
+        this.youtubeLink = youtubeLink;
     }
 }
