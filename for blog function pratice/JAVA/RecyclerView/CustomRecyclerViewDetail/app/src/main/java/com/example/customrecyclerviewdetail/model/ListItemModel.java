@@ -1,6 +1,8 @@
 package com.example.customrecyclerviewdetail.model;
 
-public class ListItemModel {
+import java.io.Serializable;
+
+public class ListItemModel implements Serializable{
     private String title;
     private String describe;
     private String uri;
