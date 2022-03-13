@@ -168,11 +168,17 @@ public class MainActivity extends AppCompatActivity {
     private void itemClick(){
         adapter.setOnItemClickListener((v,position) ->{
                 Intent intent = new Intent(this, RecyclerItemDetailActivity.class);
-                intent.putExtra("imagePath", myListItems.get(position).getList().get(0).getUri());
-                intent.putExtra("title", myListItems.get(position).getList().get(0).getTitle());
-                intent.putExtra("describe", myListItems.get(position).getList().get(0).getDescribe());
-                intent.putExtra("youtubeLink", myListItems.get(position).getList().get(0).getChannelLink());
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("itemObject",myListItems.get(position));
+                intent.putExtras(bundle);
                 startActivity(intent);
+
+
+//                intent.putExtra("imagePath", myListItems.get(position).getList().get(0).getUri());
+//                intent.putExtra("title", myListItems.get(position).getList().get(0).getTitle());
+//                intent.putExtra("describe", myListItems.get(position).getList().get(0).getDescribe());
+//                intent.putExtra("youtubeLink", myListItems.get(position).getList().get(0).getChannelLink());
+//                startActivity(intent);
 
         });
     }
@@ -183,10 +189,14 @@ public class MainActivity extends AppCompatActivity {
     private void filterWordClick(){
         adapter.setOnItemClickListener((v,position)->{
             Intent intent = new Intent(this, RecyclerItemDetailActivity.class);
-            intent.putExtra("imagePath",myListItems.get(searchIndexList.get(position)).getList().get(0).getUri());
-            intent.putExtra("title",myListItems.get(searchIndexList.get(position)).getList().get(0).getTitle());
-            intent.putExtra("describe",myListItems.get(searchIndexList.get(position)).getList().get(0).getDescribe());
-            intent.putExtra("youtubeLink",myListItems.get(searchIndexList.get(position)).getList().get(0).getChannelLink());
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("itemObject",myListItems.get(searchIndexList.get(position)));
+            intent.putExtras(bundle);
+
+//            intent.putExtra("imagePath",myListItems.get(searchIndexList.get(position)).getList().get(0).getUri());
+//            intent.putExtra("title",myListItems.get(searchIndexList.get(position)).getList().get(0).getTitle());
+//            intent.putExtra("describe",myListItems.get(searchIndexList.get(position)).getList().get(0).getDescribe());
+//            intent.putExtra("youtubeLink",myListItems.get(searchIndexList.get(position)).getList().get(0).getChannelLink());
             startActivity(intent);
         });
 

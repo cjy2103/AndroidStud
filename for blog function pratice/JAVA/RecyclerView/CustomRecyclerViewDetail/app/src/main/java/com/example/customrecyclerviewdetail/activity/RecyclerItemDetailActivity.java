@@ -9,10 +9,16 @@ import android.os.Bundle;
 import com.bumptech.glide.Glide;
 import com.example.customrecyclerviewdetail.R;
 import com.example.customrecyclerviewdetail.databinding.ActivityRecyclerItemDetailBinding;
+import com.example.customrecyclerviewdetail.model.MyListItem;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 public class RecyclerItemDetailActivity extends AppCompatActivity {
 
     private ActivityRecyclerItemDetailBinding binding;
+
+    private MyListItem myListItems;
 
     private String imagePath, title, describe, youtubeLink;
 
@@ -41,11 +47,20 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
      * @DESC: 데이터 로드
      */
     private void dataLoad(){
-        Intent intent = getIntent();
-        imagePath   = intent.getStringExtra("imagePath");
-        title       = intent.getStringExtra("title");
-        describe    = intent.getStringExtra("describe");
-        youtubeLink = intent.getStringExtra("youtubeLink");
+
+        Bundle bundle = getIntent().getExtras();
+        myListItems = (MyListItem) bundle.getSerializable("itemObject");
+        imagePath   = myListItems.getList().get(0).getUri();
+        title       = myListItems.getList().get(0).getTitle();
+        describe    = myListItems.getList().get(0).getDescribe();
+        youtubeLink = myListItems.getList().get(0).getChannelLink();
+
+//        Intent intent = getIntent();
+//        imagePath = intent.
+//        imagePath   = intent.getStringExtra("imagePath");
+//        title       = intent.getStringExtra("title");
+//        describe    = intent.getStringExtra("describe");
+//        youtubeLink = intent.getStringExtra("youtubeLink");
     }
 
     /**
