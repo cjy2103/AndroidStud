@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spin_item">
+        <item>사과</item>
+        <item>바나나</item>
+        <item>수박</item>
+        <item>망고</item>
+        <item>딸기</item>
+    </string-array>
+</resources>
