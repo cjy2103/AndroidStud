@@ -21,13 +21,13 @@ public class MainActivity extends AppCompatActivity {
 
 //        softNavigationBarHide();
 
-        softNavigationBarHideVersionROver(); // MinSdk 가 30이상
+        softNavigationBarHideVersionROver(); // R이상 버전 타겟할때
 
 
     }
 
     /**
-     * @DESC: softNavigationBar 숨기기 (minTarget SDK 30 미만)
+     * @DESC: 기존방식 
      */
     private void softNavigationBarHide(){
         View decorView = getWindow().getDecorView();
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @DESC: bottomSoftBar 숨기기 (minSdk 30이상)
+     * @DESC: target SDK R이상일때
      */
     private void softNavigationBarHideVersionROver(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

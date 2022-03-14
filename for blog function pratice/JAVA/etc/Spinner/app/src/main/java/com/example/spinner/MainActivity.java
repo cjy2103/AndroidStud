@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("ResourceType")
     private void initialize(){
         spinnerList = getResources().getStringArray(R.array.spin_item);
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinnerList);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerList);
     }
 
     private void setAdpater(){
