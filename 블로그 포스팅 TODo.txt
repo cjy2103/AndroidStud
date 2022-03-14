@@ -40,7 +40,7 @@ NumberPicker (가로 (GitHub)) ( v )
 
 파일선택 -> 갤러리 Intent에서 이미지 들고오기 ( v )
 
-스피너
+스피너 ( v ) 
 
 프래그먼트
 
