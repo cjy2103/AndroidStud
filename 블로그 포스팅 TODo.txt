@@ -32,6 +32,11 @@ EditText + RecyclerView ( v )
 
 리사이클러뷰 Intent 이동 ( v )
 
+리사이클러뷰 수정, 추가 , 삭제 ->DB 선행
+
+리사이클러뷰 (가로) 
+
+이중 리사이클러뷰
 
 NumberPicker (세로 (디폴트)) ( v )
 NumberPicker (가로 (GitHub)) ( v )
@@ -42,9 +47,7 @@ NumberPicker (가로 (GitHub)) ( v )
 
 스피너 ( v ) 
 
-프래그먼트
-
-리사이클러뷰 수정, 추가 , 삭제
+프래그먼트 
 
 resource 파일 가져오기
 
@@ -92,7 +95,7 @@ Room DB
 
 웹뷰
 
-이미지 확대 , 축소 깃헙
+이미지 확대 , 축소 깃헙 ( v )
 
 
 ==== 고민 ( 지난 강의랑 겹친거 같아서 ) ======= 
