@@ -47,7 +47,9 @@ NumberPicker (가로 (GitHub)) ( v )
 
 스피너 ( v ) 
 
-프래그먼트 
+프래그먼트 ( v )
+
+프레그먼트 -> 프래그먼트 이동
 
 resource 파일 가져오기
 
