@@ -34,7 +34,7 @@ EditText + RecyclerView ( v )
 
 리사이클러뷰 수정, 추가 , 삭제 ->DB 선행
 
-리사이클러뷰 (가로) 
+리사이클러뷰 (가로)  ( v )
 
 이중 리사이클러뷰
 
@@ -48,6 +48,10 @@ NumberPicker (가로 (GitHub)) ( v )
 스피너 ( v ) 
 
 프래그먼트 ( v )
+
+YouTubeAPI APK 키 발급 
+YouTubePlayerView ( v )
+YouTube 검색 
 
 프레그먼트 -> 프래그먼트 이동
 
@@ -73,7 +77,6 @@ Firebase 회원가입
 
 Firebase RealTimeDB 사용
 
-YouTubeAPI
 
 외부저장소에서 노래 가져오기 ( 리사이클러뷰로 )
 
@@ -132,6 +135,6 @@ px -> dp 계산법 ( v )
 
 최하단 바텀 네비게이션 바 ( 홈, 뒤로가기 ) 비활성화 ( v )
 
-인터넷 연결상태 ( 와이파이, 모바일 )
+인터넷 연결상태 ( 와이파이, 모바일 ) ( v )
 
 SoftKeyBoard ( v )
