@@ -68,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * @DESC: Navigation 아이콘 클릭
+     * @param item
+     */
     @SuppressLint("NonConstantResourceId")
     private void changeFramgnet(MenuItem item){
         switch (item.getItemId()){
@@ -94,6 +98,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * @DESC: 화면 전환
+     * @param fragment
+     * @param item
+     */
     @SuppressLint("NonConstantResourceId")
     private void screenChange(Fragment fragment, MenuItem item){
         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,fragment).commit();
