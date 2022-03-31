@@ -13,6 +13,7 @@ import com.example.bottomnavigation.databinding.ActivityMainBinding;
 import com.example.bottomnavigation.fragment.DjMaxFragment;
 import com.example.bottomnavigation.fragment.MidoriFragment;
 import com.example.bottomnavigation.fragment.MomoiFragment;
+import com.example.bottomnavigation.util.SystemUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,10 +42,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
     }
 
+    /**
+     * @DESC: 초기화
+     */
     private void initialize(){
         binding.bottomNav.setItemIconTintList(null);
 
         menu = binding.bottomNav.getMenu();
+
+        SystemUtil systemUtil = new SystemUtil();
+        systemUtil.sofNavigationBarHide(getWindow());
+        systemUtil.statusbarSetting(getWindow(),this,binding.mainConstraint);
 
         djMaxFragment = new DjMaxFragment();
         // 첫화면

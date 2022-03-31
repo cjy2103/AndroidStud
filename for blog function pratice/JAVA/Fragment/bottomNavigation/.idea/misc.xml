@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for blog function pratice/JAVA/Fragment/bottomNavigation/app/src/main/res/drawable/custom_background.xml" value="0.448" />
         <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for blog function pratice/JAVA/Fragment/bottomNavigation/app/src/main/res/drawable/ic_anyconv_com__18953.xml" value="0.448" />
         <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for blog function pratice/JAVA/Fragment/bottomNavigation/app/src/main/res/drawable/ic_test.xml" value="0.448" />
         <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for blog function pratice/JAVA/Fragment/bottomNavigation/app/src/main/res/drawable/nav_shape.xml" value="0.316" />
@@ -20,7 +21,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16_PREVIEW" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
