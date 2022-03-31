@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.bottomnavigation.R;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private Fragment djMaxFragment, momoiFramgnet, midoriFragment;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initialize(){
         binding.bottomNav.setItemIconTintList(null);
+        menu = binding.bottomNav.getMenu();
 
         SystemUtil systemUtil = new SystemUtil();
         systemUtil.sofNavigationBarHide(getWindow());
@@ -52,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         djMaxFragment = new DjMaxFragment();
         // 첫화면
         getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, djMaxFragment).commit();
-
+        menu.findItem(R.id.djmax_fragment).setIcon(R.drawable.iv_djmax_fail);
     }
 
     /**
@@ -66,25 +69,47 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressLint("NonConstantResourceId")
-    public void changeFramgnet(MenuItem item){
+    private void changeFramgnet(MenuItem item){
         switch (item.getItemId()){
             case R.id.djmax_fragment:
                 if(djMaxFragment == null){
                     djMaxFragment = new DjMaxFragment();
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, djMaxFragment).commit();
+                screenChange(djMaxFragment,item);
                 break;
             case R.id.momoi_fragment:
                 if(momoiFramgnet == null){
                     momoiFramgnet = new MomoiFragment();
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, momoiFramgnet).commit();
+                screenChange(momoiFramgnet,item);
                 break;
             case R.id.midori_fragment:
                 if(midoriFragment == null){
                     midoriFragment = new MidoriFragment();
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, midoriFragment).commit();
+                screenChange(midoriFragment,item);
+                break;
+            default:
+                break;
+        }
+    }
+
+    @SuppressLint("NonConstantResourceId")
+    private void screenChange(Fragment fragment, MenuItem item){
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,fragment).commit();
+        menu.findItem(R.id.djmax_fragment).setIcon(R.drawable.iv_djmax);
+        menu.findItem(R.id.momoi_fragment).setIcon(R.drawable.iv_momoi);
+        menu.findItem(R.id.midori_fragment).setIcon(R.drawable.iv_midori);
+
+        switch (item.getItemId()){
+            case R.id.djmax_fragment:
+                item.setIcon(R.drawable.iv_djmax_fail);
+                break;
+            case R.id.momoi_fragment:
+                item.setIcon(R.drawable.iv_alice);
+                break;
+            case R.id.midori_fragment:
+                item.setIcon(R.drawable.iv_yuse);
                 break;
             default:
                 break;
