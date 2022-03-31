@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.bottomnavigation.R;
@@ -18,9 +17,7 @@ import com.example.bottomnavigation.util.SystemUtil;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private Menu menu;
-    private Fragment djMaxFragment, momoiFramgnet
-            , midoriFragment;
+    private Fragment djMaxFragment, momoiFramgnet, midoriFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initialize(){
         binding.bottomNav.setItemIconTintList(null);
-
-        menu = binding.bottomNav.getMenu();
 
         SystemUtil systemUtil = new SystemUtil();
         systemUtil.sofNavigationBarHide(getWindow());
