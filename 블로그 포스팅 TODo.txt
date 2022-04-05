@@ -1,14 +1,14 @@
 블로그 포스팅 TODO
 
-커스텀 버튼 ( v )
+======= 바인딩 =======
 
-리플 이펙트 ( v )
+findViewById ( v )
+ViewBinding ( v )
+DataBinding ( v )
 
-타이틀바 없애기 ( v )
+======== 기능 ========
 
 커스텀 다이얼 로그 만들기 ( v )
-
-동적인 TextView 길이 ( v )
 
 리스트뷰 ( v )
 
@@ -112,6 +112,11 @@ Room DB
 
 == 이론 ==
 
+
+Thread ( v )
+
+안드로이드 4대 컴포넌트 ( v )
+
 라이프사이클 ( 액티비티 ) ( v )
 
 로그 ( v )
@@ -120,15 +125,23 @@ Room DB
 
 ConstraintLayout ( v )
 
-startActivityForResult deprecated ( v )
-
 Context란?
 
 ======= 디자인 =======
 
-SVG 이미지 만들기 ( 제플린 )
+SVG 이미지 만들기 ( 제플린 ) ( v )
 
 px -> dp 계산법 ( v )
+
+커스텀 버튼 ( v )
+
+리플 이펙트 ( v )
+
+동적인 TextView 길이 ( v )
+
+타이틀바 없애기 ( v )
+
+앱 아이콘 변경 (런처 아이콘 변경) ( v )
 
 
 === 시스템 제어 ====
@@ -140,3 +153,13 @@ px -> dp 계산법 ( v )
 인터넷 연결상태 ( 와이파이, 모바일 ) ( v )
 
 SoftKeyBoard ( v )
+
+=== 기타 정보 ====
+
+BottomNavigation 아이콘 안보이는 이슈 ( v )
+SHA-1 서명키 확인 ( v )
+startActivityForResult deprecated ( v )
+
+
+======= 오류 =======
+안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
