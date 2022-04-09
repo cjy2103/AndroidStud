@@ -36,6 +36,7 @@ EditText + RecyclerView ( v )
 
 리사이클러뷰 (가로)  ( v )
 
+리사이클러뷰 + 드래그 삭제
 이중 리사이클러뷰
 
 NumberPicker (세로 (디폴트)) ( v )
@@ -63,7 +64,7 @@ resource 파일 가져오기
 
 상단탭
 
-바텀 네비게이션
+바텀 네비게이션 ( v )
 
 앱 툴바
 
@@ -78,6 +79,9 @@ Firebase Crashlity
 Firebase 회원가입
 
 Firebase RealTimeDB 사용
+
+구글 드라이브 연동
+드롭박스 api
 
 
 외부저장소에서 노래 가져오기 ( 리사이클러뷰로 )
