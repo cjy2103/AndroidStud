@@ -2,6 +2,8 @@ package com.example.bottomnavigation.fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.bottomnavigation.R;
+import com.example.bottomnavigation.databinding.FragmentDjMaxBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +19,9 @@ import com.example.bottomnavigation.R;
  * create an instance of this fragment.
  */
 public class DjMaxFragment extends Fragment {
+
+    private FragmentDjMaxBinding binding;
+    private boolean changeImage = true;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +67,38 @@ public class DjMaxFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dj_max, container, false);
+        return viewBinding(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        clickBtnChange();
+    }
+
+
+    /*********************************************************************************************************
+     ****************************************** 이벤트 함수 ***************************************************
+     ********************************************************************************************************/
+    private void clickBtnChange(){
+        binding.btnChange.setOnClickListener(v->{
+            if(changeImage){
+                binding.imageView.setImageResource(R.drawable.iv_djmax_alice);
+            } else {
+                binding.imageView.setImageResource(R.drawable.iv_djmax_x_mas);
+            }
+            changeImage = !changeImage;
+        });
+    }
+
+
+    /*********************************************************************************************************
+     ****************************************** 사용자 함수 ***************************************************
+     ********************************************************************************************************/
+
+    private View viewBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        binding = FragmentDjMaxBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 }
