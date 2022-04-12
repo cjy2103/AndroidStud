@@ -108,9 +108,10 @@ public class MainActivity extends AppCompatActivity {
      */
     @SuppressLint("NonConstantResourceId")
     private void screenChange(Fragment fragment, MenuItem item){
-        allScreenHide();
 
+        allScreenHide();
         if(fragment != null) getSupportFragmentManager().beginTransaction().show(fragment).commit();
+
         menu.findItem(R.id.djmax_fragment).setIcon(R.drawable.iv_djmax);
         menu.findItem(R.id.momoi_fragment).setIcon(R.drawable.iv_momoi);
         menu.findItem(R.id.midori_fragment).setIcon(R.drawable.iv_midori);
@@ -130,6 +131,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * @DESC: 생성된 모든화면 숨김처리
+     */
     private void allScreenHide(){
         if(djMaxFragment!=null) getSupportFragmentManager().beginTransaction().hide(djMaxFragment).commit();
         if(momoiFramgnet!=null) getSupportFragmentManager().beginTransaction().hide(momoiFramgnet).commit();
@@ -137,3 +141,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+

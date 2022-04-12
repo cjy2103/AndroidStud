@@ -82,6 +82,10 @@ public class MomoiFragment extends Fragment {
     /*********************************************************************************************************
      ****************************************** 이벤트 함수 ***************************************************
      ********************************************************************************************************/
+
+    /**
+     * @DESC: 이미지 변경 버튼클릭
+     */
     private void clickBtnChange(){
         binding.btnChange.setOnClickListener(v->{
             if(changeImage){
@@ -98,6 +102,13 @@ public class MomoiFragment extends Fragment {
      ****************************************** 사용자 함수 ***************************************************
      ********************************************************************************************************/
 
+    /**
+     * @DESC: 뷰바인딩
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     private View viewBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         binding = FragmentMomoiBinding.inflate(inflater, container, false);
         return binding.getRoot();
