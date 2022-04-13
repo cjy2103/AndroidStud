@@ -131,6 +131,12 @@ ConstraintLayout ( v )
 
 Context란?
 
+Handler란?
+
+Lopper란?
+
+Manifest란?
+
 ======= 디자인 =======
 
 SVG 이미지 만들기 ( 제플린 ) ( v )
@@ -146,6 +152,8 @@ px -> dp 계산법 ( v )
 타이틀바 없애기 ( v )
 
 앱 아이콘 변경 (런처 아이콘 변경) ( v )
+
+Vector, 비트맵 이미지 차이
 
 
 === 시스템 제어 ====
@@ -168,3 +176,5 @@ startActivityForResult deprecated ( v )
 
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
+
+ANR
