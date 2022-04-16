@@ -78,21 +78,21 @@ public class MainActivity extends AppCompatActivity {
             case R.id.djmax_fragment:
                 if(djMaxFragment == null){
                     djMaxFragment = new DjMaxFragment();
-                    getSupportFragmentManager().beginTransaction().add(R.id.main_frame, djMaxFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, djMaxFragment).commit();
                 }
                 screenChange(djMaxFragment,item);
                 break;
             case R.id.momoi_fragment:
                 if(momoiFramgnet == null){
                     momoiFramgnet = new MomoiFragment();
-                    getSupportFragmentManager().beginTransaction().add(R.id.main_frame, momoiFramgnet).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, momoiFramgnet).commit();
                 }
                 screenChange(momoiFramgnet,item);
                 break;
             case R.id.midori_fragment:
                 if(midoriFragment == null){
                     midoriFragment = new MidoriFragment();
-                    getSupportFragmentManager().beginTransaction().add(R.id.main_frame, midoriFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, midoriFragment).commit();
                 }
                 screenChange(midoriFragment,item);
                 break;
@@ -108,10 +108,17 @@ public class MainActivity extends AppCompatActivity {
      */
     @SuppressLint("NonConstantResourceId")
     private void screenChange(Fragment fragment, MenuItem item){
+<<<<<<< Updated upstream
 
         allScreenHide();
         if(fragment != null) getSupportFragmentManager().beginTransaction().show(fragment).commit();
 
+=======
+        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,fragment).commit();
+//        allScreenHide();
+
+//        if(fragment != null) getSupportFragmentManager().beginTransaction().show(fragment).commit();
+>>>>>>> Stashed changes
         menu.findItem(R.id.djmax_fragment).setIcon(R.drawable.iv_djmax);
         menu.findItem(R.id.momoi_fragment).setIcon(R.drawable.iv_momoi);
         menu.findItem(R.id.midori_fragment).setIcon(R.drawable.iv_midori);
