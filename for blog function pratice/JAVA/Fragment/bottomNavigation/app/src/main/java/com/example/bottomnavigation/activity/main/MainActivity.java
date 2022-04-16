@@ -108,17 +108,8 @@ public class MainActivity extends AppCompatActivity {
      */
     @SuppressLint("NonConstantResourceId")
     private void screenChange(Fragment fragment, MenuItem item){
-<<<<<<< Updated upstream
-
         allScreenHide();
         if(fragment != null) getSupportFragmentManager().beginTransaction().show(fragment).commit();
-
-=======
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame,fragment).commit();
-//        allScreenHide();
-
-//        if(fragment != null) getSupportFragmentManager().beginTransaction().show(fragment).commit();
->>>>>>> Stashed changes
         menu.findItem(R.id.djmax_fragment).setIcon(R.drawable.iv_djmax);
         menu.findItem(R.id.momoi_fragment).setIcon(R.drawable.iv_momoi);
         menu.findItem(R.id.midori_fragment).setIcon(R.drawable.iv_midori);

@@ -20,10 +20,10 @@
         tools:ignore="HardcodedText" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_color"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="여러가지 특수기호 XML 출력법 :&amp;, &lt;, &gt;, &quot; , &apos;"
+        android:text="글자 중간에 색을 변경한다."
         android:textSize="16sp"
         android:textColor="#191919"
         android:layout_marginTop="20dp"
@@ -32,6 +32,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tv_test"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:text="글자 중간에 속성을 변경한다."
+        android:textColor="#191919"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_color"
         tools:ignore="HardcodedText" />
 
 
