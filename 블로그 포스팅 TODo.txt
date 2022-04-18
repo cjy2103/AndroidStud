@@ -56,6 +56,8 @@ YouTube 검색
 
 TextVIew 중간에 글색, 스타일 변경 / 커스텀 폰트 ( v )
 
+ImageView Opacity ( v )
+
 프레그먼트 -> 프래그먼트 이동
 
 주소 입력창(주소 API)
