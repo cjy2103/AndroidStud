@@ -182,4 +182,6 @@ XML 특수문자 출력
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
 
-ANR
+ANR ( v )
+
+Facebook 로그인 관련 오류 / Targeting S+ (version 31 and above) requires that one of FLAG_IMMUTABLE or FLAG_MUTABLE be specified when creating a PendingIntent. ( v )
