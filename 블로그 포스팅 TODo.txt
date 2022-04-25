@@ -59,7 +59,7 @@ TextVIew 중간에 글색, 스타일 변경 / 커스텀 폰트 ( v )
 ImageView Opacity ( v )
 
 ToastMessage ( v )
-SnackBar 
+SnackBar ( v )
 
 프레그먼트 -> 프래그먼트 이동
 
@@ -125,6 +125,7 @@ Room DB
 
 == 이론 ==
 
+Manifest ( v )
 
 Thread ( v )
 
@@ -154,6 +155,7 @@ Json
 
 SVG 이미지 만들기 ( 제플린 ) ( v )
 
+px, dp, dpi, ppi, sp 란? ( v )
 px -> dp 계산법 ( v )
 
 커스텀 버튼 ( v )

@@ -1,0 +1,6 @@
+com/example/toastmessagetest/databinding/ActivityMainBinding.java
+ com.example.toastmessagetest.databinding.ActivityMainBinding
+com/example/toastmessagetest/MainActivity.java
+ com.example.toastmessagetest.MainActivity
+com/example/toastmessagetest/BuildConfig.java
+ com.example.toastmessagetest.BuildConfig
