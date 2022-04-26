@@ -130,6 +130,8 @@ Manifest ( v )
 
 Thread ( v )
 
+inflate ( v )
+
 안드로이드 4대 컴포넌트 ( v )
 
 라이프사이클 ( 액티비티 ) ( v )

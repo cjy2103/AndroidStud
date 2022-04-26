@@ -13,9 +13,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        initBinding();
+        viewBinding();
 
         clickWordChange();
     }
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * @DESC: 뷰 바인딩
      */
-    private void initBinding(){
+    private void viewBinding(){
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
     }
