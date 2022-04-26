@@ -25,6 +25,7 @@ EditText + ListView ( v )
 쓰레드 (v)
 
 Splash화면 (v)
+애니메이션 Splash Android 12 이상 작동하는거 ( ) 
 
 리사이클러뷰 ( v )
 
