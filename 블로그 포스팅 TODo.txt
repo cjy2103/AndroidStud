@@ -126,6 +126,8 @@ Room DB
 
 == 이론 ==
 
+RXJava ( v )
+
 Manifest ( v )
 
 Thread ( v )

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private UserDB userDB = null;
     private USER user;
     private String str = "";
+    private int currentUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +45,12 @@ public class MainActivity extends AppCompatActivity {
     private void initialize(){
         userDB = UserDB.getInstance(this);
         user = new USER();
+        currentUid = 2;
     }
 
     private void insertData(){
         binding.btnInsert.setOnClickListener(v->{
-            user.setUid(1);
+            user.setUid(currentUid);
             user.setName("Test");
             user.setAge("22");
             user.setSex("남");
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("CheckResult")
     private void checkData(){
         binding.btnSelect.setOnClickListener(v->{
-            userDB.userDao().getAll().subscribeOn(Schedulers.io())
+            userDB.userDao().loadById(currentUid).subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(item -> {
 

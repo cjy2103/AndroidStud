@@ -19,6 +19,9 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE uid IN (:userIds)")
     Flowable<List<USER>> loadAllByIds(int[] userIds);
 
+    @Query("SELECT * FROM user WHERE uid = :userIds")
+    Flowable<List<USER>> loadById(int userIds);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     Completable insert(USER... users);
 
