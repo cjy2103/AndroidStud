@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         checkData();
 
         deleteData();
+
+        updateData();
     }
 
     private void viewBinding(){
@@ -88,6 +90,14 @@ public class MainActivity extends AppCompatActivity {
                     .subscribe();
         });
 
+    }
+
+    private void updateData(){
+        binding.btnUpdate.setOnClickListener(v->{
+            userDB.userDao().updateById(23,currentUid).subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe();
+        });
     }
 
 

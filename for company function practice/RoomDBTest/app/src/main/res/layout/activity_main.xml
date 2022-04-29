@@ -46,8 +46,20 @@
         android:layout_marginBottom="316dp"
         android:text="select"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_insert" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_insert"
+        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintStart_toStartOf="@+id/btn_insert"
+        app:layout_constraintTop_toBottomOf="@+id/btn_insert"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_select"
+        app:layout_constraintEnd_toEndOf="@+id/btn_delete"
+        app:layout_constraintStart_toStartOf="@+id/btn_delete"
+        app:layout_constraintTop_toTopOf="@+id/btn_select" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
