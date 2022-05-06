@@ -1,25 +1,31 @@
-package com.example.viewpager;
+package com.example.viewpager.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.example.viewpager.R;
 import com.example.viewpager.adapter.ViewPager2Adapter;
 import com.example.viewpager.databinding.ActivityMainBinding;
 import com.example.viewpager.model.ListItem;
 import com.example.viewpager.model.ListItemModel;
+import com.example.viewpager.util.SystemUtil;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
     private ArrayList<ListItem> list;
+
+    private ArrayList<String> nameList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewPagerConnection();
 
-        viewPagerSlide();
+//        viewPagerSlideEvent();
     }
 
     private void viewBinding(){
@@ -41,7 +47,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initialize(){
+        SystemUtil systemUtil = new SystemUtil();
+        systemUtil.sofNavigationBarHide(getWindow());
+        systemUtil.statusbarSetting(getWindow(),this,binding.mainRootLayout);
         list = new ArrayList<>();
+        nameList = new ArrayList<>(Arrays.asList("박나나","클리어&페일","Falling in love","뫄뫄","탬탬"));
     }
 
     private void listAdd(){
@@ -77,23 +87,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * @DESC: 슬라이드로 이미지 변경 
+     * @DESC: 슬라이드 이벤트 발생
      */
-    private void viewPagerSlide(){
+    private void viewPagerSlideEvent(){
         binding.viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                if(positionOffsetPixels == 0){
-                    binding.viewPager2.setCurrentItem(position);
-                }
-            }
-
             @Override
             public void onPageSelected(int position) {
                 super.onPageSelected(position);
-
+                showToast(nameList.get(position));
             }
         });
+    }
+
+    private void showToast(String msg){
+        Toast.makeText(this, msg+" 선택됨", Toast.LENGTH_SHORT).show();
     }
 }
