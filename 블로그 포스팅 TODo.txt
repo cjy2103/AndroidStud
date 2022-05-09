@@ -65,6 +65,7 @@ ToastMessage ( v )
 SnackBar ( v )
 
 플로팅 버튼
+ViewPager2 ( v )
 
 프레그먼트 -> 프래그먼트 이동
 
@@ -105,6 +106,7 @@ Firebase RealTimeDB 사용
 음악 구간이동 ( seekBar 제어 )
 
 Room DB
+SqLite
 
 위치 권한 받기
 
