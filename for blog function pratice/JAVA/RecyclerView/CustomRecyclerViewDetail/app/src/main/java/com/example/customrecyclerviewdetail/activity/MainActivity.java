@@ -173,13 +173,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 startActivity(intent);
 
-
-//                intent.putExtra("imagePath", myListItems.get(position).getList().get(0).getUri());
-//                intent.putExtra("title", myListItems.get(position).getList().get(0).getTitle());
-//                intent.putExtra("describe", myListItems.get(position).getList().get(0).getDescribe());
-//                intent.putExtra("youtubeLink", myListItems.get(position).getList().get(0).getChannelLink());
-//                startActivity(intent);
-
         });
     }
 
