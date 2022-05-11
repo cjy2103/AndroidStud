@@ -46,7 +46,7 @@ NumberPicker (가로 (GitHub)) ( v )
 화면 줌인, 줌아웃 ( v )
 
 파일선택 -> 갤러리 Intent에서 이미지 들고오기 ( v )
-파일선택 -> 갤러리 Intent에서 이미지 들고오기 여러개 선택 
+파일선택 -> 갤러리 Intent에서 이미지 들고오기 여러개 선택  ( viewPager2 + 갤러리 ) 
 
 스피너 ( v ) 
 
