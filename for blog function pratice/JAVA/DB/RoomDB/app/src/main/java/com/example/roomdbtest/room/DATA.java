@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Data {
+public class DATA {
     @PrimaryKey
     private int key;
     @ColumnInfo
