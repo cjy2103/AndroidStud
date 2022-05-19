@@ -8,15 +8,18 @@ import androidx.room.RoomDatabase;
 
 @Database(entities = {RoomDB.class}, version = 1, exportSchema = false)
 public abstract class RoomDB extends RoomDatabase {
+    private static volatile RoomDB INSTANCE = null;
     private static String DATABASE_NAME = "ROOM";
 
-    private static class InnerInstanceClass{
-        private static RoomDB INSTANCE = null;
-        public static RoomDB getInstance(Context context){
-            
-            return INSTANCE;
+    public static RoomDB getInstance(Context context){
+        if(INSTANCE == null){
+            synchronized (RoomDB.class){
+                if(INSTANCE == null){
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), RoomDB.class, DATABASE_NAME).build();
+                }
+            }
         }
+        return INSTANCE;
     }
-
 
 }

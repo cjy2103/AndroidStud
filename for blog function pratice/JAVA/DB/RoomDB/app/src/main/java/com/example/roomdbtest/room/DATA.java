@@ -7,19 +7,9 @@ import androidx.room.PrimaryKey;
 @Entity
 public class DATA {
     @PrimaryKey
-    private int key;
-    @ColumnInfo
     private String title;
     @ColumnInfo
     private String subTItle;
-
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
-    }
 
     public String getTitle() {
         return title;
@@ -39,7 +29,6 @@ public class DATA {
 
     public String toString(){
         return "메시지 : {" +
-                "key =" + key +
                 "title =" + title +
                 "subTitle =" + subTItle + '\'' +
                 '}';
