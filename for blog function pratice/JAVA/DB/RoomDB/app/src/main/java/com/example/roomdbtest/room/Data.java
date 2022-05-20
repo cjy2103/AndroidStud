@@ -1,15 +1,17 @@
 package com.example.roomdbtest.room;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class DATA {
+public class Data {
     @PrimaryKey
+    @NonNull
     private String title;
     @ColumnInfo
-    private String subTItle;
+    private String msg;
 
     public String getTitle() {
         return title;
@@ -19,18 +21,18 @@ public class DATA {
         this.title = title;
     }
 
-    public String getSubTItle() {
-        return subTItle;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setSubTItle(String subTItle) {
-        this.subTItle = subTItle;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public String toString(){
         return "메시지 : {" +
                 "title =" + title +
-                "subTitle =" + subTItle + '\'' +
+                "subTitle =" + msg + '\'' +
                 '}';
     }
 }

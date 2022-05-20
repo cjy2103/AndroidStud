@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_iinsert"
+        android:id="@+id/btn_insert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -33,12 +33,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="전체 검색"
-        app:layout_constraintEnd_toEndOf="@+id/btn_iinsert"
-        app:layout_constraintStart_toStartOf="@+id/btn_iinsert"
-        app:layout_constraintTop_toBottomOf="@+id/btn_iinsert" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_insert"
+        app:layout_constraintStart_toStartOf="@+id/btn_insert"
+        app:layout_constraintTop_toBottomOf="@+id/btn_insert" />
 
     <Button
-        android:id="@+id/btn_find_by_id"
+        android:id="@+id/btn_select_by_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -57,6 +57,6 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_all_search"
         app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="@+id/btn_all_search"
-        app:layout_constraintTop_toBottomOf="@+id/btn_find_by_id" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_select_by_id" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

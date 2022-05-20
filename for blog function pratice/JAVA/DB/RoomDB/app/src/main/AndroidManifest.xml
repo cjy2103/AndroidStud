@@ -14,16 +14,13 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".DeleteAllActivity"
+            android:name=".activity.SelectByIdActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectByIdActivity"
+            android:name=".activity.SelectAllActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectAllActivity"
-            android:exported="false" />
-        <activity
-            android:name=".InsertActivity"
+            android:name=".activity.InsertActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
