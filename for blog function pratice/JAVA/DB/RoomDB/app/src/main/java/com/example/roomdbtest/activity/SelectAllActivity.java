@@ -27,7 +27,6 @@ public class SelectAllActivity extends AppCompatActivity {
     private RoomDB roomDB = null;
     private ArrayList<DataModel> dataList;
     private SelectAllAdapter adapter;
-    private String str = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +60,7 @@ public class SelectAllActivity extends AppCompatActivity {
                 .subscribe( item ->{
                    for(Data data : item){
                         dataListAdd(data);
-                        str += data.toString();
                    }
-                    LogUtils.log(str);
-                   str ="";
                    recyclerConnection();
                 });
     }

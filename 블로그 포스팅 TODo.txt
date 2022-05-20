@@ -107,7 +107,7 @@ Firebase RealTimeDB 사용
 음악 구간이동 ( seekBar 제어 )
 
 Room DB ( v )
-Room 예제
+Room 예제 ( v )
 SqLite
 
 위치 권한 받기

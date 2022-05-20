@@ -34,7 +34,6 @@ public class SelectAllAdapter extends RecyclerView.Adapter<SelectAllAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        LogUtils.log("크기?"+list.size());
         holder.binding.tvTitle.setText(list.get(position).getTitle());
         holder.binding.tvMsg.setText(list.get(position).getMsg());
     }
