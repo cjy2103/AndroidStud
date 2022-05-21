@@ -66,6 +66,8 @@ SnackBar ( v )
 플로팅 버튼
 ViewPager2 ( v )
 
+Activity 간 메서드 호출 ( v )
+
 BottomSheet
 
 프레그먼트 -> 프래그먼트 이동
