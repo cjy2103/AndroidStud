@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.bumptech.glide.Glide;
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         callback();
 
+        Glide.with(this).load(R.drawable.ic_launcher_background).into(binding.ivTest);
         signIn();
 
     }
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         Uri uri = result.getData().getData();
 //                        File file = mDriveService.files().
 //                        createFile();
+                        Glide.with(this).load(uri).into(binding.ivTest);
                         if (uri != null) {
 
                             openFileFromFilePicker(uri);

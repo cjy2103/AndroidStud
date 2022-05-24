@@ -121,7 +121,8 @@ public class DriveServiceHelper {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
 //        intent.setType("text/plain");
-        intent.setType("audio/mpeg");
+//        intent.setType("audio/mpeg");
+        intent.setType("image/*");
 
         return intent;
     }
