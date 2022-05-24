@@ -41,9 +41,9 @@ public class DriveServiceHelper {
         return Tasks.call(mExecutor, () -> {
             File metadata = new File()
                     .setParents(Collections.singletonList("root"))
-                    .setMimeType("text/plain")
+//                    .setMimeType("text/plain")
+                    .setMimeType("audio/mpeg")
                     .setName("Untitled file");
-
             File googleFile = mDriveService.files().create(metadata).execute();
             if (googleFile == null) {
                 throw new IOException("Null result when requesting file creation.");
@@ -120,7 +120,8 @@ public class DriveServiceHelper {
     public Intent createFilePickerIntent() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("text/plain");
+//        intent.setType("text/plain");
+        intent.setType("audio/mpeg");
 
         return intent;
     }

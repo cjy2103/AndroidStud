@@ -21,6 +21,7 @@ import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.DriveScopes;
 
+import java.io.File;
 import java.util.Collections;
 
 
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> signResultLauncher;
 
     private DriveServiceHelper mDriveServiceHelper;
+
+    private Drive mDriveService;
 
 
 
@@ -68,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         Uri uri = result.getData().getData();
+//                        File file = mDriveService.files().
+//                        createFile();
                         if (uri != null) {
 
                             openFileFromFilePicker(uri);
@@ -112,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                     // The DriveServiceHelper encapsulates all REST API and SAF functionality.
                     // Its instantiation is required before handling any onClick actions.
                     mDriveServiceHelper = new DriveServiceHelper(googleDriveService);
+                    mDriveService = googleDriveService;
                     openFilePicker();
 //                    createFile();
                 })
@@ -141,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                         String name = nameAndContent.first;
                         String content = nameAndContent.second;
 
-                        mDriveService.files()
+
                         Log.v(TAG,"여기서 작업?"+name+".....//!!!!"+content);
 //                        createFile();
 //                        mFileTitleEditText.setText(name);
@@ -172,10 +178,6 @@ public class MainActivity extends AppCompatActivity {
 
             mDriveServiceHelper.readFile(fileId)
                     .addOnSuccessListener(nameAndContent -> {
-                        String name = nameAndContent.first;
-                        String content = nameAndContent.second;
-
-                        Log.v(TAG,"여기서 작업?"+name+".....//!!!!"+content+"Id:"+fileId);
 //                        mFileTitleEditText.setText(name);
 //                        mDocContentEditText.setText(content);
 
