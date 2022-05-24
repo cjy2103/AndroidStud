@@ -4,12 +4,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.AlbumListAdapter;
 import com.example.myapplication.databinding.ActivityAlbumListBinding;
+import com.example.myapplication.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,6 +34,8 @@ public class AlbumListActivity extends AppCompatActivity {
         listAdd();
 
         adapterConnection();
+
+        gridItemClick();
     }
 
     private void viewBinding(){
@@ -57,10 +62,14 @@ public class AlbumListActivity extends AppCompatActivity {
         binding.recyclerGird.setAdapter(adapter);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    private void gridItemClick(){
+        adapter.setOnItemClickListener((v,pos) ->{
+            SharedPreferences sharedPreferences = this.getSharedPreferences("image",MODE_PRIVATE);
+            @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("path",imageList.get(pos));
+            editor.apply();
 
-        if(requestCode == )
+            finish();
+        });
     }
 }

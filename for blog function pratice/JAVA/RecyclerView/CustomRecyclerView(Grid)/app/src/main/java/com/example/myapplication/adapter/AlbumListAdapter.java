@@ -23,6 +23,15 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.View
     private Activity activity;
     private ArrayList<String> imageList;
 
+    public interface OnItemClickListener{
+        void onItemClick(View v, int position);
+    }
+
+    private AlbumListAdapter.OnItemClickListener mListener = null;
+
+    public void setOnItemClickListener(AlbumListAdapter.OnItemClickListener listener){
+        this.mListener = listener;
+    }
 
 
     public AlbumListAdapter(Context context, Activity activity, ArrayList<String> imageList) {
@@ -51,17 +60,29 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.View
         return imageList.size();
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder{
 
         RecyclerGridBinding binding;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             viewBinding();
+
+            itemClick();
         }
 
         private void viewBinding(){
             binding = RecyclerGridBinding.bind(itemView);
+        }
+
+        private void itemClick(){
+            itemView.setOnClickListener(v->{
+                int pos = getBindingAdapterPosition();
+                if(pos != RecyclerView.NO_POSITION){
+                    mListener.onItemClick(v,pos);
+                }
+            });
         }
     }
 }
