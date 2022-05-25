@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for company function practice/Test/DropBox/app/src/main/res/drawable/custom_progress_dialog_background.xml" value="0.315" />
         <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for company function practice/Test/DropBox/app/src/main/res/layout/activity_main.xml" value="0.67" />
+        <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for company function practice/Test/DropBox/app/src/main/res/layout/activity_third_party_file_list.xml" value="0.31302083333333336" />
+        <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for company function practice/Test/DropBox/app/src/main/res/layout/custom_progress_dialog.xml" value="0.67" />
+        <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for company function practice/Test/DropBox/app/src/main/res/layout/recycler_data_row.xml" value="0.67" />
       </map>
     </option>
   </component>
