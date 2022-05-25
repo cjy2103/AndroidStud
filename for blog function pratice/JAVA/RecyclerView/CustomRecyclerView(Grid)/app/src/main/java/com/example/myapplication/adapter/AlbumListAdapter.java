@@ -52,7 +52,6 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.View
         Uri imagePath = Uri.parse("android.resource://" + activity.getPackageName() + "/"
                 + imageList.get(position));
         Glide.with(context).load(imagePath).into(holder.binding.imageView);
-//        holder.binding.imageView.setImageURI(imagePath);
     }
 
     @Override
@@ -64,11 +63,9 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.View
 
         RecyclerGridBinding binding;
 
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             viewBinding();
-
             itemClick();
         }
 

@@ -68,7 +68,7 @@ public class AlbumListActivity extends AppCompatActivity {
             @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("path",imageList.get(pos));
             editor.apply();
-
+            ((MainActivity)MainActivity.context).albumSelectCallback();
             finish();
         });
     }
