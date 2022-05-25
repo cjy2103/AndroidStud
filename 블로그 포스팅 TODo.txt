@@ -68,7 +68,7 @@ ViewPager2 ( v )
 
 Activity 간 메서드 호출 ( v )
 
-RecyclerView(Grid) ( ) 
+RecyclerView(Grid) ( v ) 
 
 BottomSheet
 
