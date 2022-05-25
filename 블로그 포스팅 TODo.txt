@@ -70,6 +70,8 @@ Activity 간 메서드 호출 ( v )
 
 RecyclerView(Grid) ( v ) 
 
+TedPermission( )
+
 BottomSheet
 
 프레그먼트 -> 프래그먼트 이동
@@ -220,3 +222,6 @@ XML 특수문자 출력
 ANR ( v )
 
 Facebook 로그인 관련 오류 / Targeting S+ (version 31 and above) requires that one of FLAG_IMMUTABLE or FLAG_MUTABLE be specified when creating a PendingIntent. ( v )
+
+===== 홍드로이드 예제 마이그레이션 ========
+카메라 예제
