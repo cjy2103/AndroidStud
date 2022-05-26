@@ -7,12 +7,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.dropbox.core.android.Auth;
 import com.dropbox.core.json.JsonReadException;
 import com.dropbox.core.oauth.DbxCredential;
+import com.example.myapplication.BuildConfig;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.example.myapplication.util.LogUtil;
 
 import java.util.List;
 
@@ -59,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void clickLogin(){
         binding.btnLogin.setOnClickListener(v->{
-            Auth.startOAuth2Authentication(this, 드랍박스 API Key 넣으세요); // TODO : 암호화
+            LogUtil.log("값은?"+BuildConfig.MANIFEST_DROPBOX_API_KEY);
+            Auth.startOAuth2Authentication(this, BuildConfig.DROPBOX_API_KEY); // TODO : 암호화
         });
     }
 
