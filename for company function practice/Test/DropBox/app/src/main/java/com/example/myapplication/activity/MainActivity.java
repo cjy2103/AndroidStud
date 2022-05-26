@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void clickLogin(){
         binding.btnLogin.setOnClickListener(v->{
-            LogUtil.log("값은?"+BuildConfig.MANIFEST_DROPBOX_API_KEY);
+            LogUtil.log("값은?"+BuildConfig.DROPBOX_API_KEY);
             Auth.startOAuth2Authentication(this, BuildConfig.DROPBOX_API_KEY); // TODO : 암호화
         });
     }
