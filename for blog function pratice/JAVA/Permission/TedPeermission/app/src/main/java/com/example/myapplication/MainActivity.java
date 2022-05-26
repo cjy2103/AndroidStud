@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         initialize();
 
-          clickEvent();
+        clickEvent();
 
     }
 
@@ -44,30 +44,52 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPermissionDenied(List<String> deniedPermissions) {
-                Toast.makeText(MainActivity.this, "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this
+                        , "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
             }
-
-
         };
     }
 
     private void clickEvent(){
-
-        String str = Manifest.permission.READ_EXTERNAL_STORAGE;
-
-
-        permissionStorage(str);
-
-
+        permissionStorage();
+        permissionMic();
+        permissionCamera();
+        permissionLocation();
     }
 
-    private void permissionStorage(String str){
+    private void permissionStorage(){
         binding.btnStorage.setOnClickListener(v->{
-            TedPermission.create()
-                    .setPermissionListener(permissionlistener)
-                    .setDeniedMessage("If you reject permission,you can not use this service\n\nPlease turn on permissions at [Setting] > [Permission]")
-                    .setPermissions(str)
-                    .check();
+            checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
         });
     }
+
+    private void permissionMic(){
+        binding.btnMic.setOnClickListener(v->{
+            checkPermission(Manifest.permission.RECORD_AUDIO);
+        });
+    }
+
+    private void permissionCamera(){
+        binding.btnCamera.setOnClickListener(v->{
+            checkPermission(Manifest.permission.CAMERA);
+        });
+    }
+
+    private void permissionLocation(){
+        binding.btnLocate.setOnClickListener(v->{
+            checkPermission(Manifest.permission.ACCESS_FINE_LOCATION);
+        });
+
+    }
+
+    private void checkPermission(String permission){
+        TedPermission.create()
+                .setPermissionListener(permissionlistener)
+                .setDeniedMessage("If you reject permission,you can not use this service\n" +
+                        "\nPlease turn on permissions at [Setting] > [Permission]")
+                .setPermissions(permission)
+                .check();
+    }
+
+
 }
