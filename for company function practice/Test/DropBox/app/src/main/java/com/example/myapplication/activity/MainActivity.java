@@ -59,14 +59,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void clickLogin(){
         binding.btnLogin.setOnClickListener(v->{
-            Auth.startOAuth2Authentication(this, "d5biv8gmr1gafhl"); // TODO : 암호화
+            Auth.startOAuth2Authentication(this, 드랍박스 API Key 넣으세요); // TODO : 암호화
         });
     }
 
     private void clickShowList(){
         binding.btnShowList.setOnClickListener(v->{
-//            Intent intent = new Intent(this, ThirdPartyFileListActivity.class); // TODO
-//            startActivity(intent);
+            Intent intent = new Intent(this, ThirdPartyFileListActivity.class); // TODO
+            startActivity(intent);
         });
     }
 

@@ -20,7 +20,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".ThirdPartyFileListActivity"
+            android:name=".activity.ThirdPartyFileListActivity"
             android:exported="false" />
         <activity
             android:name=".activity.MainActivity"
@@ -31,6 +31,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.dropbox.core.android.AuthActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:exported="true">
+            <intent-filter>
+
+                <!-- Change this to be db- followed by your app key -->
+                <data android:scheme="db-드랍박스 API Key 넣으세요" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
+
     </application>
 
 </manifest>

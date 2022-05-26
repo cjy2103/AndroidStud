@@ -11,7 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dropbox.core.v2.files.Metadata;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.RecyclerDataRowBinding;
+import com.example.myapplication.util.LogUtil;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FileRecyclerAdapter extends RecyclerView.Adapter<FileRecyclerAdapter.ViewHolder>{
@@ -21,7 +24,8 @@ public class FileRecyclerAdapter extends RecyclerView.Adapter<FileRecyclerAdapte
 
     public FileRecyclerAdapter(Context context, List fileList) {
         this.context = context;
-        this.fileList = fileList;
+        this.fileList = Collections.unmodifiableList(new ArrayList<>(fileList));
+        LogUtil.log("크기뭔데?"+fileList.size());
     }
 
     public interface OnItemClickListener{
@@ -45,6 +49,7 @@ public class FileRecyclerAdapter extends RecyclerView.Adapter<FileRecyclerAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Metadata item = (Metadata) fileList.get(position);
         String name = item.getName();
+        LogUtil.log("이름뭔데?"+item.getName());
         holder.binding.tvMain.setText(name);
     }
 
