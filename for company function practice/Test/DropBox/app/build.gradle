@@ -20,8 +20,6 @@ android {
 
         buildConfigField "String", "DROPBOX_API_KEY", properties['dropbox_api_key']
 
-//        buildConfigField "String", "MANIFEST_DROPBOX_API_KEY", properties['"manifest_dropbox_api_key"']
-
         manifestPlaceholders  = [MANIFEST_DROPBOX_API_KEY: manifest_dropbox_api_key]
 
     }

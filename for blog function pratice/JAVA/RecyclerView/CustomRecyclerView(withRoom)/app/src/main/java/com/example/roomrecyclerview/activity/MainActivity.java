@@ -16,9 +16,6 @@ import com.example.roomrecyclerview.util.LogUtil;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    @SuppressLint("StaticFieldLeak")
-    public static Context context;
-    private boolean state = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,24 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         clickInsert();
 
-        context = this;
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if(state){
-            binding.tvTitle.setText("바뀔까?");
-        } else {
-            Toast.makeText(context, "state는 false 상태", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        state = false;
     }
 
     private void viewBinding(){
@@ -59,7 +38,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void test(){
-        state = true;
-    }
 }

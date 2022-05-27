@@ -5,29 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.roomrecyclerview.R;
-import com.example.roomrecyclerview.databinding.ActivityInsertBinding;
+import com.example.roomrecyclerview.databinding.ActivityLocalImageSelectBinding;
 
-public class InsertActivity extends AppCompatActivity {
+public class LocalImageSelectActivity extends AppCompatActivity {
 
-    private ActivityInsertBinding binding;
+    private ActivityLocalImageSelectBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewBinding();
-
-        clickInsert();
-
     }
 
     private void viewBinding(){
-        binding = ActivityInsertBinding.inflate(getLayoutInflater());
+        binding = ActivityLocalImageSelectBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
     }
 
-    private void clickInsert(){
-        binding.btnInsert.setOnClickListener(v->{
 
-        });
-    }
 }
