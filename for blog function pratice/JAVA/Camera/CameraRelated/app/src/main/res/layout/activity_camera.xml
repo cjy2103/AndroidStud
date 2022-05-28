@@ -20,6 +20,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="사진 촬영"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/font_maple"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btn_cancel"
         app:layout_constraintStart_toStartOf="parent" />
@@ -29,6 +31,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="취소"
+        android:fontFamily="@font/font_maple"
+        android:background="@drawable/custom_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_photo" />

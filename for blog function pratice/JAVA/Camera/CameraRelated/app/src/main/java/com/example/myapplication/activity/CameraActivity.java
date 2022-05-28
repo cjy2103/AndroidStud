@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityCameraBinding;
+import com.example.myapplication.util.SystemUtil;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.File;
@@ -33,6 +34,7 @@ public class CameraActivity extends AppCompatActivity {
     private Context mContext;
     private ListenableFuture<ProcessCameraProvider> cameraProviderListenableFuture;
     private ImageCapture imageCapture;
+    private SystemUtil systemUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,8 @@ public class CameraActivity extends AppCompatActivity {
 
     private void initialize(){
         mContext = this;
+        systemUtil = new SystemUtil();
+        systemUtil.sofNavigationBarHide(getWindow());
 
         cameraProviderListenableFuture = ProcessCameraProvider.getInstance(this);
 
@@ -129,12 +133,12 @@ public class CameraActivity extends AppCompatActivity {
         imageCapture.takePicture(
 //                new ImageCapture.OutputFileOptions.Builder(photoFile).build(), // Android X 부터 사용 불가
                 new ImageCapture.OutputFileOptions.Builder(
-                        getContentResolver(),
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                        contentValues
-                        ).build(),
-                getMainExecutor(),
-                new ImageCapture.OnImageSavedCallback(){
+                          getContentResolver()
+                        , MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                        , contentValues
+                        ).build()
+                , getMainExecutor()
+                , new ImageCapture.OnImageSavedCallback(){
                     @Override
                     public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                         Toast.makeText(mContext, "사진이 정상적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
