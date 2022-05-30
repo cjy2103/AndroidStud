@@ -109,21 +109,6 @@ public class CameraActivity extends AppCompatActivity {
     }
 
     private void capturePhoto(){
-        // Android OS 10 이상 부터는 아래 코드 작동 불가
-//        (사유 : Google에서 더이상 외부저장소 파일 생성 X MedioStore를 이용해서 생성하라고 함.)
-//        File photoDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-//        File saveDir = new File(photoDir, "CameraXDir");
-//
-//        if(!saveDir.exists()){
-//            saveDir.mkdir();
-//        }
-//
-//        Date date = new Date();
-//        String timestamp = String.valueOf(date.getTime());
-//        String photoFilePath = saveDir.getAbsolutePath() + "/" + timestamp + ".jpg";
-//
-//        File photoFile = new File(photoFilePath);
-
         long timeStamp = System.currentTimeMillis();
 
         ContentValues contentValues = new ContentValues();
@@ -131,7 +116,6 @@ public class CameraActivity extends AppCompatActivity {
         contentValues.put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg");
 
         imageCapture.takePicture(
-//                new ImageCapture.OutputFileOptions.Builder(photoFile).build(), // Android X 부터 사용 불가
                 new ImageCapture.OutputFileOptions.Builder(
                           getContentResolver()
                         , MediaStore.Images.Media.EXTERNAL_CONTENT_URI

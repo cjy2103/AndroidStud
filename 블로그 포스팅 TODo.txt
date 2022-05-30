@@ -75,6 +75,8 @@ TedPermission( v )
 액티비티 -> 다이얼로그 값넘기기  ( v )
 다이얼로그 -> 액티비티 값 넘기기 ( v )
 
+CameraX ( 사진촬영 ) ( v )
+
 BottomSheet
 
 프레그먼트 -> 프래그먼트 이동
@@ -223,4 +225,4 @@ ANR ( v )
 Facebook 로그인 관련 오류 / Targeting S+ (version 31 and above) requires that one of FLAG_IMMUTABLE or FLAG_MUTABLE be specified when creating a PendingIntent. ( v )
 
 ===== 홍드로이드 예제 마이그레이션 ========
-카메라 예제
+카메라 예제 -> 내부 카메라 이용
