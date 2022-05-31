@@ -25,7 +25,7 @@ import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
 
-public class VideoRecordingActivity extends AppCompatActivity implements ImageAnalysis.Analyzer {
+public class VideoRecordingActivity extends AppCompatActivity {
 
     private ActivityVideoRecordingBinding binding;
 
@@ -33,7 +33,6 @@ public class VideoRecordingActivity extends AppCompatActivity implements ImageAn
     private ListenableFuture<ProcessCameraProvider> cameraProviderListenableFuture;
     private ImageCapture imageCapture;
     private VideoCapture videoCapture;
-    private ImageAnalysis imageAnalsis;
     private SystemUtil systemUtil;
 
     @Override
@@ -98,13 +97,9 @@ public class VideoRecordingActivity extends AppCompatActivity implements ImageAn
                 .setVideoFrameRate(30)
                         .build();
 
-        imageAnalsis = new ImageAnalysis.Builder()
-                .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
-                        .build();
-
-
         cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture, videoCapture);
     }
+
 
     @SuppressLint({"MissingPermission", "RestrictedApi"})
     private void clickVideo(){
@@ -149,12 +144,5 @@ public class VideoRecordingActivity extends AppCompatActivity implements ImageAn
         binding.btnCancel.setOnClickListener(v->{
             finish();
         });
-    }
-
-    @Override
-    public void analyze(@NonNull ImageProxy image) {
-        // image processing here for the current frame
-        LogUtil.log("analyze : got the frame at : " + image.getImageInfo().getTimestamp());
-        image.close();
     }
 }

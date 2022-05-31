@@ -76,6 +76,7 @@ TedPermission( v )
 다이얼로그 -> 액티비티 값 넘기기 ( v )
 
 CameraX ( 사진촬영 ) ( v )
+CameraX ( 비디오 촬영) ( v )
 
 BottomSheet
 
