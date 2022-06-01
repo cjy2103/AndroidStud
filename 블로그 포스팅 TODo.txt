@@ -76,6 +76,7 @@ TedPermission( v )
 다이얼로그 -> 액티비티 값 넘기기 ( v )
 
 CameraX ( 사진촬영 ) ( v )
+CameraX ( 비디오 촬영) ( v )
 
 BottomSheet
 
@@ -223,6 +224,12 @@ XML 특수문자 출력
 ANR ( v )
 
 Facebook 로그인 관련 오류 / Targeting S+ (version 31 and above) requires that one of FLAG_IMMUTABLE or FLAG_MUTABLE be specified when creating a PendingIntent. ( v )
+
+Room Error Looks like you've changed schema but forgot to update the version number ( v )
+
+CameraX error - Failed to write temp file ( v )
+
+CameraX error - CameraX is not configured properly ( v )
 
 ===== 홍드로이드 예제 마이그레이션 ========
 카메라 예제 -> 내부 카메라 이용
