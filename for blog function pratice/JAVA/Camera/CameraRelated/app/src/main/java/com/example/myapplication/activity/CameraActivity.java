@@ -2,6 +2,7 @@ package com.example.myapplication.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
@@ -12,8 +13,12 @@ import androidx.lifecycle.LifecycleOwner;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.media.MediaActionSound;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.widget.Toast;
 
@@ -35,6 +40,9 @@ public class CameraActivity extends AppCompatActivity {
     private ListenableFuture<ProcessCameraProvider> cameraProviderListenableFuture;
     private ImageCapture imageCapture;
     private SystemUtil systemUtil;
+    private Camera cam;
+    private MediaActionSound sound;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +74,8 @@ public class CameraActivity extends AppCompatActivity {
         systemUtil.sofNavigationBarHide(getWindow());
 
         cameraProviderListenableFuture = ProcessCameraProvider.getInstance(this);
+
+        sound = new MediaActionSound();
 
         cameraAddListener();
     }
@@ -99,7 +109,8 @@ public class CameraActivity extends AppCompatActivity {
                 .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
                 .build();
 
-        cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture);
+        cam = cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture);
+
     }
 
     private void clickPhoto(){
@@ -126,12 +137,24 @@ public class CameraActivity extends AppCompatActivity {
                     @Override
                     public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                         Toast.makeText(mContext, "사진이 정상적으로 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                        if(cam.getCameraInfo().hasFlashUnit()){
+                            cam.getCameraControl().enableTorch(true);
+                        }
+                        sound.play(MediaActionSound.SHUTTER_CLICK);
+                        runOnUiThread(()->{
+                            new Handler(Looper.myLooper()).postDelayed(() ->{
+                                cam.getCameraControl().enableTorch(false);
+                            },100);
+                        });
+
+
                     }
 
                     @Override
                     public void onError(@NonNull ImageCaptureException exception) {
                         Toast.makeText(mContext, "사진 저장에 실패했습니다 사유 : " +
                                 exception.getMessage(), Toast.LENGTH_SHORT).show();
+                        cam.getCameraControl().enableTorch(false);
                     }
                 }
         );
