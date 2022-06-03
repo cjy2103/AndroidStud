@@ -14,6 +14,7 @@ import com.example.roomrecyclerview.R;
 import com.example.roomrecyclerview.activity.adapter.LocalAlbumListAdapter;
 import com.example.roomrecyclerview.activity.dialog.ImageSelectDialog;
 import com.example.roomrecyclerview.databinding.ActivityLocalImageSelectBinding;
+import com.example.roomrecyclerview.util.SystemUtil;
 
 import java.util.ArrayList;
 
@@ -22,6 +23,7 @@ public class LocalImageSelectActivity extends AppCompatActivity {
     private ActivityLocalImageSelectBinding binding;
     private ArrayList<String> imageList;
     private LocalAlbumListAdapter adapter;
+    private SystemUtil systemUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,13 @@ public class LocalImageSelectActivity extends AppCompatActivity {
         gridItemClick();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        systemUtil.sofNavigationBarHide(getWindow());
+        systemUtil.statusbarSetting(getWindow(),this, binding.consLocal);
+    }
+
     private void viewBinding(){
         binding = ActivityLocalImageSelectBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -44,6 +53,8 @@ public class LocalImageSelectActivity extends AppCompatActivity {
 
     private void initialize(){
         imageList = new ArrayList<>();
+
+        systemUtil = new SystemUtil();
 
         Typeface tfMapleLigth = getResources().getFont(R.font.maplestory_light);
         binding.tvTitle.setTypeface(tfMapleLigth);
@@ -71,7 +82,7 @@ public class LocalImageSelectActivity extends AppCompatActivity {
             SharedPreferences sharedPreferences = this.getSharedPreferences("image",MODE_PRIVATE);
             @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putString("path",imageList.get(position));
-            editor.putBoolean("imageSelect",true);
+            editor.putBoolean("localSelect",true);
             editor.apply();
             finish();
 

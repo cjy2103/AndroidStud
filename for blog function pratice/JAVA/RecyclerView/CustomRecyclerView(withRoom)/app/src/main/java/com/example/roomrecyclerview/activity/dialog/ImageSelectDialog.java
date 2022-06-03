@@ -5,11 +5,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -26,6 +29,8 @@ public class ImageSelectDialog extends DialogFragment {
     private Context mContext;
     private Activity mActivity;
     private InsertActivity insertActivity;
+    private ActivityResultLauncher<Intent> resultLauncher;
+    private int imageCase = 0;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -44,7 +49,16 @@ public class ImageSelectDialog extends DialogFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        insertActivity.albumSelectCallback(true);
+        switch (imageCase){
+            case 0 :
+                break;
+            case 1 :
+                insertActivity.albumSelectCallback(true);
+                break;
+            case 2 :
+                insertActivity.albumSelectCallback(false);
+                break;
+        }
     }
 
     @Nullable
@@ -57,11 +71,12 @@ public class ImageSelectDialog extends DialogFragment {
     public void onResume() {
         super.onResume();
         SharedPreferences sharedPreferences = mActivity.getSharedPreferences("image",Context.MODE_PRIVATE);
-        boolean itemClick = sharedPreferences.getBoolean("imageSelect",false);
-        if(itemClick){
+        boolean localImageGet = sharedPreferences.getBoolean("localSelect",false);
+        if(localImageGet){
             @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean("imageSelect",false);
+            editor.putBoolean("localSelect",false);
             editor.apply();
+            imageCase = 1;
             dismiss();
         }
     }
@@ -75,21 +90,38 @@ public class ImageSelectDialog extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        dataLoad();
+        initilaize();
 
         clickClose();
 
         clickLocal();
 
-
-        insertActivity = (InsertActivity)mActivity;
-
+        clickGallery();
     }
 
-    private void dataLoad(){
-        assert getArguments() != null;
-        String test = getArguments().getString("Test");
-        LogUtil.log("값있나?"+test);
+    private void initilaize(){
+        insertActivity = (InsertActivity)mActivity;
+        galleryCallback();
+    }
+
+    private void galleryCallback(){
+        resultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(), result ->{
+                    if(result.getResultCode() == Activity.RESULT_OK){
+                        if(result.getData() == null){
+                            return;
+                        }
+                        String imagePath = result.getData().getDataString();
+                        LogUtil.log("이미지 경로:"+imagePath);
+                        SharedPreferences sharedPreferences = mContext.getSharedPreferences("image",Context.MODE_PRIVATE);
+                        @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("path",imagePath);
+                        editor.apply();
+                        imageCase = 2;
+                        dismiss();
+                    }
+                }
+        );
     }
 
     private void clickClose(){
@@ -103,6 +135,15 @@ public class ImageSelectDialog extends DialogFragment {
         binding.btnLocal.setOnClickListener(v->{
             Intent intent = new Intent(mContext, LocalImageSelectActivity.class);
             startActivity(intent);
+        });
+    }
+
+    private void clickGallery(){
+        binding.btnGallerty.setOnClickListener(v->{
+            Intent intent = new Intent();
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            resultLauncher.launch(intent);
         });
     }
 }

@@ -9,20 +9,22 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.roomrecyclerview.R;
 import com.example.roomrecyclerview.activity.dialog.ImageSelectDialog;
 import com.example.roomrecyclerview.databinding.ActivityInsertBinding;
 import com.example.roomrecyclerview.util.LogUtil;
+import com.example.roomrecyclerview.util.SystemUtil;
 
 public class InsertActivity extends AppCompatActivity {
 
     private ActivityInsertBinding binding;
 
     public static Context context;
-    private boolean imageCallback = false;
-    private boolean localCallback = false;
+
+    private SystemUtil systemUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,18 +33,23 @@ public class InsertActivity extends AppCompatActivity {
 
         initialize();
 
-        clickInsert();
+        clickImageInsert();
+
+        clickCancel();
+
+        clickSave();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        systemUtil.sofNavigationBarHide(getWindow());
+        systemUtil.statusbarSetting(getWindow(),this, binding.consInsert);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        imageCallback = false;
     }
 
     private void viewBinding(){
@@ -52,26 +59,45 @@ public class InsertActivity extends AppCompatActivity {
 
     private void initialize(){
         context = this;
+        systemUtil = new SystemUtil();
     }
 
-    private void clickInsert(){
+    private void clickImageInsert(){
         binding.btnInsert.setOnClickListener(v->{
             FragmentManager fragmentManager = getSupportFragmentManager();
 
             DialogFragment dialogFragment = new ImageSelectDialog();
-            Bundle bundle = new Bundle();
-            bundle.putString("Test","테스트");
-            dialogFragment.setArguments(bundle);
             dialogFragment.show(fragmentManager,"Dialog");
         });
     }
 
-    public void albumSelectCallback(boolean call){
+    public void albumSelectCallback(boolean localImage){
         SharedPreferences sharedPreferences = this.getSharedPreferences("image",MODE_PRIVATE);
         String path = sharedPreferences.getString("path","");
         if(!path.isEmpty()){
-            Uri image = Uri.parse("android.resource://" + this.getPackageName() + "/" + path);
-            Glide.with(this).load(image).into(binding.imageView);
+            Uri image;
+            if(localImage){
+                image = Uri.parse("android.resource://" + this.getPackageName() + "/" + path);
+            } else {
+                image = Uri.parse(path);
+            }
+            Glide.with(this).load(image).into(binding.ivImage);
         }
+    }
+
+    private void clickCancel(){
+        binding.btnCancel.setOnClickListener(v->{
+            finish();
+        });
+    }
+
+    private void clickSave(){
+        binding.btnSave.setOnClickListener(v->{
+            String name = binding.edtName.getText().toString();
+            String describe = binding.edtDescribe.getText().toString();
+            if(name.length() == 0 || describe.length() == 0){
+                Toast.makeText(this, "이름과 설명은 필수입력 사항입니다.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
