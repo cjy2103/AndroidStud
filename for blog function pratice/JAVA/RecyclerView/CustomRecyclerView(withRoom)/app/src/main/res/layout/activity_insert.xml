@@ -115,4 +115,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/edt_name"
         app:layout_constraintEnd_toStartOf="@+id/edt_name"
         app:layout_constraintTop_toTopOf="@+id/edt_name" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/font_korean"
+        android:text="필수"
+        android:textColor="#F80000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edt_describe"
+        app:layout_constraintEnd_toStartOf="@+id/edt_name"
+        app:layout_constraintTop_toTopOf="@+id/edt_describe" />
 </androidx.constraintlayout.widget.ConstraintLayout>
