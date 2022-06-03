@@ -2,17 +2,12 @@ package com.example.roomrecyclerview.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.example.roomrecyclerview.R;
 import com.example.roomrecyclerview.databinding.ActivityMainBinding;
-import com.example.roomrecyclerview.util.LogUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         viewBinding();
 
 
-        Typeface tfMapleLight = getResources().getFont(R.font.font_maple_change);
+        Typeface tfMapleLight = getResources().getFont(R.font.font_english);
         binding.tvTitle.setTypeface(tfMapleLight);
 
         clickInsert();

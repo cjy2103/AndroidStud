@@ -1,11 +1,18 @@
 package com.example.roomrecyclerview.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.os.Bundle;
 
 import com.example.roomrecyclerview.R;
+import com.example.roomrecyclerview.activity.adapter.LocalAlbumListAdapter;
+import com.example.roomrecyclerview.activity.dialog.ImageSelectDialog;
 import com.example.roomrecyclerview.databinding.ActivityLocalImageSelectBinding;
 
 import java.util.ArrayList;
@@ -14,6 +21,7 @@ public class LocalImageSelectActivity extends AppCompatActivity {
 
     private ActivityLocalImageSelectBinding binding;
     private ArrayList<String> imageList;
+    private LocalAlbumListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +29,12 @@ public class LocalImageSelectActivity extends AppCompatActivity {
         viewBinding();
 
         initialize();
+
+        listAdd();
+
+        adapterConnection();
+
+        gridItemClick();
     }
 
     private void viewBinding(){
@@ -33,8 +47,35 @@ public class LocalImageSelectActivity extends AppCompatActivity {
 
         Typeface tfMapleLigth = getResources().getFont(R.font.maplestory_light);
         binding.tvTitle.setTypeface(tfMapleLigth);
+
+        imageList = new ArrayList<>();
+        binding.recyclerImage.setLayoutManager(new GridLayoutManager(this, 2));
     }
 
+    private void listAdd(){
+        String imageUri = "drawable://";
+        imageList.add(imageUri + R.drawable.baknana);
+        imageList.add(imageUri + R.drawable.djmax_clear_fail);
+        imageList.add(imageUri + R.drawable.djmax_falling_in_love);
+        imageList.add(imageUri + R.drawable.mwama);
+        imageList.add(imageUri + R.drawable.tamtam);
+    }
 
+    private void adapterConnection(){
+        adapter = new LocalAlbumListAdapter(this, this, imageList);
+        binding.recyclerImage.setAdapter(adapter);
+    }
+
+    private void gridItemClick(){
+        adapter.setOnItemClickListener((v, position) ->{
+            SharedPreferences sharedPreferences = this.getSharedPreferences("image",MODE_PRIVATE);
+            @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("path",imageList.get(position));
+            editor.putBoolean("imageSelect",true);
+            editor.apply();
+            finish();
+
+        });
+    }
 
 }

@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".LocalImageSelect"
+            android:name=".activity.LocalImageSelectActivity"
             android:exported="false" />
         <activity
             android:name=".activity.InsertActivity"

@@ -1,8 +1,10 @@
 package com.example.roomrecyclerview.activity.dialog;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,13 +44,26 @@ public class ImageSelectDialog extends DialogFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        insertActivity.test();
+        insertActivity.albumSelectCallback(true);
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return viewBinding(inflater, container, savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = mActivity.getSharedPreferences("image",Context.MODE_PRIVATE);
+        boolean itemClick = sharedPreferences.getBoolean("imageSelect",false);
+        if(itemClick){
+            @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("imageSelect",false);
+            editor.apply();
+            dismiss();
+        }
     }
 
     private View viewBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
