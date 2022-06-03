@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -15,8 +16,13 @@ import com.bumptech.glide.Glide;
 import com.example.roomrecyclerview.R;
 import com.example.roomrecyclerview.activity.dialog.ImageSelectDialog;
 import com.example.roomrecyclerview.databinding.ActivityInsertBinding;
+import com.example.roomrecyclerview.room.Data;
+import com.example.roomrecyclerview.room.RoomDB;
 import com.example.roomrecyclerview.util.LogUtil;
 import com.example.roomrecyclerview.util.SystemUtil;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class InsertActivity extends AppCompatActivity {
 
@@ -25,6 +31,9 @@ public class InsertActivity extends AppCompatActivity {
     public static Context context;
 
     private SystemUtil systemUtil;
+
+    private RoomDB roomDB;
+    private Data data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +69,9 @@ public class InsertActivity extends AppCompatActivity {
     private void initialize(){
         context = this;
         systemUtil = new SystemUtil();
+
+        roomDB = RoomDB.getInstance(this);
+        data = new Data();
     }
 
     private void clickImageInsert(){
@@ -93,11 +105,27 @@ public class InsertActivity extends AppCompatActivity {
 
     private void clickSave(){
         binding.btnSave.setOnClickListener(v->{
-            String name = binding.edtName.getText().toString();
+            String name = binding.edtTitle.getText().toString();
             String describe = binding.edtDescribe.getText().toString();
             if(name.length() == 0 || describe.length() == 0){
                 Toast.makeText(this, "이름과 설명은 필수입력 사항입니다.", Toast.LENGTH_SHORT).show();
+            } else {
+                dbInsert();
             }
         });
+    }
+
+    @SuppressLint("CheckResult")
+    private void dbInsert(){
+        data.setTitle(binding.edtTitle.getText().toString());
+        data.setDescribe(binding.edtDescribe.getText().toString());
+        data.setYoutubeLink(binding.edtYoutubeLink.getText().toString());
+
+        roomDB.dataDao().insert(data).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(()->{
+                    Toast.makeText(this, "데이터 저장이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                    finish();
+                });
     }
 }

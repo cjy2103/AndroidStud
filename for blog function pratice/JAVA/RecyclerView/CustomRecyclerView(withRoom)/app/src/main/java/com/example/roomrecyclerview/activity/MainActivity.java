@@ -22,10 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
         initialize();
 
-
-        Typeface tfMapleLight = getResources().getFont(R.font.font_english);
-        binding.tvTitle.setTypeface(tfMapleLight);
-
         clickInsert();
 
     }
@@ -44,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initialize(){
         systemUtil = new SystemUtil();
+
+        Typeface tfMapleLight = getResources().getFont(R.font.font_english);
+        binding.tvTitle.setTypeface(tfMapleLight);
     }
 
     private void clickInsert(){
