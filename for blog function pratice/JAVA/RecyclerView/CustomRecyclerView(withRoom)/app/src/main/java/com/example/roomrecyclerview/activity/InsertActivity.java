@@ -35,6 +35,8 @@ public class InsertActivity extends AppCompatActivity {
     private RoomDB roomDB;
     private Data data;
 
+    private String imageCase = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,8 +92,10 @@ public class InsertActivity extends AppCompatActivity {
             Uri image;
             if(localImage){
                 image = Uri.parse("android.resource://" + this.getPackageName() + "/" + path);
+                imageCase = "Local";
             } else {
                 image = Uri.parse(path);
+                imageCase = "Gallery";
             }
             Glide.with(this).load(image).into(binding.ivImage);
         }
@@ -120,6 +124,7 @@ public class InsertActivity extends AppCompatActivity {
         data.setTitle(binding.edtTitle.getText().toString());
         data.setDescribe(binding.edtDescribe.getText().toString());
         data.setYoutubeLink(binding.edtYoutubeLink.getText().toString());
+        data.setImageCase(imageCase);
 
         roomDB.dataDao().insert(data).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

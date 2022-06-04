@@ -14,6 +14,8 @@ public class Data {
     private String describe;
     @ColumnInfo
     private String youtubeLink;
+    @ColumnInfo
+    private String imageCase;
 
     @NonNull
     public String getTitle() {
@@ -40,5 +42,11 @@ public class Data {
         this.youtubeLink = youtubeLink;
     }
 
+    public String getImageCase() {
+        return imageCase;
+    }
 
+    public void setImageCase(String imageCase) {
+        this.imageCase = imageCase;
+    }
 }

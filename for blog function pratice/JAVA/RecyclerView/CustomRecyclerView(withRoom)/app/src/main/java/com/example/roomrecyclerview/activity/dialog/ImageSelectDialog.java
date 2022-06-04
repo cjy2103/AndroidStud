@@ -44,41 +44,13 @@ public class ImageSelectDialog extends DialogFragment {
         super.onDetach();
         mContext = null;
         mActivity = null;
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        switch (imageCase){
-            case 0 :
-                break;
-            case 1 :
-                insertActivity.albumSelectCallback(true);
-                break;
-            case 2 :
-                insertActivity.albumSelectCallback(false);
-                break;
-        }
+        binding = null;
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return viewBinding(inflater, container, savedInstanceState);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        SharedPreferences sharedPreferences = mActivity.getSharedPreferences("image",Context.MODE_PRIVATE);
-        boolean localImageGet = sharedPreferences.getBoolean("localSelect",false);
-        if(localImageGet){
-            @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean("localSelect",false);
-            editor.apply();
-            imageCase = 1;
-            dismiss();
-        }
     }
 
     private View viewBinding(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -98,6 +70,36 @@ public class ImageSelectDialog extends DialogFragment {
 
         clickGallery();
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sharedPreferences = mActivity.getSharedPreferences("image",Context.MODE_PRIVATE);
+        boolean localImageGet = sharedPreferences.getBoolean("localSelect",false);
+        if(localImageGet){
+            @SuppressLint("CommitPrefEdits") SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putBoolean("localSelect",false);
+            editor.apply();
+            imageCase = 1;
+            dismiss();
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        switch (imageCase){
+            case 0 :
+                break;
+            case 1 :
+                insertActivity.albumSelectCallback(true);
+                break;
+            case 2 :
+                insertActivity.albumSelectCallback(false);
+                break;
+        }
+    }
+
 
     private void initilaize(){
         insertActivity = (InsertActivity)mActivity;
