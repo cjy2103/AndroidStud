@@ -136,6 +136,7 @@ public class InsertActivity extends AppCompatActivity {
                     Toast.makeText(this, "데이터 저장이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                     check();
                     finish();
+                    ((MainActivity)MainActivity.context).mainRecyclerRefresh();
                 });
     }
 

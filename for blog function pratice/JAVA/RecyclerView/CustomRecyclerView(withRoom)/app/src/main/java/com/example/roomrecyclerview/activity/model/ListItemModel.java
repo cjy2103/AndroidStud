@@ -7,6 +7,7 @@ public class ListItemModel implements Serializable{
     private String describe;
     private String uri;
     private String channelLink;
+    private String imageCase;
 
     public String getTitle() {
         return title;
@@ -38,5 +39,13 @@ public class ListItemModel implements Serializable{
 
     public void setChannelLink(String channelLink) {
         this.channelLink = channelLink;
+    }
+
+    public String getImageCase() {
+        return imageCase;
+    }
+
+    public void setImageCase(String imageCase) {
+        this.imageCase = imageCase;
     }
 }
