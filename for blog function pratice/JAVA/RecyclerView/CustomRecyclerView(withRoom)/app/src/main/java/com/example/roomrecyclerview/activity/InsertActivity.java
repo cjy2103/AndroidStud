@@ -37,6 +37,9 @@ public class InsertActivity extends AppCompatActivity {
 
     private String imageCase = "";
 
+    private String imagePath;
+    private String str = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,14 +90,14 @@ public class InsertActivity extends AppCompatActivity {
 
     public void albumSelectCallback(boolean localImage){
         SharedPreferences sharedPreferences = this.getSharedPreferences("image",MODE_PRIVATE);
-        String path = sharedPreferences.getString("path","");
-        if(!path.isEmpty()){
+        imagePath = sharedPreferences.getString("path","");
+        if(!imagePath.isEmpty()){
             Uri image;
             if(localImage){
-                image = Uri.parse("android.resource://" + this.getPackageName() + "/" + path);
+                image = Uri.parse("android.resource://" + this.getPackageName() + "/" + imagePath);
                 imageCase = "Local";
             } else {
-                image = Uri.parse(path);
+                image = Uri.parse(imagePath);
                 imageCase = "Gallery";
             }
             Glide.with(this).load(image).into(binding.ivImage);
@@ -124,13 +127,28 @@ public class InsertActivity extends AppCompatActivity {
         data.setTitle(binding.edtTitle.getText().toString());
         data.setDescribe(binding.edtDescribe.getText().toString());
         data.setYoutubeLink(binding.edtYoutubeLink.getText().toString());
+        data.setImagePath(imagePath);
         data.setImageCase(imageCase);
 
         roomDB.dataDao().insert(data).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(()->{
                     Toast.makeText(this, "데이터 저장이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                    check();
                     finish();
+                });
+    }
+
+    @SuppressLint("CheckResult")
+    private void check(){
+        roomDB.dataDao().getAll().subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(item -> {
+                    for (Data data : item) {
+                        str += data.toString();
+                    }
+                    LogUtil.log("값이 있나..."+str);
+                    str = "";
                 });
     }
 }

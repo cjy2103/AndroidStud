@@ -59,4 +59,14 @@ public class Data {
     public void setImageCase(String imageCase) {
         this.imageCase = imageCase;
     }
+
+    public String toString(){
+        return "메시지 : {" +
+                "title =" + title +
+                "describe =" + describe +
+                "youtubeLink =" + youtubeLink +
+                "imagePath =" + imagePath +
+                "imageCase =" + imageCase + '\'' +
+                '}';
+    }
 }
