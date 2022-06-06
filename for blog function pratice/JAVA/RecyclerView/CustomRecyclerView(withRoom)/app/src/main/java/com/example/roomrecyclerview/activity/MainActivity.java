@@ -8,12 +8,17 @@ import android.os.Bundle;
 
 import com.example.roomrecyclerview.R;
 import com.example.roomrecyclerview.databinding.ActivityMainBinding;
+import com.example.roomrecyclerview.room.Data;
+import com.example.roomrecyclerview.room.RoomDB;
 import com.example.roomrecyclerview.util.SystemUtil;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private SystemUtil systemUtil;
+
+    private RoomDB roomDB;
+    private Data data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

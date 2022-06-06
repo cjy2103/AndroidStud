@@ -15,6 +15,8 @@ public class Data {
     @ColumnInfo
     private String youtubeLink;
     @ColumnInfo
+    private String imagePath;
+    @ColumnInfo
     private String imageCase;
 
     @NonNull
@@ -40,6 +42,14 @@ public class Data {
 
     public void setYoutubeLink(String youtubeLink) {
         this.youtubeLink = youtubeLink;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public String getImageCase() {

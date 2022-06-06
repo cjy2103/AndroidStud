@@ -17,7 +17,8 @@ public abstract class RoomDB extends RoomDatabase {
         if(INSTANCE == null){
             synchronized (RoomDB.class){
                 if(INSTANCE == null){
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(), RoomDB.class, DATABASE_NAME).build();
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext()
+                            , RoomDB.class, DATABASE_NAME).build();
                 }
             }
         }
