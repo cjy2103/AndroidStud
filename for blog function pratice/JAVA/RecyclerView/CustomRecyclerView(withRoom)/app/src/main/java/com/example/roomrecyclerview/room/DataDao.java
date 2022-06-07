@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -18,5 +19,7 @@ public interface DataDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     Completable insert(Data... data);
 
+    @Update
+    Completable update(Data... data);
 
 }

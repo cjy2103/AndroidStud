@@ -29,7 +29,7 @@ public class LanguageCheck {
      */
     public void checkLanguage(TextView text, Typeface english, Typeface korea, int eSize, int kSize){
         boolean isKr = checkKr(text.getText());
-        if(isKr){
+        if(!isKr){
             text.setTypeface(english);
             text.setTextSize(eSize);
         } else {

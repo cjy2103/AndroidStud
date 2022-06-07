@@ -26,7 +26,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -38,6 +38,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:clickable="true"
+        android:overScrollMode="never"
         android:background="?attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@+id/recyclerView"
         app:layout_constraintEnd_toEndOf="@+id/recyclerView">
@@ -52,5 +53,23 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_add_circle_outline_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/edt_input"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:paddingStart="10dp"
+        android:inputType="textPersonName"
+        android:hint="검색어 입력"
+        android:background="@drawable/edit_input"
+        android:fontFamily="@font/font_korean"
+        android:textColor="#222222"
+        android:textColorHint="#8F8F8F"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/cons_insert"
+        app:layout_constraintStart_toStartOf="@+id/recyclerView"
+        app:layout_constraintTop_toTopOf="@+id/cons_insert" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,6 +24,8 @@ import com.example.roomrecyclerview.activity.InsertActivity;
 import com.example.roomrecyclerview.activity.LocalImageSelectActivity;
 import com.example.roomrecyclerview.databinding.DialogImageSelectBinding;
 import com.example.roomrecyclerview.util.LogUtil;
+
+import java.util.Objects;
 
 public class ImageSelectDialog extends DialogFragment {
 
@@ -102,6 +106,12 @@ public class ImageSelectDialog extends DialogFragment {
 
 
     private void initilaize(){
+        setCancelable(false);
+        if(Objects.requireNonNull(getDialog()).getWindow()!=null){
+            Objects.requireNonNull(getDialog()).getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            getDialog().getWindow().setDimAmount(0.2f);
+        }
+
         insertActivity = (InsertActivity)mActivity;
         galleryCallback();
     }

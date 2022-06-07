@@ -1,4 +1,4 @@
-package com.example.roomrecyclerview.activity.model;
+package com.example.roomrecyclerview.model;
 
 import java.io.Serializable;
 
