@@ -22,6 +22,7 @@ import androidx.fragment.app.DialogFragment;
 import com.example.roomrecyclerview.R;
 import com.example.roomrecyclerview.activity.InsertActivity;
 import com.example.roomrecyclerview.activity.LocalImageSelectActivity;
+import com.example.roomrecyclerview.activity.UpdateActivity;
 import com.example.roomrecyclerview.databinding.DialogImageSelectBinding;
 import com.example.roomrecyclerview.util.LogUtil;
 
@@ -32,9 +33,14 @@ public class ImageSelectDialog extends DialogFragment {
     private DialogImageSelectBinding binding;
     private Context mContext;
     private Activity mActivity;
+
     private InsertActivity insertActivity;
+    private UpdateActivity updateActivity;
+
     private ActivityResultLauncher<Intent> resultLauncher;
     private int imageCase = 0;
+
+    private String refreshImage;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -66,6 +72,8 @@ public class ImageSelectDialog extends DialogFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        dataLoad();
+
         initilaize();
 
         clickClose();
@@ -96,10 +104,18 @@ public class ImageSelectDialog extends DialogFragment {
             case 0 :
                 break;
             case 1 :
-                insertActivity.albumSelectCallback(true);
+                if(refreshImage.equals("Update")){
+                    updateActivity.albumSelectCallback(true);
+                } else {
+                    insertActivity.albumSelectCallback(true);
+                }
                 break;
             case 2 :
-                insertActivity.albumSelectCallback(false);
+                if(refreshImage.equals("Update")){
+                    updateActivity.albumSelectCallback(false);
+                } else {
+                    insertActivity.albumSelectCallback(false);
+                }
                 break;
         }
     }
@@ -112,8 +128,19 @@ public class ImageSelectDialog extends DialogFragment {
             getDialog().getWindow().setDimAmount(0.2f);
         }
 
-        insertActivity = (InsertActivity)mActivity;
+        if(refreshImage.equals("Update")){
+            updateActivity = (UpdateActivity)mActivity;
+        } else {
+            insertActivity = (InsertActivity)mActivity;
+        }
         galleryCallback();
+    }
+
+    private void dataLoad(){
+        if ( getArguments() != null ) {
+            refreshImage = getArguments().getString("RefreshImage");
+        }
+
     }
 
     private void galleryCallback(){

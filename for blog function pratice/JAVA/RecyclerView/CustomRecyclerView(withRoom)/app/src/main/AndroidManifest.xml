@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31">
         <activity
-            android:name=".UpdateActivity"
+            android:name=".activity.UpdateActivity"
             android:exported="false" />
         <activity
             android:name=".activity.RecyclerItemDetailActivity"

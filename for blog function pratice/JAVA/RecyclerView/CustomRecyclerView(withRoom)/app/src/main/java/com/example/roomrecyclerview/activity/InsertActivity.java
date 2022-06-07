@@ -82,8 +82,10 @@ public class InsertActivity extends AppCompatActivity {
     private void clickImageInsert(){
         binding.btnInsert.setOnClickListener(v->{
             FragmentManager fragmentManager = getSupportFragmentManager();
-
             DialogFragment dialogFragment = new ImageSelectDialog();
+            Bundle bundle = new Bundle();
+            bundle.putString("RefreshImage","Insert");
+            dialogFragment.setArguments(bundle);
             dialogFragment.show(fragmentManager,"Dialog");
         });
     }

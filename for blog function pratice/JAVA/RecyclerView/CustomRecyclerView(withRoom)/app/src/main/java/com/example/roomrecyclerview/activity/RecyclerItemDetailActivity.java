@@ -3,6 +3,8 @@ package com.example.roomrecyclerview.activity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -27,8 +29,12 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
     private String describe;
     private String youtubeLink;
     private String imageCase;
+
+    public static Context context;
+
     private SystemUtil systemUtil;
     private LanguageCheck languageCheck;
+
     private Typeface tfRoboto;
     private Typeface tfMaple;
 
@@ -42,6 +48,10 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
         dataLoad();
 
         uiSetting();
+
+        updateClick();
+
+        clickCancel();
     }
 
     @Override
@@ -63,6 +73,8 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
 
         tfRoboto = getResources().getFont(R.font.font_english);
         tfMaple = getResources().getFont(R.font.font_korean);
+
+        context = this;
     }
 
     /**
@@ -100,5 +112,25 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
         } else {
             binding.tvYoutubeLink.setText(youtubeLink);
         }
+    }
+
+    private void updateClick(){
+        binding.btnUpdate.setOnClickListener(v->{
+            Intent intent = new Intent(this, UpdateActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("itemObject", myListItems);
+            intent.putExtras(bundle);
+            startActivity(intent);
+        });
+    }
+
+    private void clickCancel(){
+        binding.btnCancel.setOnClickListener(v->{
+            finish();
+        });
+    }
+
+    public void refreshActivity(){
+
     }
 }
