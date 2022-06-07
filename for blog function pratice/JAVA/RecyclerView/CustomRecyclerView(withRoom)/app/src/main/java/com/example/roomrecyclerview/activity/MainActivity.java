@@ -20,6 +20,8 @@ import com.example.roomrecyclerview.util.LogUtil;
 import com.example.roomrecyclerview.util.SystemUtil;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -126,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void recyclerConnection(){
+        Collections.reverse(myListItems);
         adapter = new MainRecyclerItemAdapter(this, this , myListItems);
         binding.recyclerView.setAdapter(adapter);
     }
