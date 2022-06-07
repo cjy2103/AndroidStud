@@ -87,9 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
         myListItems = new ArrayList<>();
 
-        Typeface tfMapleLight = getResources().getFont(R.font.font_english);
-        binding.tvTitle.setTypeface(tfMapleLight);
-
         context = this;
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -117,8 +114,6 @@ public class MainActivity extends AppCompatActivity {
         listItemModel.setChannelLink(data.getYoutubeLink());
         listItemModel.setUri(data.getImagePath());
         listItemModel.setImageCase(data.getImageCase());
-
-        LogUtil.log("data값:"+ data.getDescribe());
 
         MyListItem myListItem = new MyListItem();
 

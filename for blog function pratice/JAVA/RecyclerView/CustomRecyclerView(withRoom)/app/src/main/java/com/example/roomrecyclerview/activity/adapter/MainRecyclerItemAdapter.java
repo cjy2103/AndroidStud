@@ -2,6 +2,7 @@ package com.example.roomrecyclerview.activity.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.roomrecyclerview.R;
 import com.example.roomrecyclerview.activity.model.MyListItem;
 import com.example.roomrecyclerview.databinding.RecyclerViewListBinding;
+import com.example.roomrecyclerview.util.LanguageCheck;
 
 import java.util.ArrayList;
 
@@ -22,11 +24,17 @@ public class MainRecyclerItemAdapter extends RecyclerView.Adapter<MainRecyclerIt
     private Context context;
     private Activity activity;
     private ArrayList<MyListItem> listItems;
+    private Typeface tfRoboto;
+    private Typeface tfMaple;
+    private LanguageCheck languageCheck = new LanguageCheck();
 
     public MainRecyclerItemAdapter(Context context, Activity activity, ArrayList<MyListItem> listItems) {
         this.context = context;
         this.activity = activity;
         this.listItems = listItems;
+
+        tfRoboto = context.getResources().getFont(R.font.font_english);
+        tfMaple = context.getResources().getFont(R.font.font_korean);
     }
 
     @NonNull
@@ -38,27 +46,20 @@ public class MainRecyclerItemAdapter extends RecyclerView.Adapter<MainRecyclerIt
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Uri imagePath;
         if(listItems.get(position).getList().get(0).getImageCase().equals("Local")){
-            caseLocal(holder, position);
+            imagePath = Uri.parse("android.resource://" + activity.getPackageName() + "/"
+                    + listItems.get(position).getList().get(0).getUri());
         } else {
-            caseGallery(holder, position);
+            imagePath =  Uri.parse(listItems.get(position).getList().get(0).getUri());
         }
 
-    }
-
-    private void caseLocal(ViewHolder holder, int position){
-        Uri imagePath = Uri.parse("android.resource://" + activity.getPackageName() + "/"
-                + listItems.get(position).getList().get(0).getUri());
         Glide.with(context).load(imagePath).into(holder.binding.ivArt);
         holder.binding.tvTitle.setText(listItems.get(position).getList().get(0).getTitle());
+        languageCheck.checkLanguage(holder.binding.tvTitle, tfRoboto, tfMaple, 26, 24);
         holder.binding.tvDescribe.setText(listItems.get(position).getList().get(0).getDescribe());
-    }
+        languageCheck.checkLanguage(holder.binding.tvTitle, tfRoboto, tfMaple, 26, 24);
 
-    private void caseGallery(ViewHolder holder, int position){
-        Uri imagePath =  Uri.parse(listItems.get(position).getList().get(0).getUri());
-        Glide.with(context).load(imagePath).into(holder.binding.ivArt);
-        holder.binding.tvTitle.setText(listItems.get(position).getList().get(0).getTitle());
-        holder.binding.tvDescribe.setText(listItems.get(position).getList().get(0).getDescribe());
     }
 
     @Override
