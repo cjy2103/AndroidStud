@@ -14,10 +14,13 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.roomrecyclerview.activity.dialog.ImageSelectDialog;
 import com.example.roomrecyclerview.databinding.ActivityUpdateBinding;
+import com.example.roomrecyclerview.model.ListItemModel;
 import com.example.roomrecyclerview.model.MyListItem;
 import com.example.roomrecyclerview.room.Data;
 import com.example.roomrecyclerview.room.RoomDB;
 import com.example.roomrecyclerview.util.SystemUtil;
+
+import java.util.ArrayList;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -147,14 +150,35 @@ public class UpdateActivity extends AppCompatActivity {
             data.setImagePath(imagePath);
             data.setImageCase(imageCase);
 
+
+
             roomDB.dataDao().update(data).subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(()->{
                         Toast.makeText(this, "데이터 변경이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                         finish();
                         ((MainActivity)MainActivity.context).mainRecyclerRefresh();
-                        ((RecyclerItemDetailActivity)RecyclerItemDetailActivity.context).refreshActivity();
+                        refreshData();
                     });
         });
+    }
+
+    private void refreshData(){
+        ListItemModel listItemModel = new ListItemModel();
+        listItemModel.setTitle(binding.edtTitle.getText().toString());
+        listItemModel.setDescribe(binding.edtDescribe.getText().toString());
+        listItemModel.setChannelLink(binding.edtYoutubeLink.getText().toString());
+        listItemModel.setUri(imagePath);
+        listItemModel.setImageCase(imageCase);
+
+        MyListItem myListItem = new MyListItem();
+
+        ArrayList<ListItemModel> items = new ArrayList<>();
+
+        items.add(listItemModel);
+
+        myListItem.setList(items);
+
+        ((RecyclerItemDetailActivity)RecyclerItemDetailActivity.context).refreshActivity(myListItem);
     }
 }

@@ -16,6 +16,7 @@ import com.example.roomrecyclerview.R;
 import com.example.roomrecyclerview.databinding.ActivityRecyclerItemDetailBinding;
 import com.example.roomrecyclerview.model.MyListItem;
 import com.example.roomrecyclerview.util.LanguageCheck;
+import com.example.roomrecyclerview.util.LogUtil;
 import com.example.roomrecyclerview.util.SystemUtil;
 
 public class RecyclerItemDetailActivity extends AppCompatActivity {
@@ -130,7 +131,13 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
         });
     }
 
-    public void refreshActivity(){
+    public void refreshActivity(MyListItem item){
+        Intent intent = new Intent(this, RecyclerItemDetailActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("itemObject", item);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        finish();
 
     }
 }
