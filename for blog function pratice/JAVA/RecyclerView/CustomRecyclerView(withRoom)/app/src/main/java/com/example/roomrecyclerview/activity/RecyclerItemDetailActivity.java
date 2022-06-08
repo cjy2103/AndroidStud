@@ -53,6 +53,8 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
         updateClick();
 
         clickCancel();
+
+        clickDelete();
     }
 
     @Override
@@ -138,6 +140,11 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
         finish();
+    }
 
+    private void clickDelete(){
+        binding.consItemDetail.setOnClickListener(v->{
+
+        });
     }
 }
