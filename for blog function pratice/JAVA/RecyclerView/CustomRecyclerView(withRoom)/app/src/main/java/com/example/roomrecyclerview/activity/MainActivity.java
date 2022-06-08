@@ -16,6 +16,7 @@ import com.example.roomrecyclerview.model.MyListItem;
 import com.example.roomrecyclerview.databinding.ActivityMainBinding;
 import com.example.roomrecyclerview.room.Data;
 import com.example.roomrecyclerview.room.RoomDB;
+import com.example.roomrecyclerview.util.LogUtil;
 import com.example.roomrecyclerview.util.SystemUtil;
 
 import java.util.ArrayList;

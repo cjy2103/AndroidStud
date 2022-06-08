@@ -22,6 +22,6 @@ public interface DataDao {
     @Update
     Completable update(Data... data);
 
-    @Query("DELETE FROM DATA WHERE title IN(:id)")
+    @Query("DELETE FROM Data WHERE title IN(:id)")
     Completable deleteItem(String id);
 }

@@ -1,8 +1,10 @@
 package com.example.roomrecyclerview.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -10,14 +12,19 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.roomrecyclerview.R;
 import com.example.roomrecyclerview.databinding.ActivityRecyclerItemDetailBinding;
 import com.example.roomrecyclerview.model.MyListItem;
+import com.example.roomrecyclerview.room.RoomDB;
 import com.example.roomrecyclerview.util.LanguageCheck;
 import com.example.roomrecyclerview.util.LogUtil;
 import com.example.roomrecyclerview.util.SystemUtil;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class RecyclerItemDetailActivity extends AppCompatActivity {
 
@@ -38,6 +45,8 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
 
     private Typeface tfRoboto;
     private Typeface tfMaple;
+
+    private RoomDB roomDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +87,8 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
         tfMaple = getResources().getFont(R.font.font_korean);
 
         context = this;
+
+        roomDB = RoomDB.getInstance(this);
     }
 
     /**
@@ -142,9 +153,25 @@ public class RecyclerItemDetailActivity extends AppCompatActivity {
         finish();
     }
 
+    @SuppressLint("CheckResult")
     private void clickDelete(){
-        binding.consItemDetail.setOnClickListener(v->{
+        binding.consDelete.setOnClickListener(v->{
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
+            builder.setTitle("삭제").
+                    setMessage("해당 목록을 삭제하시겠습니까?").
+                    setPositiveButton("OK", ((dialog, which) -> {
+                        roomDB.dataDao().deleteItem(title).subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(()->{
+                                    Toast.makeText(this, "삭제가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                                    ((MainActivity)MainActivity.context).mainRecyclerRefresh();
+                                    finish();
+                                });
+                    })).
+                    setNegativeButton("Cancel", ((dialog, which) -> {
+
+                    })).create().show();
         });
     }
 }
