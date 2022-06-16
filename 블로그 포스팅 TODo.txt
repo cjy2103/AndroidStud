@@ -176,7 +176,7 @@ Handler란?
 
 Lopper란?
 
-Manifest란?
+Manifest란? ( v )
 
 Gson
 
@@ -221,7 +221,7 @@ BottomNavigation 아이콘 안보이는 이슈 ( v )
 SHA-1 서명키 확인 ( v )
 startActivityForResult deprecated ( v )
 안드로이드 개발언어 선택 Java/ Kotlin ( v )
-XML 특수문자 출력
+XML 특수문자 출력 ( v )
 
 
 ======= 오류 =======
