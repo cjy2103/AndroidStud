@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         viewBinding();
 
         bottomSheetSetting();
+
+
     }
 
     private void viewBinding(){
