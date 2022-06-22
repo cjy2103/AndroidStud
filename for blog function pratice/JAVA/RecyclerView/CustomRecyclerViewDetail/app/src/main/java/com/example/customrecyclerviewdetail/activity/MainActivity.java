@@ -1,7 +1,10 @@
 package com.example.customrecyclerviewdetail.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -26,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private CustomRecyclerAdatper adapter;
     private ArrayList<Integer> searchIndexList;
 
+    private ItemTouchHelper.SimpleCallback itemTouchCallback;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         itemClick();
 
+
     }
 
     /**
@@ -53,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
     }
 
+
+
     /**
      * @DESC: 초기화
      */
@@ -60,6 +68,41 @@ public class MainActivity extends AppCompatActivity {
         myListItems = new ArrayList<>();
         searchIndexList = new ArrayList<>();
         binding.recyclerList.setLayoutManager(new LinearLayoutManager(this));
+
+        reyclerSwipeCallback();
+
+        new ItemTouchHelper(itemTouchCallback).attachToRecyclerView(binding.recyclerList);
+    }
+
+    private void reyclerSwipeCallback(){
+        itemTouchCallback = new ItemTouchHelper.SimpleCallback(0,
+                ItemTouchHelper.RIGHT | ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
+                                  @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                String word = binding.edtInput.getText().toString();
+                if(word.equals("")){
+                    myListItems.remove(viewHolder.getAbsoluteAdapterPosition());
+                    recyclerViewConnection();
+                } else {
+                    int pos = searchIndexList.get(viewHolder.getAbsoluteAdapterPosition());
+                    myListItems.remove(pos);
+                    searchIndexList.remove(viewHolder.getAbsoluteAdapterPosition());
+                    adapter = new CustomRecyclerAdatper(MainActivity.this, MainActivity.this,
+                            myListItems,searchIndexList,
+                            searchIndexList.size(),word);
+                    binding.recyclerList.setAdapter(adapter);
+                    filterWordClick();
+                }
+
+            }
+        };
     }
 
     /**
@@ -187,12 +230,9 @@ public class MainActivity extends AppCompatActivity {
             bundle.putSerializable("itemObject",myListItems.get(searchIndexList.get(position)));
             intent.putExtras(bundle);
 
-//            intent.putExtra("imagePath",myListItems.get(searchIndexList.get(position)).getList().get(0).getUri());
-//            intent.putExtra("title",myListItems.get(searchIndexList.get(position)).getList().get(0).getTitle());
-//            intent.putExtra("describe",myListItems.get(searchIndexList.get(position)).getList().get(0).getDescribe());
-//            intent.putExtra("youtubeLink",myListItems.get(searchIndexList.get(position)).getList().get(0).getChannelLink());
             startActivity(intent);
         });
 
     }
+
 }
