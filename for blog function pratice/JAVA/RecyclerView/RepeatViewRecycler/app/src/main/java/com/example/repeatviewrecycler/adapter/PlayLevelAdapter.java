@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.repeatviewrecycler.R;
 import com.example.repeatviewrecycler.databinding.RecyclerPlayLevelBinding;
+import com.example.repeatviewrecycler.model.PlayLevel;
 import com.example.repeatviewrecycler.util.LogUtil;
 
 import java.util.ArrayList;
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 public class PlayLevelAdapter extends RecyclerView.Adapter<PlayLevelAdapter.ViewHolder>{
 
     private Context context;
-    private ArrayList<String> playLevel;
+    private ArrayList<PlayLevel> playLevel;
 
     private onItemClickListener mListener = null;
 
@@ -25,10 +27,9 @@ public class PlayLevelAdapter extends RecyclerView.Adapter<PlayLevelAdapter.View
         this.mListener = listener;
     }
 
-    public PlayLevelAdapter(Context context, ArrayList<String> playLevel) {
+    public PlayLevelAdapter(Context context, ArrayList<PlayLevel> playLevel) {
         this.context = context;
         this.playLevel = playLevel;
-        LogUtil.log("크기"+playLevel.size());
     }
 
     @NonNull
@@ -40,7 +41,25 @@ public class PlayLevelAdapter extends RecyclerView.Adapter<PlayLevelAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.binding.tvPlayLevel.setText(playLevel.get(position));
+        holder.binding.tvPlayLevel.setText(playLevel.get(position).getList().get(0).getLevel());
+        Glide.with(context).load(R.drawable.ic_play_level_normal).into(holder.binding.ivLevel);
+        if(playLevel.get(position).getList().get(0).isChecked()){
+            selectLevel(holder,position);
+        }
+    }
+
+    private void selectLevel(ViewHolder holder, int position){
+        switch (position) {
+            case 0 :
+                Glide.with(context).load(R.drawable.ic_play_level_beginner).into(holder.binding.ivLevel);
+                break;
+            case 1 :
+                Glide.with(context).load(R.drawable.ic_play_level_intermediate).into(holder.binding.ivLevel);
+                break;
+            case 2 :
+                Glide.with(context).load(R.drawable.ic_play_level_pro).into(holder.binding.ivLevel);
+                break;
+        }
 
     }
 
@@ -57,15 +76,15 @@ public class PlayLevelAdapter extends RecyclerView.Adapter<PlayLevelAdapter.View
             super(itemView);
             viewBinding();
 
-            itemClick(itemView);
+            itemClick();
         }
 
         private void viewBinding(){
             binding = RecyclerPlayLevelBinding.bind(itemView);
         }
 
-        private void itemClick(View itemView){
-            itemView.setOnClickListener(v->{
+        private void itemClick(){
+            binding.consPlayLevel.setOnClickListener(v->{
                 int pos = getAbsoluteAdapterPosition();
                 if(pos != RecyclerView.NO_POSITION){
                     mListener.onItemClick(v, pos);

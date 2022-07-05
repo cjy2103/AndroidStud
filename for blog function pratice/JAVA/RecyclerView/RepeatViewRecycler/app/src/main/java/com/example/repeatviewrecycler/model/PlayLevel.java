@@ -1,13 +1,15 @@
 package com.example.repeatviewrecycler.model;
 
-public class PlayLevel {
-    private String level;
+import java.util.ArrayList;
 
-    public String getLevel() {
-        return level;
+public class PlayLevel {
+    private ArrayList<PlayLevelModel> list;
+
+    public ArrayList<PlayLevelModel> getList() {
+        return list;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
+    public void setList(ArrayList<PlayLevelModel> list) {
+        this.list = list;
     }
 }
