@@ -90,6 +90,8 @@ CardView ( v )
 SharedPreference ( v )
 SharedPreferenceUtil ( v )
 
+RaitingBar
+
 
 프레그먼트 -> 프래그먼트 이동
 
