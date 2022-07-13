@@ -83,7 +83,9 @@ CameraX ( 비디오 촬영) ( v )
 
 RecyclerGrid (갤러리 특정폴더 이미지) ( v ) 
 
-BottomSheet
+BottomSheet ( v )
+
+Pager
 
 CardView ( v )
 
