@@ -34,7 +34,7 @@ public class SubActivity extends AppCompatActivity {
     private void initialize(){
         Intent intent = getIntent();
         number = intent.getIntExtra("number",1);
-        binding.tvCurrent.setText("현재"+number+"째 창");
+        binding.tvCurrent.setText("현재"+number+"번째 창");
     }
 
     private void openActivity(){
@@ -46,10 +46,16 @@ public class SubActivity extends AppCompatActivity {
     }
 
     private void closeActivity(){
-
+        binding.btnClose.setOnClickListener(v->{
+            finish();;
+        });
     }
 
     private void closeAllActivity(){
-
+        binding.btnAllClose.setOnClickListener(v->{
+            finishAffinity();
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
     }
 }
