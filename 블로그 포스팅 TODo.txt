@@ -200,6 +200,8 @@ Json
 
 SVG 이미지 만들기 ( 제플린 ) ( v )
 
+png, jpg, svg ( v )
+
 px, dp, dpi, ppi, sp 란? ( v )
 px -> dp 계산법 ( v )
 
