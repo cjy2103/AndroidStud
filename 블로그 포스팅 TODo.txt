@@ -158,7 +158,7 @@ SqLite
 
 상호작용 뷰 ( 특정뷰 보일때 뷰 가리기 )
 
-한번에 모든 Activity 닫기
+한번에 모든 Activity 닫기 ( v )
 
 Lottie ( v )
 
