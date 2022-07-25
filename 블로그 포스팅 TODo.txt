@@ -8,6 +8,11 @@ DataBinding ( v )
 
 ======== 기능 ========
 
+Intent 데이터 전송 ( v )
+
+Intent 다중 데이터 전송 ( Serializable ) ( v )
+Intent 다중 데이터 전송 (Paracel) ( )
+
 커스텀 다이얼 로그 만들기 ( v )
 
 리스트뷰 ( v )
