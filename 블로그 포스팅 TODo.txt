@@ -124,11 +124,7 @@ resource 파일 가져오기
 
 Firebase Crashlity ( v )
 
-Firebase Crashlitics 범블비 이후 달라진점
-
-Firebase Crashlitics 오류 
-(the Crashlytics build ID is missing. This occurs when Crashlytics tooling is absent from your app's build configuration. Please review Crashlytics onboarding instructions and ensure you have a valid Crashlytics account.)
-
+Firebase Crashlitics 범블비 이후 달라진점 ( v )
 
 Firebase 회원가입
 
@@ -263,6 +259,12 @@ Room Error Looks like you've changed schema but forgot to update the version num
 CameraX error - Failed to write temp file ( v )
 
 CameraX error - CameraX is not configured properly ( v )
+
+
+Firebase Crashlitics 오류 ( v )
+(the Crashlytics build ID is missing. This occurs when Crashlytics tooling is absent from your app's build configuration. Please review Crashlytics onboarding instructions and ensure you have a valid Crashlytics account.)
+
+
 
 ===== 홍드로이드 예제 마이그레이션 ========
 카메라 예제 -> 내부 카메라 이용
