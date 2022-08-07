@@ -8,6 +8,11 @@ DataBinding ( v )
 
 ======== 기능 ========
 
+Intent 데이터 전송 ( v )
+
+Intent 다중 데이터 전송 ( Serializable ) ( v )
+Intent 다중 데이터 전송 (Paracel) ( )
+
 커스텀 다이얼 로그 만들기 ( v )
 
 리스트뷰 ( v )
@@ -158,7 +163,7 @@ SqLite
 
 상호작용 뷰 ( 특정뷰 보일때 뷰 가리기 )
 
-한번에 모든 Activity 닫기
+한번에 모든 Activity 닫기 ( v )
 
 Lottie ( v )
 
