@@ -19,11 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
         initialize();
 
-        binding = null;
+        test();
 
-        binding.button.setOnClickListener(v->{
-            Log.v("테스트","테스트");
-        });
     }
 
     private void viewBinding(){
@@ -33,5 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void initialize(){
         FirebaseCrashlytics.getInstance();
+    }
+
+    private void test(){
+        binding.button.setOnClickListener(v->{
+            throw new RuntimeException("Test Crash");
+        });
     }
 }

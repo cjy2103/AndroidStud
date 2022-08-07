@@ -122,7 +122,13 @@ resource 파일 가져오기
 
 녹음 파일 만들기
 
-Firebase Crashlity
+Firebase Crashlity ( v )
+
+Firebase Crashlitics 범블비 이후 달라진점
+
+Firebase Crashlitics 오류 
+(the Crashlytics build ID is missing. This occurs when Crashlytics tooling is absent from your app's build configuration. Please review Crashlytics onboarding instructions and ensure you have a valid Crashlytics account.)
+
 
 Firebase 회원가입
 
