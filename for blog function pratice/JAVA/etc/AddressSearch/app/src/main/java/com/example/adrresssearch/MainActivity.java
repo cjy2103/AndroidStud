@@ -3,6 +3,9 @@ package com.example.adrresssearch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.CharacterPickerDialog;
+import android.util.Log;
+import android.view.View;
 
 import com.example.adrresssearch.databinding.ActivityMainBinding;
 
@@ -14,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewBinding();
+        
     }
 
     private void viewBinding(){
