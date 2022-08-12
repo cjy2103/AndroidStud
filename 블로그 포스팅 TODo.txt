@@ -245,6 +245,7 @@ SHA-1 서명키 확인 ( v )
 startActivityForResult deprecated ( v )
 안드로이드 개발언어 선택 Java/ Kotlin ( v )
 XML 특수문자 출력 ( v )
+TextUtils.isEmpty(str) ( v )
 
 
 ======= 오류 =======
