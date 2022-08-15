@@ -102,6 +102,8 @@ RaitingBar ( v )
 
 프레그먼트 -> 프래그먼트 이동
 
+
+
 주소 입력창(주소 API)
 
 resource 파일 가져오기
@@ -268,6 +270,11 @@ Firebase Crashlitics 오류 ( v )
 (the Crashlytics build ID is missing. This occurs when Crashlytics tooling is absent from your app's build configuration. Please review Crashlytics onboarding instructions and ensure you have a valid Crashlytics account.)
 
 안드로이드(Android) 오류 - Facebook 로그인 관련 / 로그인 오류 : 앱에 로그인 하시는데 오류가 발생했습니다. ( v )
+
+
+============ Firebase ================
+Firebase Crashlitics ( v )
+Firebase Hosting ( v )
 
 
 ===== 홍드로이드 예제 마이그레이션 ========
