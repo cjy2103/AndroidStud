@@ -124,13 +124,6 @@ resource 파일 가져오기
 
 녹음 파일 만들기
 
-Firebase Crashlity ( v )
-
-Firebase Crashlitics 범블비 이후 달라진점 ( v )
-
-Firebase 회원가입
-
-Firebase RealTimeDB 사용
 
 구글 드라이브 연동
 드롭박스 api
@@ -173,7 +166,7 @@ SqLite
 
 Lottie ( v )
 
-사용자 기기내 앱 있는지 확인
+사용자 기기내 앱 있는지 확인, 현재앱에서 다른앱 실행 ( v )
 
 
 
@@ -280,6 +273,10 @@ Firebase Crashlitics 오류 ( v )
 ============ Firebase ================
 Firebase Crashlitics ( v )
 Firebase Hosting ( v )
+Firebase Crashlitics 범블비 이후 달라진점 ( v )
+Firebase 회원가입
+Firebase RealTimeDB 사용
+
 
 
 ===== 홍드로이드 예제 마이그레이션 ========

@@ -3,6 +3,7 @@ package com.example.checkapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -29,24 +30,35 @@ public class MainActivity extends AppCompatActivity {
 
     private void btnUmaCheck(){
         binding.btnUmaCheck.setOnClickListener(v->{
-            Intent intent = getPackageManager().getLaunchIntentForPackage("com.kakaogames.umamusume");
+            String packageName = "com.kakaogames.umamusume";
+            Intent intent = getPackageManager().getLaunchIntentForPackage(packageName);
             if(intent != null){
-                Toast.makeText(this, "우마무스메 있음", Toast.LENGTH_SHORT).show();
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             } else {
-                Toast.makeText(this, "우마무스메 없음", Toast.LENGTH_SHORT).show();
+                try{
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+packageName)));
+                } catch(android.content.ActivityNotFoundException e){
+                    Toast.makeText(this, "플레이스토어 앱 존재하지 않음", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
 
     private void btnPokemonCheck(){
+
         binding.btnPokemonCheck.setOnClickListener(v->{
-            Intent intent = getPackageManager().getLaunchIntentForPackage("com.nianticlabs.pokemongo");
+            String packageName = "com.nianticlabs.pokemongo";
+            Intent intent = getPackageManager().getLaunchIntentForPackage(packageName);
             if(intent != null){
-                Toast.makeText(this, "포켓몬고 있음", Toast.LENGTH_SHORT).show();
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             } else {
-                Toast.makeText(this, "포켓몬고 없음", Toast.LENGTH_SHORT).show();
+                try{
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id="+packageName)));
+                } catch(android.content.ActivityNotFoundException e){
+                    Toast.makeText(this, "플레이스토어 앱 존재하지 않음", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
