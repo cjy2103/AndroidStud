@@ -269,6 +269,7 @@ Firebase Crashlitics 오류 ( v )
 
 안드로이드(Android) 오류 - Facebook 로그인 관련 / 로그인 오류 : 앱에 로그인 하시는데 오류가 발생했습니다. ( v )
 
+ java.lang.RuntimeException: Can't toast on a thread that has not called Looper.prepare() 
 
 ============ Firebase ================
 Firebase Crashlitics ( v )
