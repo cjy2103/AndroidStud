@@ -14,6 +14,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewBinding();
+
+        binding.btnPick.setOnClickListener(v->{
+
+        });
     }
 
     private void viewBinding(){
