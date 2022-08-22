@@ -278,6 +278,10 @@ Firebase Crashlitics 범블비 이후 달라진점 ( v )
 Firebase 회원가입
 Firebase RealTimeDB 사용
 
+============== 아키텍처 패턴 ===============
+MVC ( v ) 
+MVP
+MVVM
 
 
 ===== 홍드로이드 예제 마이그레이션 ========

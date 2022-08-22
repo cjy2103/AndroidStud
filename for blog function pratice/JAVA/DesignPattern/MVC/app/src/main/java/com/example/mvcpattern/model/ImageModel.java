@@ -18,8 +18,9 @@ public class ImageModel {
     }
 
     public void init(){
-        arrayList = new ArrayList<>(Arrays.asList(R.drawable.baknana,R.drawable.djmax_clear_fail,R.drawable.djmax_falling_in_love
-                ,R.drawable.mwama, R.drawable.tamtam));
+        arrayList = new ArrayList<>(Arrays.asList(R.drawable.baknana
+                , R.drawable.djmax_clear_fail,R.drawable.djmax_falling_in_love
+                , R.drawable.mwama, R.drawable.tamtam));
         random = new Random();
 
         pickCard();
@@ -30,7 +31,4 @@ public class ImageModel {
 
         controller.onCardPick(arrayList.get(select));
     }
-
-
-
 }
