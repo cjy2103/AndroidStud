@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements IView {
         presenter = new MainPresenter(this);
     }
 
+
     private void clickPickCard(){
         binding.btnPick.setOnClickListener(v->{
             presenter.pickCard();

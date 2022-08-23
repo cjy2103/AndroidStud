@@ -11,6 +11,7 @@ public class MainPresenter implements IPresenter {
 
     public MainPresenter(IView view) {
         this.view = view;
+        repository = new MainRepository(this);
     }
 
     @Override
