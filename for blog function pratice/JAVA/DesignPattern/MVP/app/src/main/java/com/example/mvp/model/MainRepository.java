@@ -13,7 +13,7 @@ public class MainRepository implements IRepository {
     private ArrayList<Integer> arrayList;
     private Random random;
 
-    IPresenter presenter;
+    private IPresenter presenter;
 
     public MainRepository(IPresenter presenter) {
         this.presenter = presenter;
@@ -26,8 +26,7 @@ public class MainRepository implements IRepository {
     @Override
     public void pickNewCard() {
         int select = random.nextInt(arrayList.size());
-        presenter.onPickCard(select);
-        //        controller.onCardPick(arrayList.get(select));
+        presenter.onPickCard(arrayList.get(select));
     }
 
 }

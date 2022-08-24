@@ -13,15 +13,13 @@ import com.example.mvp.presenter.MainPresenter;
 public class MainActivity extends AppCompatActivity implements IView {
 
     private ActivityMainBinding binding;
-
-    IPresenter presenter;
+    private IPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewBinding();
         initialize();
-
         clickPickCard();
     }
 

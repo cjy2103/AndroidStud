@@ -6,8 +6,8 @@ import com.example.mvp.model.MainRepository;
 
 public class MainPresenter implements IPresenter {
 
-    IView view;
-    MainRepository repository;
+    private IView view;
+    private MainRepository repository;
 
     public MainPresenter(IView view) {
         this.view = view;
