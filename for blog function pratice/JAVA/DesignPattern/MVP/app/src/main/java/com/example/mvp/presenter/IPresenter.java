@@ -1,4 +1,4 @@
-package com.example.mvp;
+package com.example.mvp.presenter;
 
 public interface IPresenter {
     void pickCard();

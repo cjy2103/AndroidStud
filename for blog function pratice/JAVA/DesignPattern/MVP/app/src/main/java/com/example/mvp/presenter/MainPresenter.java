@@ -1,7 +1,6 @@
 package com.example.mvp.presenter;
 
-import com.example.mvp.IPresenter;
-import com.example.mvp.IView;
+import com.example.mvp.view.IView;
 import com.example.mvp.model.MainRepository;
 
 public class MainPresenter implements IPresenter {

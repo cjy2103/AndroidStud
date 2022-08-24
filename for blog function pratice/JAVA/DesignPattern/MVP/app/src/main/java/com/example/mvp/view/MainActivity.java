@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.mvp.IPresenter;
-import com.example.mvp.IView;
+import com.example.mvp.presenter.IPresenter;
 import com.example.mvp.databinding.ActivityMainBinding;
-import com.example.mvp.model.MainRepository;
 import com.example.mvp.presenter.MainPresenter;
 
 public class MainActivity extends AppCompatActivity implements IView {

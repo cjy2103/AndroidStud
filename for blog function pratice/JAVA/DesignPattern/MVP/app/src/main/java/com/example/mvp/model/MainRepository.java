@@ -1,7 +1,6 @@
 package com.example.mvp.model;
 
-import com.example.mvp.IPresenter;
-import com.example.mvp.IRepository;
+import com.example.mvp.presenter.IPresenter;
 import com.example.mvp.R;
 
 import java.util.ArrayList;
