@@ -281,7 +281,7 @@ Firebase RealTimeDB 사용
 
 ============== 아키텍처 패턴 ===============
 MVC ( v ) 
-MVP
+MVP ( v )
 MVVM
 
 
