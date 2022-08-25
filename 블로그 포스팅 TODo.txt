@@ -272,6 +272,8 @@ Firebase Crashlitics 오류 ( v )
 
  java.lang.RuntimeException: Can't toast on a thread that has not called Looper.prepare() ( v ) 
 
+ Firebase Hosting - web.app 호스팅 안되는 문제. ( v )
+
 ============ Firebase ================
 Firebase Crashlitics ( v )
 Firebase Hosting ( v )
