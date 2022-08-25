@@ -1,5 +1,7 @@
 package com.example.addresssearchapidaum;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,21 +16,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        initBinding();
+        viewBinding();
 
         SearchAddress();
     }
 
-    private void initBinding(){
+    private void viewBinding(){
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
     }
 
     private void SearchAddress(){
-        binding.btnSearch.setOnClickListener(v->{
-            
+        binding.tvAddress.setOnClickListener(v->{
+            Intent intent = new Intent(this, SearchActivity.class);
+            getSearchResult.launch(intent);
         });
     }
+
+    private final ActivityResultLauncher<Intent> getSearchResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if(result.getResultCode() == RESULT_OK){
+                    if(result.getData() != null){
+                        String data = result.getData().getStringExtra("data");
+                        binding.tvAddress.setText(data);
+                    }
+                }
+            }
+    );
 }
