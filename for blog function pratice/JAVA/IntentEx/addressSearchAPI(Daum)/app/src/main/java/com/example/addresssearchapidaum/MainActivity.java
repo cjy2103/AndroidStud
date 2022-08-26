@@ -13,6 +13,18 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
 
+    private final ActivityResultLauncher<Intent> getSearchResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if(result.getResultCode() == RESULT_OK){
+                    if(result.getData() != null){
+                        String data = result.getData().getStringExtra("data");
+                        binding.tvAddress.setText(data);
+                    }
+                }
+            }
+    );
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,15 +45,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private final ActivityResultLauncher<Intent> getSearchResult = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if(result.getResultCode() == RESULT_OK){
-                    if(result.getData() != null){
-                        String data = result.getData().getStringExtra("data");
-                        binding.tvAddress.setText(data);
-                    }
-                }
-            }
-    );
+
 }

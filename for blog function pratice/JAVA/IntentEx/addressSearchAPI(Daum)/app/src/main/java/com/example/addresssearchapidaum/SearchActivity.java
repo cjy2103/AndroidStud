@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -36,16 +37,25 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 // Android -> JS 함수 호출`
-                binding.webView.loadUrl("javascript:sample2_execDaumPostcode();"); // 실제 HTML 안에 있는 메서드임 아무 이름 쓰면 안됨
+                binding.webView.loadUrl("javascript: sample2_execDaumPostcode();"); // 실제 HTML 안에 있는 메서드임 아무 이름 쓰면 안됨
             }
         });
         // 최초 웹뷰 로드 (Hosting 설정 한거)
-        binding.webView.loadUrl("appadresssearch.firebaseapp.com");
+        binding.webView.loadUrl("appadresssearch.web.app");
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if((keyCode == KeyEvent.KEYCODE_BACK) && binding.webView.canGoBack()){
+            binding.webView.goBack();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     private class BridgeInterface {
         @JavascriptInterface
-        public void processData(String data){
+        public void processDATA(String data){
             Intent intent = new Intent();
             intent.putExtra("data",data);
             setResult(RESULT_OK, intent);
