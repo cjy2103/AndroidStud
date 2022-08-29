@@ -2,6 +2,7 @@ package com.example.mvp.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.mvp.presenter.IPresenter;
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity implements IView {
         viewBinding();
         initialize();
         clickPickCard();
+
+        Intent intent = new Intent();
     }
 
     private void viewBinding(){
