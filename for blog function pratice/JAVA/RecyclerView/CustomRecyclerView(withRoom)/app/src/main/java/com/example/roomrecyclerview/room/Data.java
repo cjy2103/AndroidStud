@@ -18,6 +18,8 @@ public class Data {
     private String imagePath;
     @ColumnInfo
     private String imageCase;
+    @ColumnInfo
+    private String addColumn;
 
     @NonNull
     public String getTitle() {
@@ -58,6 +60,14 @@ public class Data {
 
     public void setImageCase(String imageCase) {
         this.imageCase = imageCase;
+    }
+
+    public String getAddColumn() {
+        return addColumn;
+    }
+
+    public void setAddColumn(String addColumn) {
+        this.addColumn = addColumn;
     }
 
     public String toString(){
