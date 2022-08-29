@@ -74,6 +74,8 @@ SnackBar ( v )
 플로팅 버튼
 ViewPager2 ( v )
 
+GPS ON/OFF 확인
+
 Activity 간 메서드 호출 ( v )
 
 RecyclerView(Grid) ( v ) 

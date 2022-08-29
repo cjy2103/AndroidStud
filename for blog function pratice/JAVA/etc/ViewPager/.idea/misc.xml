@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for blog function pratice/JAVA/etc/ViewPager/app/src/main/res/layout/activity_main.xml" value="0.5536458333333333" />
+        <entry key="..\:/Users/YallaFactory/Desktop/MyGitAndroid/for blog function pratice/JAVA/etc/ViewPager/app/src/main/res/layout/viewpager2_item.xml" value="0.5536458333333333" />
         <entry key="..\:/Yalla Android/AndroidStud/for blog function pratice/JAVA/etc/ViewPager/app/src/main/res/drawable/custom_background.xml" value="0.4365" />
         <entry key="..\:/Yalla Android/AndroidStud/for blog function pratice/JAVA/etc/ViewPager/app/src/main/res/drawable/default_dot.xml" value="0.4365" />
         <entry key="..\:/Yalla Android/AndroidStud/for blog function pratice/JAVA/etc/ViewPager/app/src/main/res/drawable/pager_idicater.xml" value="0.316" />
@@ -13,7 +15,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16_PREVIEW" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
