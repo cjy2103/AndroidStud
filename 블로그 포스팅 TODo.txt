@@ -137,6 +137,9 @@ SparseBooleanArray
 
 Room DB ( v )
 Room 예제 ( v )
+Room DB 스키마 수정 , 마이그레이션 ( v )
+
+
 SqLite
 
 위치 권한 받기
