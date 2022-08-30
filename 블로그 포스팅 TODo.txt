@@ -74,7 +74,7 @@ SnackBar ( v )
 플로팅 버튼
 ViewPager2 ( v )
 
-GPS ON/OFF 확인
+GPS ON/OFF 확인 ( v )
 
 Activity 간 메서드 호출 ( v )
 
