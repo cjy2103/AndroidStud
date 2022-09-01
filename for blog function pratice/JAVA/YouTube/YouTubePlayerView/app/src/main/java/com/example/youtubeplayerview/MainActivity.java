@@ -71,6 +71,7 @@ public class MainActivity extends YouTubeBaseActivity {
                     if(!b) {
                         try {
                             youTubePlayer.cueVideo(videoId, lastYoutubeSeekTime);
+
                         } catch (IllegalStateException e) {
                             youtubeinit();
                         }
