@@ -252,6 +252,7 @@ XML 특수문자 출력 ( v )
 TextUtils.isEmpty(str) ( v )
 DB Inspector ( v )
 
+animation 관련 내용 
 
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
