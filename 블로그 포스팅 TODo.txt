@@ -71,7 +71,7 @@ ImageView Opacity ( v )
 ToastMessage ( v )
 SnackBar ( v )
 
-플로팅 버튼
+플로팅 버튼 ( v )
 ViewPager2 ( v )
 
 GPS ON/OFF 확인 ( v )
