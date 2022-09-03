@@ -78,7 +78,7 @@ GPS ON/OFF 확인 ( v )
 
 Activity 간 메서드 호출 ( v )
 
-Activity 전환 애니메이션 
+Activity 전환 애니메이션 ( v )
 
 RecyclerView(Grid) ( v ) 
 
