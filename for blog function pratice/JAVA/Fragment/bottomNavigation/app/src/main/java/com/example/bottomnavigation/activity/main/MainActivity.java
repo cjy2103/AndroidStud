@@ -18,7 +18,9 @@ import com.example.bottomnavigation.util.SystemUtil;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private Fragment djMaxFragment, momoiFramgnet, midoriFragment;
+    private Fragment djMaxFragment;
+    private Fragment momoiFramgnet;
+    private Fragment midoriFragment;
     private Menu menu;
 
     @Override
