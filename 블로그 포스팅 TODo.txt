@@ -78,7 +78,7 @@ GPS ON/OFF 확인 ( v )
 
 Activity 간 메서드 호출 ( v )
 
-Activity 전환 애니메이션 
+Activity 전환 애니메이션 ( v )
 
 RecyclerView(Grid) ( v ) 
 
@@ -147,6 +147,7 @@ SqLite
 위치 권한 받기
 
 지도 API를 이용한 위치받기 
+카카오 지도 
 
 구글 Admob
 

@@ -17,12 +17,19 @@ public class SubActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         viewBinding();
 
-
+        clickBack();
     }
 
     private void viewBinding(){
         binding = ActivitySubBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+    }
+
+    private void clickBack(){
+        binding.button.setOnClickListener(v->{
+            finish();
+            overridePendingTransition(R.anim.none, R.anim.right_left_out);
+        });
     }
 
     @Override
