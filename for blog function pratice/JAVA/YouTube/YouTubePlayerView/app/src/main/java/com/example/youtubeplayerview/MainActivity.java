@@ -40,7 +40,12 @@ public class MainActivity extends YouTubeBaseActivity {
     protected void onResume() {
         super.onResume();
         if(mYouTubePlayer!=null) {
-            mYouTubePlayer.cueVideo(videoId);
+            try {
+                mYouTubePlayer.cueVideo(videoId, lastYoutubeSeekTime);
+            } catch (IllegalStateException e){
+                mYouTubePlayer.release();
+                youtubeinit();
+            }
         }
     }
 

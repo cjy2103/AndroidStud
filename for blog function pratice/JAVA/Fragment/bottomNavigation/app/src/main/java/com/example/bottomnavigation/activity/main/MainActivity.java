@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         viewBinding();
 
@@ -80,21 +79,21 @@ public class MainActivity extends AppCompatActivity {
             case R.id.djmax_fragment:
                 if(djMaxFragment == null){
                     djMaxFragment = new DjMaxFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, djMaxFragment).commit();
+                    getSupportFragmentManager().beginTransaction().add(R.id.main_frame, djMaxFragment).commit();
                 }
                 screenChange(djMaxFragment,item);
                 break;
             case R.id.momoi_fragment:
                 if(momoiFramgnet == null){
                     momoiFramgnet = new MomoiFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, momoiFramgnet).commit();
+                    getSupportFragmentManager().beginTransaction().add(R.id.main_frame, momoiFramgnet).commit();
                 }
                 screenChange(momoiFramgnet,item);
                 break;
             case R.id.midori_fragment:
                 if(midoriFragment == null){
                     midoriFragment = new MidoriFragment();
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, midoriFragment).commit();
+                    getSupportFragmentManager().beginTransaction().add(R.id.main_frame, midoriFragment).commit();
                 }
                 screenChange(midoriFragment,item);
                 break;
