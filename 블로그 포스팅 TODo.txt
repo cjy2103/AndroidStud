@@ -195,7 +195,7 @@ inflate ( v )
 
 ConstraintLayout ( v )
 
-Context란?
+Context란? ( v )
 
 Handler란?
 

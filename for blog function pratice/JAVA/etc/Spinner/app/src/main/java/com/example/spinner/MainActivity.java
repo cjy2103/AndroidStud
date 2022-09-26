@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void spinnerSelect(){
+
         binding.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
