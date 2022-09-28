@@ -141,6 +141,8 @@ Room DB ( v )
 Room 예제 ( v )
 Room DB 스키마 수정 , 마이그레이션 ( v )
 
+RoomDB 더미 데이터 넣기 (import 기능)
+
 
 SqLite
 
@@ -199,9 +201,9 @@ ConstraintLayout ( v )
 
 Context란? ( v )
 
-Handler란?
+Handler란? ( v )
 
-Lopper란?
+Lopper란? ( v )
 
 Manifest란? ( v )
 
