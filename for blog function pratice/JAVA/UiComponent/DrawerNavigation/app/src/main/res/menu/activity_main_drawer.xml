@@ -6,14 +6,28 @@
     <group
         android:id="@+id/user_area"
         android:checkableBehavior="single">
-
-
-
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_info"
+            android:title="@string/menu_info"
+            tools:ignore="MenuTitle" />
     </group>
 
     <group
         android:id="@+id/another_area"
         android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_naver"
+            android:icon="@drawable/ic_naver"
+            android:title="@string/menu_naver"
+            tools:ignore="MenuTitle" />
+
+        <item
+            android:id="@+id/nav_github"
+            android:icon="@drawable/ic_github"
+            android:title="@string/menu_github"
+            tools:ignore="MenuTitle" />
 
     </group>
 

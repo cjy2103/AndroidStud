@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DrawerNavigation</string>
+
+    <string name="menu_info">유저 프로필</string>
+    <string name="menu_naver">네이버</string>
+    <string name="menu_github">GitHub</string>
+
+
 </resources>
