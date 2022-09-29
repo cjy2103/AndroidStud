@@ -145,6 +145,8 @@ Room DB 스키마 수정 , 마이그레이션 ( v )
 
 RoomDB 더미 데이터 넣기 (import 기능)
 
+Activity, AppCompatActivity 차이 ( v )
+
 
 SqLite
 
