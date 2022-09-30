@@ -241,7 +241,7 @@ px -> dp 계산법 ( v )
 
 Vector, 비트맵 이미지 차이
 
-dimens
+dimens ( v )
 
 스크롤뷰
 
