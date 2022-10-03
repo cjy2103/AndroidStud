@@ -150,7 +150,7 @@ Activity, AppCompatActivity 차이 ( v )
 
 SqLite
 
-위치 권한 받기
+위치 권한 받기 ( v )
 
 지도 API를 이용한 위치받기 
 카카오 지도 
