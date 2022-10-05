@@ -155,7 +155,7 @@ SqLite
 지도 API를 이용한 위치받기 
 
 Hash키 얻기 ( v )
-카카오 지도 ( )
+카카오 지도, 카카오맵 ( v )
 
 구글 Admob
 
@@ -293,6 +293,9 @@ Firebase Crashlitics 오류 ( v )
  Firebase Hosting - web.app 호스팅 안되는 문제. ( v )
 
 안드로이드(Android) - Room 관련 오류 / migration didn't properly handle ( v )
+
+카카오 맵 바로 튕김 ( v )
+카카오 맵 검은화면, 회색화면 ( v )
 
 ============ Firebase ================
 Firebase Crashlitics ( v )
