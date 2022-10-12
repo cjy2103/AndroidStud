@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 
 import com.example.kakaomap.databinding.ActivityMainBinding;
+import com.example.kakaomap.util.HashKey;
 
 import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
