@@ -24,7 +24,7 @@ public class SystemUtil {
      * @param constraintLayout
      */
     @SuppressLint("ObsoleteSdkInt")
-    public void statusbarSetting(Window window, Context context, ConstraintLayout constraintLayout){
+    public static void statusbarSetting(Window window, Context context, ConstraintLayout constraintLayout){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
             constraintLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR); // 아이콘색 검정으로 -> 주석하면 흰색
@@ -40,7 +40,7 @@ public class SystemUtil {
      * @DESC: SoftBottomBar 숨기기
      * @param window
      */
-    public void sofNavigationBarHide(Window window){
+    public static void sofNavigationBarHide(Window window){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R){
             window.setDecorFitsSystemWindows(false);
             if(window.getInsetsController() != null){
