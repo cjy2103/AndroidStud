@@ -1,6 +1,7 @@
 package com.example.room.dao;
 
-public class Data {
+public class Car {
+
     private String name;
     private String price;
 

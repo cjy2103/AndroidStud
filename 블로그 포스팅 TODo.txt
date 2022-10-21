@@ -276,7 +276,7 @@ startActivityForResult deprecated ( v )
 XML 특수문자 출력 ( v )
 TextUtils.isEmpty(str) ( v )
 DB Inspector ( v )
-
+DB 문자열 숫자 정렬 ( v )
 animation 관련 내용 
 
 ======= 오류 =======
