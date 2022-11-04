@@ -150,7 +150,7 @@ RoomDB 더미 데이터 넣기 (import 기능)
 Activity, AppCompatActivity 차이 ( v )
 
 
-SqLite
+SqLite ( v )
 
 위치 권한 받기 ( v )
 
