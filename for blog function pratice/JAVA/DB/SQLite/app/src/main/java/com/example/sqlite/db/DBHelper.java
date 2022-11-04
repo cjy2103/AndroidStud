@@ -14,12 +14,24 @@ import java.util.ArrayList;
 
 public class DBHelper extends SQLiteOpenHelper {
 
+    private static volatile DBHelper INSTANCE = null;
+
     public static final String DATABASE = "SQLite";
     public static SQLiteDatabase db;
 
+    public static DBHelper getInstance(Context context){
+        if(INSTANCE == null){
+            synchronized (DBHelper.class){
+                if(INSTANCE == null){
+                    INSTANCE = new DBHelper(context,null,1);
+                }
+            }
+        }
+        return INSTANCE;
+    }
+
     public DBHelper(Context context,@Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DATABASE, factory, version);
-
         try{
             db = context.openOrCreateDatabase(DATABASE, Activity.MODE_PRIVATE, null);
         } catch (Exception e){
@@ -54,7 +66,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public ArrayList<String> getName(){
         ArrayList<String> list = new ArrayList<>();
 
-        SQLiteDatabase db = getReadableDatabase();
+        db = getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM Data",null);
 
@@ -63,6 +75,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         cursor.close();
+        db.close();
 
         return list;
     }

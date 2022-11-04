@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import com.example.sqlite.adapter.DataAdapter;
 import com.example.sqlite.databinding.ActivityMainBinding;
 import com.example.sqlite.db.DBHelper;
+import com.example.sqlite.util.LogUtil;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -30,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewBinding();
-
         init();
-
         insertData();
         deleteData();
     }
@@ -43,38 +42,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
-        dbHelper = new DBHelper(this, null, 1);
-        database = initDB();
+        dbHelper = DBHelper.getInstance(this);
+        database = dbHelper.getWritableDatabase();
         dbHelper.onCreate(database);
-
-
-
+        database.close();
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
         refreshList();
-//        list = dbHelper.getName();
-//        adapter = new DataAdapter(this,list);
-//        binding.recyclerView.setAdapter(adapter);
-//        if(list.size()>0){
-//            adapter = new DataAdapter(this,list);
-//            binding.recyclerView.setAdapter(adapter);
-//        }
-    }
-
-    /**
-     * @DESC: DB 객체 초기화
-     * @return
-     */
-    private SQLiteDatabase initDB() {
-        SQLiteDatabase db = null ;
-        File file = new File(getFilesDir(), "SQLite") ;
-        try {
-            db = SQLiteDatabase.openOrCreateDatabase(file, null) ;
-        } catch (SQLiteException e) {
-            e.printStackTrace() ;
-        }
-        return db ;
     }
 
     private void insertData(){
