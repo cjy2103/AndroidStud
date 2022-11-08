@@ -22,7 +22,6 @@ public class SubActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        binding = null;
     }
 
     private void viewBinding(){
