@@ -214,6 +214,8 @@ Context란? ( v )
 
 Handler란? ( v )
 
+postDelayed 메시지 폐기 ( v )
+
 Lopper란? ( v )
 
 Manifest란? ( v )
