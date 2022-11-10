@@ -227,6 +227,8 @@ Json
 
 WebViewClient, WebChromeClient
 
+안드로이드 스튜디오 세팅 ( v )
+
 
 ======= 디자인 =======
 
