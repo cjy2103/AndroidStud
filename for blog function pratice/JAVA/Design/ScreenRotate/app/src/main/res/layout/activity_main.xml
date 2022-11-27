@@ -7,11 +7,24 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:id="@+id/iv_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/baknana"
-        tools:layout_editor_absoluteY="116dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baknana" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="나붕단"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_image"
+        app:layout_constraintStart_toStartOf="@+id/iv_image"
+        app:layout_constraintTop_toBottomOf="@+id/iv_image" />
 </androidx.constraintlayout.widget.ConstraintLayout>
