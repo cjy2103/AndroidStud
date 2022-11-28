@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ScreenRotate</string>
+
+    <string name="baknana">나붕이</string>
+
+    <string name="mwamwa">뫄붕이</string>
+
+    <string name="tamtam">방울단</string>
 </resources>

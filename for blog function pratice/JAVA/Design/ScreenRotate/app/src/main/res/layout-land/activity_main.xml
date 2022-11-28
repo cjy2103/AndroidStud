@@ -25,4 +25,14 @@
         android:text="나붕단"
         app:layout_constraintStart_toEndOf="@+id/iv_image"
         app:layout_constraintTop_toTopOf="@+id/iv_image" />
+
+    <Button
+        android:id="@+id/btn_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:text="Button"
+        app:layout_constraintStart_toEndOf="@+id/iv_image"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 </androidx.constraintlayout.widget.ConstraintLayout>
