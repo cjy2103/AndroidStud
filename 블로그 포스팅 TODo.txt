@@ -102,6 +102,7 @@ CardView ( v )
 
 SharedPreference ( v )
 SharedPreferenceUtil ( v )
+SharedPreference ArrayList 저장 ( v )
 
 RaitingBar ( v )
 
@@ -257,6 +258,7 @@ dimens ( v )
 
 화면회전 ( v )
 화면 세로/가로 고정 ( v )
+화면회전 상태저장 ( v )
 
 스크롤뷰
 
