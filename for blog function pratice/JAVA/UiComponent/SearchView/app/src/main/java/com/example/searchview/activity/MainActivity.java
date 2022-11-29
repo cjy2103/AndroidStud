@@ -1,4 +1,4 @@
-package com.example.searchview;
+package com.example.searchview.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
