@@ -9,6 +9,8 @@ import android.os.Bundle;
 import com.example.searchview.adapter.RecyclerItemAdapter;
 import com.example.searchview.databinding.ActivityMainBinding;
 import com.example.searchview.model.MainModel;
+import com.example.searchview.util.LogUtil;
+import com.example.searchview.util.SystemUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         mainModel = new MainModel(this,this);
         mainModel.listAdd();
         binding.recyclerItem.setLayoutManager(new LinearLayoutManager(this));
+        SystemUtil.sofNavigationBarHide(getWindow());
+        SystemUtil.statusbarSetting(getWindow(),this,binding.consMain);
     }
 
     public void recyclerViewConnection(RecyclerItemAdapter adapter){
@@ -39,12 +43,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void searchClick(){
-        binding.edtInput.setOnClickListener(v->{
+        binding.consSearch.setOnClickListener(v->{
             mainModel.moveSearch();
         });
     }
 
     public void callbackSearch(String word){
-        binding.edtInput.setText(word);
+        binding.tvWord.setText(word);
     }
 }
