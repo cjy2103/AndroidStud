@@ -1,5 +1,6 @@
 package com.example.searchview.model;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -19,7 +20,8 @@ import java.util.ArrayList;
 public class MainModel {
 
     private MainActivity mainActivity;
-    private ArrayList<ListItem> list;
+    private ArrayList<ListItem> originList;
+    private ArrayList<ListItem> searchList;
     private Context context;
 
     private RecyclerItemAdapter adapter;
@@ -29,7 +31,7 @@ public class MainModel {
     public MainModel(MainActivity mainActivity, Context context) {
         this.mainActivity = mainActivity;
         this.context = context;
-        list = new ArrayList<>();
+        originList = new ArrayList<>();
         searchCallback();
     }
 
@@ -40,6 +42,7 @@ public class MainModel {
                    return;
                }
                String word = result.getData().getExtras().getString("word");
+               listFilter(word);
                mainActivity.callbackSearch(word);
            }
         });
@@ -68,17 +71,31 @@ public class MainModel {
         listItemModel.setUri(path);
         listItemModel.setChannelLink(link);
 
-        list.add(listItemModel);
+        originList.add(listItemModel);
     }
 
     private void adapterSetting(){
-        adapter = new RecyclerItemAdapter(context, list);
+        adapter = new RecyclerItemAdapter(context, originList);
         mainActivity.recyclerViewConnection(adapter);
     }
 
     public void moveSearch(){
         Intent intent = new Intent(context, SearchActivity.class);
         resultLauncher.launch(intent);
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private void listFilter(String word){
+        searchList = new ArrayList<>();
+        for(ListItem item : originList){
+            if(item.getTitle().contains(word)){
+                searchList.add(item);
+            }
+        }
+
+        adapter.setFilterList(searchList);
+        adapter.notifyDataSetChanged();
+
     }
 
 }

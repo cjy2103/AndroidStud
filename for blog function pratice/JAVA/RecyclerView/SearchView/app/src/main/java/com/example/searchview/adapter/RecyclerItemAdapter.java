@@ -17,6 +17,7 @@ import com.example.searchview.databinding.RecyclerViewListBinding;
 import com.example.searchview.util.LogUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerItemAdapter extends RecyclerView.Adapter<RecyclerItemAdapter.ViewHolder> {
 
@@ -29,6 +30,10 @@ public class RecyclerItemAdapter extends RecyclerView.Adapter<RecyclerItemAdapte
         this.context = context;
         activity = (Activity) context;
         this.list    = list;
+    }
+
+    public void setFilterList(ArrayList<ListItem> filterList){
+        list = filterList;
     }
 
     @NonNull
