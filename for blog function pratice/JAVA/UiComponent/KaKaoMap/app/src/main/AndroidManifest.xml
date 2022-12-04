@@ -19,7 +19,7 @@
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
         tools:targetApi="31">
 
-        <meta-data android:name="com.kakao.sdk.AppKey" android:value="8e7ec77ecc9bd492dfebb92d9a3f97b1"/>
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="API "/>
 
         <activity
             android:name=".MainActivity"
