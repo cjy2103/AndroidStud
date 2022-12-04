@@ -35,6 +35,7 @@ public class SearchActivity extends AppCompatActivity {
     private void init(){
         searchModel = new SearchModel(this,this);
         binding.recyclerHistory.setLayoutManager(new LinearLayoutManager(this));
+        binding.edtWord.requestFocus();
 
         SystemUtil.sofNavigationBarHide(getWindow());
         SystemUtil.statusbarSetting(getWindow(),this,binding.consSearch);

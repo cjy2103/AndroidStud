@@ -25,7 +25,7 @@ public class SearchModel {
     private SharedPreferences preferences;
 
     private LinkedList<String> recentList = new LinkedList<>();
-    private int                maxSize    = 10; // 최대 저장 개수
+    private int                maxSize    = 5; // 최대 저장 개수
 
     private SearchHistoryAdapter adapter;
 
@@ -108,17 +108,29 @@ public class SearchModel {
 
     private void arraySave(String word){
 
-        if(recentList.size() < maxSize && word.length() > 0){
-            recentList.removeIf(element -> element.equals(word));
-            recentList.addFirst(word);
-        } else {
-            if(word.length() > 0){
+        if(word.length()>0){
+            if(recentList.size() < maxSize){
                 recentList.removeIf(element -> element.equals(word));
                 recentList.addFirst(word);
             } else {
-                recentList.remove(0);
-                recentList.addFirst(word);
-            }
+                boolean strEqual = false;
+
+                for(String item : recentList){
+                    if(word.equals(item)){
+                        recentList.remove(word);
+                        strEqual = true;
+                    }
+                }
+
+                if(strEqual){
+                    recentList.addFirst(word);
+                } else {
+                    recentList.removeLast();
+                    recentList.addFirst(word);
+                }
+
+        }
+
         }
         recentDataSave();
     }

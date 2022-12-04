@@ -50,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void callbackSearch(String word){
+        if(word.equals("")){
+            word = "검색창";
+        }
         binding.tvWord.setText(word);
     }
 }

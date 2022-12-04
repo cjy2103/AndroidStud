@@ -35,7 +35,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/i_btn_back"
         app:layout_constraintTop_toBottomOf="@+id/i_btn_back"
-        tools:ignore="HardcodedText,RtlSymmetry" />
+        tools:ignore="HardcodedText,RtlSymmetry"
+        />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cons_word_list"
