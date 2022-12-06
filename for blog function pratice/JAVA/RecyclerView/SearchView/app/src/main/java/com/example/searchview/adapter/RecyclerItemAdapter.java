@@ -12,12 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.searchview.R;
-import com.example.searchview.dao.ListItem;
+import com.example.searchview.dto.ListItem;
 import com.example.searchview.databinding.RecyclerViewListBinding;
-import com.example.searchview.util.LogUtil;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RecyclerItemAdapter extends RecyclerView.Adapter<RecyclerItemAdapter.ViewHolder> {
 

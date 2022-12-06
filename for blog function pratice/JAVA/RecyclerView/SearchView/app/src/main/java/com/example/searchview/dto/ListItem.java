@@ -1,4 +1,4 @@
-package com.example.searchview.dao;
+package com.example.searchview.dto;
 
 public class ListItem {
     private String title;

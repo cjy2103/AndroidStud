@@ -6,12 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
 
 import com.example.searchview.adapter.RecyclerItemAdapter;
-import com.example.searchview.dao.ListItem;
 import com.example.searchview.databinding.ActivityMainBinding;
 import com.example.searchview.model.MainModel;
 import com.example.searchview.util.SystemUtil;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 

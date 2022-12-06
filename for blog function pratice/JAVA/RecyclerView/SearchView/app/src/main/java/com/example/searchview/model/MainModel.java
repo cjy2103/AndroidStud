@@ -12,8 +12,7 @@ import com.example.searchview.R;
 import com.example.searchview.activity.MainActivity;
 import com.example.searchview.activity.SearchActivity;
 import com.example.searchview.adapter.RecyclerItemAdapter;
-import com.example.searchview.dao.ListItem;
-import com.example.searchview.util.LogUtil;
+import com.example.searchview.dto.ListItem;
 
 import java.util.ArrayList;
 
