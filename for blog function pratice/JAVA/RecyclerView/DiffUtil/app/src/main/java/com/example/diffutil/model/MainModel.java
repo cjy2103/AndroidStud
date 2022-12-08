@@ -34,7 +34,8 @@ public class MainModel {
         itemAdd(context.getResources().getString(R.string.djmax_falling_love), context.getResources().getString(R.string.djmax_falling_love_describe),
                 imageUri + R.drawable.djmax_falling_in_love);
 
-        adapter = new ListItemAdapter(context, list);
+        adapter = new ListItemAdapter(context, new ArrayList<>(list));
+
         mainActivity.setRecycler(adapter);
     }
 
@@ -52,6 +53,8 @@ public class MainModel {
         itemAdd(context.getResources().getString(R.string.tamtam), context.getResources().getString(R.string.tamtam_describe),
                 imageUri + R.drawable.tamtam);
 
-        adapter.setList(list);
+        adapter.updateListItem(list);
     }
 }
+
+

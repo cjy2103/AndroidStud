@@ -7,12 +7,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.diffutil.R;
 import com.example.diffutil.databinding.RecyclerViewListBinding;
 import com.example.diffutil.dto.ListItem;
+import com.example.diffutil.util.DiffUtilCallback;
+import com.example.diffutil.util.LogUtil;
 
 import java.util.ArrayList;
 
@@ -24,10 +27,15 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHo
     public ListItemAdapter(Context context, ArrayList<ListItem> list) {
         this.context = context;
         this.list    = list;
+
     }
 
-    public void setList(ArrayList<ListItem> list) {
-        this.list = list;
+    public void updateListItem(ArrayList<ListItem> newList){
+        DiffUtilCallback diffUtilCallback = new DiffUtilCallback(this.list, newList);
+        DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffUtilCallback);
+        this.list.clear();
+        this.list.addAll(newList);
+        diffResult.dispatchUpdatesTo(this);
     }
 
     @NonNull
