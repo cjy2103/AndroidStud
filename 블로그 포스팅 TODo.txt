@@ -15,38 +15,10 @@ Intent 다중 데이터 전송 (Paracel) ( )
 
 커스텀 다이얼 로그 만들기 ( v )
 
-리스트뷰 ( v )
-
-EditText + ListView ( v )
-
-커스텀 리스트뷰 ( v )
-
-리스트뷰 Intent 이동 ( v )
-
-리스트뷰 (전화관련) ( v )
-
-동적으로 View 추가 -> ListView 추가 , 수정, 삭제
-
 쓰레드 (v)
 
 Splash화면 (v)
 애니메이션 Splash Android 12 이상 작동하는거 ( ) 
-
-리사이클러뷰 ( v )
-
-EditText + RecyclerView ( v )
-
-리사이클러뷰 Intent 이동 ( v )
-
-리사이클러뷰 수정, 추가 , 삭제 ( v )
-
-리사이클러뷰 (가로)  ( v )
-
-리사이클러뷰 + 스와이프 삭제 ( v )
-리사이클러뷰 + 라이브러리 ( 스와이프 )
-리사이클러뷰 롱 클릭으로 삭제 활성화 
-
-이중 리사이클러뷰
 
 NumberPicker (세로 (디폴트)) ( v )
 NumberPicker (가로 (GitHub)) ( v )
@@ -92,7 +64,7 @@ TedPermission( v )
 CameraX ( 사진촬영 ) ( v )
 CameraX ( 비디오 촬영) ( v )
 
-RecyclerGrid (갤러리 특정폴더 이미지) ( v ) 
+
 
 BottomSheet ( v )
 
@@ -120,7 +92,7 @@ resource 파일 가져오기
 
 네비게이션 drawer로 네비게이션바 구현
 
-DrawerNavigation
+DrawerNavigation ( v )
 
 앱 툴바
 
@@ -142,16 +114,9 @@ SparseBooleanArray
 
 음악 구간이동 ( seekBar 제어 )
 
-Room DB ( v )
-Room 예제 ( v )
-Room DB 스키마 수정 , 마이그레이션 ( v )
-
-RoomDB 더미 데이터 넣기 (import 기능)
 
 Activity, AppCompatActivity 차이 ( v )
 
-
-SqLite ( v )
 
 위치 권한 받기 ( v )
 
@@ -230,6 +195,51 @@ WebViewClient, WebChromeClient
 
 안드로이드 스튜디오 세팅 ( v )
 
+========= DB ==========
+
+Room DB ( v )
+Room 예제 ( v )
+Room DB 스키마 수정 , 마이그레이션 ( v )
+
+RoomDB 더미 데이터 넣기 (import 기능)
+
+SqLite ( v )
+
+========== 리사이클러 뷰 =============
+
+리사이클러뷰 Intent 이동 ( v )
+
+리사이클러뷰 수정, 추가 , 삭제 ( v )
+
+리사이클러뷰 (가로)  ( v )
+
+리사이클러뷰 + 스와이프 삭제 ( v )
+리사이클러뷰 + 라이브러리 ( 스와이프 )
+리사이클러뷰 롱 클릭으로 삭제 활성화 
+
+이중 리사이클러뷰
+
+리사이클러뷰 ( v )
+
+EditText + RecyclerView ( v )
+
+RecyclerGrid (갤러리 특정폴더 이미지) ( v ) 
+
+리사이클러뷰 xml 에서 옵션 주기 ( v )
+
+=========== 리스트 뷰 (레거시) ===========
+
+리스트뷰 ( v )
+
+EditText + ListView ( v )
+
+커스텀 리스트뷰 ( v )
+
+리스트뷰 Intent 이동 ( v )
+
+리스트뷰 (전화관련) ( v )
+
+동적으로 View 추가 -> ListView 추가 , 수정, 삭제
 
 ======= 디자인 =======
 
