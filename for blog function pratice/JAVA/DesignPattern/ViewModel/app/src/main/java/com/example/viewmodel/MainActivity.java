@@ -8,33 +8,25 @@ import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
 import com.example.viewmodel.databinding.ActivityMainBinding;
-import com.example.viewmodel.model.MainModel;
 import com.example.viewmodel.viewmodel.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-
-    private MainModel mainModel;
     private MainViewModel mainViewModel;
-    private int num = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         viewBinding();
         init();
-        change();
+        btnChange();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(!mainViewModel.initLoad){
-            Glide.with(this).load(mainViewModel.imagePath).into(binding.ivImage);
-            binding.tvName.setText(mainViewModel.title);
-            num = mainViewModel.num;
-        }
+        uiChange();
     }
 
     private void viewBinding(){
@@ -43,25 +35,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
-        mainModel = new MainModel(this);
-        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
+        mainViewModel     = new ViewModelProvider(this
+                , (ViewModelProvider.Factory) new ViewModelProvider.AndroidViewModelFactory(getApplication()))
+                .get(MainViewModel.class);
     }
 
-    private void change(){
+    private void btnChange(){
         binding.btnChange.setOnClickListener(v->{
-            num++;
-            Uri image = mainModel.getImagePath(num);
-            String title = mainModel.getTitle(num);
-            Glide.with(this).load(image).into(binding.ivImage);
-            binding.tvName.setText(title);
-            dataSave(image, title);
+            mainViewModel.num++;
+            uiChange();
         });
     }
 
-    private void dataSave(Uri image, String title){
-        mainViewModel.imagePath = image;
-        mainViewModel.title = title;
-        mainViewModel.initLoad = false;
-        mainViewModel.num = num;
+    private void uiChange(){
+        Uri image = mainViewModel.changeImage();
+        String title = mainViewModel.changeTitle();
+        Glide.with(this).load(image).into(binding.ivImage);
+        binding.tvName.setText(title);
     }
 }
