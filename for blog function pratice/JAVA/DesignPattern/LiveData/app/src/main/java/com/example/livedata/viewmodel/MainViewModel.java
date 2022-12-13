@@ -11,10 +11,10 @@ import com.example.livedata.R;
 
 import java.util.ArrayList;
 
-public class mainViewModel extends AndroidViewModel {
+public class MainViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> name;
-    private MutableLiveData<String> image;
+    private MutableLiveData<Uri> image;
 
     private final ArrayList<String> imageList = new ArrayList<>();
     private final ArrayList<String> nameList  = new ArrayList<>();
@@ -23,7 +23,7 @@ public class mainViewModel extends AndroidViewModel {
 
     public int num = 0;
 
-    public mainViewModel(@NonNull Application application) {
+    public MainViewModel(@NonNull Application application) {
         super(application);
         this.application = application;
         init();
@@ -34,6 +34,13 @@ public class mainViewModel extends AndroidViewModel {
             name = new MutableLiveData<>();
         }
         return name;
+    }
+
+    public MutableLiveData<Uri> getImage() {
+        if(image == null){
+            image = new MutableLiveData<>();
+        }
+        return image;
     }
 
     private void init(){
@@ -48,14 +55,13 @@ public class mainViewModel extends AndroidViewModel {
         nameList.add(application.getResources().getString(R.string.tamtam));
     }
 
-
-    public Uri changeImage(){
+    public void changeImage(){
         int pos   = num % 3;
-        return Uri.parse("android.resource://" + application.getPackageName() + "/" + imageList.get(pos));
+        image.setValue(Uri.parse("android.resource://" + application.getPackageName() + "/" + imageList.get(pos)));
     }
 
-    public String changeTitle(){
-        int pos   = num % 3;
-        return nameList.get(pos);
+    public void changeName(){
+        int    pos  = num % 3;
+        name.setValue(nameList.get(pos));
     }
 }
