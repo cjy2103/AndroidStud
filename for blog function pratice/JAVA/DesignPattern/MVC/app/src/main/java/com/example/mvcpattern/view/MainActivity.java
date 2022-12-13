@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.mvcpattern.controller.MainController;
 import com.example.mvcpattern.databinding.ActivityMainBinding;
+import com.example.mvcpattern.model.ImageModel;
 
 public class MainActivity extends AppCompatActivity {
 
-    public ActivityMainBinding binding;
-    private MainController mainController;
+    private ActivityMainBinding binding;
+    private ImageModel imageModel;
+//    private MainController mainController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init(){
-        mainController = new MainController(this);
+        imageModel = new ImageModel(this);
+//        mainController = new MainController(this);
     }
 
     private void cardPick(){
         binding.btnPick.setOnClickListener(v->{
-            mainController.pickCard();
+//            mainController.pickCard();
+            imageModel.pickCard();
         });
+    }
+
+    public void imageUpdate(int select){
+        binding.imageView.setImageResource(select);
     }
 }
