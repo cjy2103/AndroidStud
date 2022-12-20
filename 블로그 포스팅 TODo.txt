@@ -64,8 +64,6 @@ TedPermission( v )
 CameraX ( 사진촬영 ) ( v )
 CameraX ( 비디오 촬영) ( v )
 
-
-
 BottomSheet ( v )
 
 Pager
@@ -195,6 +193,24 @@ WebViewClient, WebChromeClient
 
 안드로이드 스튜디오 세팅 ( v )
 
+워크매니저란? ( )
+
+Job Scheduling (잡스케쥴링)이란? ( )
+
+onTrimMemory 메서드란? ( )
+
+LMK(Low Memory Killer Demon) 이란? ( )
+
+액티비티 플래그란? ( )
+
+AIDL 이란? ( )
+
+Messenger란?
+
+AIDL vs Messenger ( )
+
+
+
 ========= DB ==========
 
 Room DB ( v )
@@ -303,15 +319,26 @@ Retrofit
 === 기타 정보 ====
 
 BottomNavigation 아이콘 안보이는 이슈 ( v )
+
 SHA-1 서명키 확인 ( v )
+
 startActivityForResult deprecated ( v )
+
 안드로이드 개발언어 선택 Java/ Kotlin ( v )
+
 XML 특수문자 출력 ( v )
+
 TextUtils.isEmpty(str) ( v )
+
 DB Inspector ( v )
+
 DB 문자열 숫자 정렬 ( v )
+
 animation 관련 내용 
+
 DCLP(Double Checked Locking Pattern)? ( v )
+
+Resource Id DB 그대로 저장시 생기는 문제 -> 개선 ( v )
 
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
