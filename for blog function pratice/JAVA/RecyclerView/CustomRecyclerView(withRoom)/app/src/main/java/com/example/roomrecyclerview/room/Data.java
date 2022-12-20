@@ -15,7 +15,7 @@ public class Data {
     @ColumnInfo
     private String youtubeLink;
     @ColumnInfo
-    private String imagePath;
+    private String imageKey;
     @ColumnInfo
     private String imageCase;
     @ColumnInfo
@@ -46,12 +46,12 @@ public class Data {
         this.youtubeLink = youtubeLink;
     }
 
-    public String getImagePath() {
-        return imagePath;
+    public String getImageKey() {
+        return imageKey;
     }
 
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setImageKey(String imageKey) {
+        this.imageKey = imageKey;
     }
 
     public String getImageCase() {
@@ -70,12 +70,13 @@ public class Data {
         this.addColumn = addColumn;
     }
 
+    @NonNull
     public String toString(){
         return "메시지 : {" +
                 "title =" + title +
                 "describe =" + describe +
                 "youtubeLink =" + youtubeLink +
-                "imagePath =" + imagePath +
+                "imagePath =" + imageKey +
                 "imageCase =" + imageCase + '\'' +
                 '}';
     }

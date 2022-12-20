@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,6 +17,7 @@ import com.example.roomrecyclerview.model.MyListItem;
 import com.example.roomrecyclerview.databinding.ActivityMainBinding;
 import com.example.roomrecyclerview.room.Data;
 import com.example.roomrecyclerview.room.RoomDB;
+import com.example.roomrecyclerview.util.ImageUtil;
 import com.example.roomrecyclerview.util.LogUtil;
 import com.example.roomrecyclerview.util.SystemUtil;
 
@@ -198,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
         listItemModel.setTitle(data.getTitle());
         listItemModel.setDescribe(data.getDescribe());
         listItemModel.setChannelLink(data.getYoutubeLink());
-        listItemModel.setUri(data.getImagePath());
+        listItemModel.setUri(ImageUtil.imageLoad(data.getImageKey()));
         listItemModel.setImageCase(data.getImageCase());
 
         MyListItem myListItem = new MyListItem();

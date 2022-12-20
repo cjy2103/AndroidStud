@@ -18,6 +18,7 @@ import com.example.roomrecyclerview.activity.dialog.ImageSelectDialog;
 import com.example.roomrecyclerview.databinding.ActivityInsertBinding;
 import com.example.roomrecyclerview.room.Data;
 import com.example.roomrecyclerview.room.RoomDB;
+import com.example.roomrecyclerview.util.ImageUtil;
 import com.example.roomrecyclerview.util.LogUtil;
 import com.example.roomrecyclerview.util.SystemUtil;
 
@@ -39,6 +40,7 @@ public class InsertActivity extends AppCompatActivity {
 
     private String imagePath;
     private String str = "";
+    private String saveImage = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +118,7 @@ public class InsertActivity extends AppCompatActivity {
         binding.btnSave.setOnClickListener(v->{
             String name = binding.edtTitle.getText().toString();
             String describe = binding.edtDescribe.getText().toString();
+            saveImage = ImageUtil.imageSave(imagePath);
             if(name.length() == 0 || describe.length() == 0){
                 Toast.makeText(this, "이름과 설명은 필수입력 사항입니다.", Toast.LENGTH_SHORT).show();
             } else {
@@ -129,7 +132,7 @@ public class InsertActivity extends AppCompatActivity {
         data.setTitle(binding.edtTitle.getText().toString());
         data.setDescribe(binding.edtDescribe.getText().toString());
         data.setYoutubeLink(binding.edtYoutubeLink.getText().toString());
-        data.setImagePath(imagePath);
+        data.setImageKey(saveImage);
         data.setImageCase(imageCase);
 
         roomDB.dataDao().insert(data).subscribeOn(Schedulers.io())

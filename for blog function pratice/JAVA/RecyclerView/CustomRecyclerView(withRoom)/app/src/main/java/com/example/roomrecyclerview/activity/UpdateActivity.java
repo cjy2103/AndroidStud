@@ -147,7 +147,7 @@ public class UpdateActivity extends AppCompatActivity {
             data.setTitle(binding.edtTitle.getText().toString());
             data.setDescribe(binding.edtDescribe.getText().toString());
             data.setYoutubeLink(binding.edtYoutubeLink.getText().toString());
-            data.setImagePath(imagePath);
+            data.setImageKey(imagePath);
             data.setImageCase(imageCase);
 
 
