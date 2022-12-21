@@ -13,6 +13,8 @@ Intent 데이터 전송 ( v )
 Intent 다중 데이터 전송 ( Serializable ) ( v )
 Intent 다중 데이터 전송 (Paracel) ( )
 
+IntentFlag, Task란?, LaunchMode ( v )
+
 커스텀 다이얼 로그 만들기 ( v )
 
 쓰레드 (v)
@@ -131,6 +133,10 @@ Hash키 얻기 ( v )
 구글 인앱결제 (아이템)
 
 구글 인앱결제 (구독)
+
+인앱 리뷰 
+
+인앱 업데이트
 
 구독 취소 ( v )
 
