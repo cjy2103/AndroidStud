@@ -346,6 +346,8 @@ DCLP(Double Checked Locking Pattern)? ( v )
 
 Resource Id DB 그대로 저장시 생기는 문제 -> 개선 ( v )
 
+Object 타입 -> Map 변환 ( v )
+
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
 
