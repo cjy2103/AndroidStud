@@ -21,4 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
     }
 
+    public void textChange(){
+        binding.textView.setText("버튼 클릭됨");
+    }
+
 }
