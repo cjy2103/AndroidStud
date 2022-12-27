@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
     }
 
-    public void textChange(View v){
+    public void showToast(View v){
         Toast.makeText(this, "테스트", Toast.LENGTH_SHORT).show();
     }
 
