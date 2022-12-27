@@ -3,6 +3,9 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.myapplication.databinding.ActivityMainBinding;
 
@@ -21,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
     }
 
-    public void textChange(){
-        binding.textView.setText("버튼 클릭됨");
+    public void textChange(View v){
+        Toast.makeText(this, "테스트", Toast.LENGTH_SHORT).show();
     }
 
 }
