@@ -18,23 +18,18 @@ import com.example.listadapterdiffutil.R;
 import com.example.listadapterdiffutil.databinding.RecyclerViewListBinding;
 import com.example.listadapterdiffutil.dto.ListItem;
 import com.example.listadapterdiffutil.util.DiffItemCallback;
-import com.example.listadapterdiffutil.util.DiffUtilCallback;
-import com.example.listadapterdiffutil.util.LogUtil;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ViewHolder>{
 
-    private Context             context;
+    private Context context;
 
     private AsyncListDiffer<ListItem> asyncListDiffer = new AsyncListDiffer<>(this, new DiffItemCallback());
 
     public ListItemAdapter(Context context, ArrayList<ListItem> list) {
         this.context = context;
         asyncListDiffer.submitList(list);
-
     }
 
     public void updateItem(ArrayList<ListItem> newItem){
