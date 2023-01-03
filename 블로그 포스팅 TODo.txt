@@ -373,6 +373,8 @@ Firebase Crashlitics 오류 ( v )
 
 안드로이드(Android) - Room 관련 오류 / migration didn't properly handle ( v )
 
+안드로이드(Android) JDK 배포회사에 따른 라이브러리 implementation 안되는 이슈 ( v )
+
 
 ============ Firebase ================
 Firebase Crashlitics ( v )
