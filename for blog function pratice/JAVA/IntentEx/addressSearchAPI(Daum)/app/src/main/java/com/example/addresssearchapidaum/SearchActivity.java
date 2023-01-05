@@ -37,11 +37,12 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 // Android -> JS 함수 호출`
-                binding.webView.loadUrl("javascript: sample2_execDaumPostcode();"); // 실제 HTML 안에 있는 메서드임 아무 이름 쓰면 안됨
+                // 실제 HTML 안에 있는 메서드임 아무 이름 쓰면 안됨
+                binding.webView.loadUrl("javascript: sample2_execDaumPostcode();");
             }
         });
         // 최초 웹뷰 로드 (Hosting 설정 한거)
-        binding.webView.loadUrl("appadresssearch.web.app");
+        binding.webView.loadUrl("your_server_url");
     }
 
     @Override
