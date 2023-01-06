@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private void viewBinding(){
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
     }
 
     public void showToast(View v){

@@ -215,6 +215,7 @@ Messenger란?
 
 AIDL vs Messenger ( )
 
+R 클래스란? ( v )
 
 
 ========= DB ==========
