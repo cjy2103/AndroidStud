@@ -217,6 +217,7 @@ AIDL vs Messenger ( )
 
 R 클래스란? ( v )
 
+MIME 과 Content-Type ( v )
 
 ========= DB ==========
 
