@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="350dp"
+    android:layout_height="350dp"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cons_title"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="3dp"
+        android:background="@drawable/dialog_title_shape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="알림"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.615" />
+
+        <ImageButton
+            android:id="@+id/ib_close"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="280dp"
+            android:layout_marginEnd="20dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_close" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/maple" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#BABABA"
+        app:layout_constraintBottom_toTopOf="@+id/cosn_message"
+        app:layout_constraintEnd_toEndOf="@+id/cons_title"
+        app:layout_constraintStart_toStartOf="@+id/cons_title" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cosn_message"
+        android:layout_width="350dp"
+        android:layout_height="0dp"
+        android:background="@drawable/dialog_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cons_title"
+        app:layout_constraintTop_toBottomOf="@+id/cons_title">
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="176dp"
+            android:text="선택된 아이템?"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/ck_apple"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="68dp"
+            android:text="사과"
+            app:layout_constraintEnd_toStartOf="@+id/ck_banana"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/ck_banana"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:text="바나나"
+            app:layout_constraintEnd_toStartOf="@+id/ck_orange"
+            app:layout_constraintStart_toEndOf="@+id/ck_apple"
+            app:layout_constraintTop_toTopOf="@+id/ck_apple" />
+
+        <CheckBox
+            android:id="@+id/ck_orange"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginEnd="20dp"
+            android:text="오렌지"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ck_banana"
+            app:layout_constraintTop_toTopOf="@+id/ck_apple" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_ok"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custom_dialog_button_shape"
+        android:gravity="center"
+        android:text="OK"
+        android:textColor="#F63B2D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="70dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/custom_dialog_button_shape"
+        android:gravity="center"
+        android:text="Cancel"
+        android:textColor="#838383"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_ok"
+        app:layout_constraintEnd_toStartOf="@+id/tv_ok"
+        app:layout_constraintTop_toTopOf="@+id/tv_ok" />
+</androidx.constraintlayout.widget.ConstraintLayout>
