@@ -4,6 +4,7 @@ import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.bumptech.glide.Glide;
 import com.example.mvvm.model.Character;
@@ -11,7 +12,7 @@ import com.example.mvvm.model.CharacterProvider;
 
 import java.util.ArrayList;
 
-public class ImageViewModel {
+public class ImageViewModel extends ViewModel {
 
     private MutableLiveData<Character> characterData;
 

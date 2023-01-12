@@ -3,17 +3,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <data>
-        <variable
-            name="viewModel"
-            type="com.example.mvvm.vm.ImageViewModel" />
-    </data>
-
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -29,13 +22,13 @@
         android:id="@+id/btn_pick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="50dp"
         android:background="@drawable/custom_button"
-        android:text="캐릭터 설정"
         android:onClick="@{() -> viewModel.nextCharacter()}"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+        android:text="캐릭터 설정"
+        app:layout_constraintBottom_toBottomOf="@+id/img_border"
+        app:layout_constraintStart_toEndOf="@+id/img_border"
+        app:layout_constraintTop_toTopOf="@+id/img_border" />
 
     <ImageView
         android:id="@+id/img_border"
@@ -50,12 +43,11 @@
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="116dp"
-        app:loadImage="@{viewModel.characterData.image}"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="70dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:loadImage="@{viewModel.characterData.image}" />
 
     <TextView
         android:id="@+id/tv_name"
@@ -66,7 +58,6 @@
         app:layout_constraintEnd_toEndOf="@+id/img_border"
         app:layout_constraintStart_toStartOf="@+id/img_border"
         app:layout_constraintTop_toBottomOf="@+id/img_border" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
