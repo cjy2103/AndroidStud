@@ -1,10 +1,10 @@
 package com.example.mvvm.model;
 
 public class Character {
-    private String name;
-    private String image;
+    private final String name;
+    private final int    image;
 
-    public Character(String name, String image) {
+    public Character(String name, int image) {
         this.name  = name;
         this.image = image;
     }
@@ -13,7 +13,7 @@ public class Character {
         return name;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 }
