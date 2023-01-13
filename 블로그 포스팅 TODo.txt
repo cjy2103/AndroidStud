@@ -350,6 +350,10 @@ Resource Id DB 그대로 저장시 생기는 문제 -> 개선 ( v )
 
 Object 타입 -> Map 변환 ( v )
 
+안드로이드 돌핀 릴리즈 ( v )
+
+안드로이드 일렉트릭 엘 릴리즈  ( v )
+
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
 
@@ -376,6 +380,8 @@ Firebase Crashlitics 오류 ( v )
 안드로이드(Android) - Room 관련 오류 / migration didn't properly handle ( v )
 
 안드로이드(Android) JDK 배포회사에 따른 라이브러리 implementation 안되는 이슈 ( v )
+
+안드로이드 돌핀이상 프리뷰 안보이는 문제 ( v )
 
 
 ============ Firebase ================
