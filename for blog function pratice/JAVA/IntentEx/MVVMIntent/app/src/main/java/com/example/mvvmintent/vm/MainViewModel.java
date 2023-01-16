@@ -15,7 +15,7 @@ public class MainViewModel {
         Activity activity = (Activity) button.getContext();
         Intent intent = new Intent(activity, SubActivity.class);
         intent.putExtra("String","테스트");
-        intent.putExtra("Integer",1);
+        intent.putExtra("int",1);
         activity.startActivity(intent);
     }
 }
