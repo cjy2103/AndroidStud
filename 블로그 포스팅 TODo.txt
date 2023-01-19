@@ -385,6 +385,8 @@ Firebase Crashlitics 오류 ( v )
 
 안드로이드 돌핀이상 프리뷰 안보이는 문제 ( v )
 
+안드로이드 Electric Eel 이상 자바 프로젝트 신규생성, or java8 아래 기존 프로젝트 업데이트시 빌드 안되는 문제( v )
+
 
 ============ Firebase ================
 Firebase Crashlitics ( v )
