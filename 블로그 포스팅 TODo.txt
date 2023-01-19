@@ -161,6 +161,8 @@ performClick ( )
 
 안드로이드 JDK 버전 올리기 (JDK 17) ( v )
 
+tooltipText ( v )
+
 == 이론 ==
 
 RXJava ( v )

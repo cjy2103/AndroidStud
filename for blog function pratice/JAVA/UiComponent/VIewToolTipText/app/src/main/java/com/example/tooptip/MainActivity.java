@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         viewBinding();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            binding.ivTabTam.setTooltipText("탬탬버린");
+            binding.ivTamTam.setTooltipText("탬탬버린");
         }
     }
 
