@@ -356,7 +356,9 @@ Object 타입 -> Map 변환 ( v )
 
 안드로이드 일렉트릭 엘 릴리즈  ( v )
 
-xml Left, Rigth 대신 Start, End 써야하는 이유 ( )
+xml Left, Rigth 대신 Start, End 써야하는 이유 ( v )
+
+안드로이드 OS13 이후 광고 ID 관련 문제 ( v )
 
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
