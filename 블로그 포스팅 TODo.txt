@@ -399,10 +399,11 @@ Firebase Crashlitics 범블비 이후 달라진점 ( v )
 Firebase 회원가입
 Firebase RealTimeDB 사용
 
+
 ============== 아키텍처 패턴 ===============
 MVC ( v ) 
 MVP ( v )
-MVVM
+MVVM ( v )
 
 
 ================ 개발자 콘솔 관련 ==============
