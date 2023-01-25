@@ -221,6 +221,8 @@ R 클래스란? ( v )
 
 MIME 과 Content-Type ( v )
 
+
+
 ========= DB ==========
 
 Room DB ( v )
@@ -301,6 +303,8 @@ dimens ( v )
 화면회전 상태저장 ( v )
 
 특정 방향 테두리 만들기 ( v )
+
+EditText 밑줄 제거 ( v )
 
 스크롤뷰
 
