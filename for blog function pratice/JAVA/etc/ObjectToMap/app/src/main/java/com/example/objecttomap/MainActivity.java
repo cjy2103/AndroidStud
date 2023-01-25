@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.objecttomap.databinding.ActivityMainBinding;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         person = new Person("철수",20,"남자");
+
     }
 
     @SuppressLint("SetTextI18n")
@@ -37,9 +40,17 @@ public class MainActivity extends AppCompatActivity {
         binding.button.setOnClickListener(v->{
             ObjectMapper objectMapper = new ObjectMapper();
 
-            Map<String, Object> map = objectMapper.convertValue(person, Map.class);
+            ArrayList<Person> persons = new ArrayList<>();
+            persons.add(new Person("철수",20,"남자"));
+            persons.add(new Person("철수",20,"남자"));
+            persons.add(new Person("철수",20,"남자"));
 
-            binding.tvValue.setText(map+"");
+            ArrayList<String> result = objectMapper.convertValue(persons, ArrayList.class);
+
+            Log.v("테스트:",""+result);
+//            Map<String, Object> map = objectMapper.convertValue(person, Map.class);
+
+//            binding.tvValue.setText(result+"");
         });
     }
 }
