@@ -328,7 +328,8 @@ SoftKeyBoard ( v )
 카카오 맵 현재 나의 위치 가져오기
 
 ======== 네트워크 ===========
-Retrofit
+Retrofit ( v )
+OkHttp ( v )
 학교급식 API 받아오기 ( )
 
 === 기타 정보 ====
