@@ -366,6 +366,8 @@ xml Left, Rigth 대신 Start, End 써야하는 이유 ( v )
 
 안드로이드 OS13 이후 광고 ID 관련 문제 ( v )
 
+string.xml (다국어 설정) ( v )
+
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
 
