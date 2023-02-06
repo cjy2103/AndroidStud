@@ -368,6 +368,9 @@ xml Left, Rigth 대신 Start, End 써야하는 이유 ( v )
 
 string.xml (다국어 설정) ( v )
 
+Activity vs AppCompatActivity ( v )
+Activity, AppCompatActivity 차이 ( v )
+
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
 
