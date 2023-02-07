@@ -369,12 +369,11 @@ xml Left, Rigth 대신 Start, End 써야하는 이유 ( v )
 
 string.xml (다국어 설정) ( v )
 
-<<<<<<< HEAD
 Activity vs AppCompatActivity ( v )
 Activity, AppCompatActivity 차이 ( v )
-=======
+
 BindingAdapter Multi Parameter (다중 파라미터, 파라미터 여러개) ( v )
->>>>>>> ca6e86c4797975ee6d4f5afac84b5fea089f3a3c
+
 
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
@@ -408,6 +407,9 @@ Firebase Crashlitics 오류 ( v )
 안드로이드 Electric Eel 이상 자바 프로젝트 신규생성, or java8 아래 기존 프로젝트 업데이트시 빌드 안되는 문제( v )
 
 LiveData 관련 오류 - Cannot invoke setValue on a background thread ( v )
+
+안드로이드(Android) 오류 - SDK location not found. ( v )
+
 
 
 ============ Firebase ================
