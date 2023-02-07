@@ -179,7 +179,7 @@ inflate ( v )
 
 로그 ( v )
 
-라이프 사이클 ( 프래그먼트 )
+라이프 사이클 ( 프래그먼트 ) ( v )
 
 ConstraintLayout ( v )
 
