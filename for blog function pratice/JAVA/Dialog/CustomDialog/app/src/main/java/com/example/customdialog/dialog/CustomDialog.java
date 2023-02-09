@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,13 @@ public class CustomDialog extends DialogFragment {
 
         clickOk();
 
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 250, getResources().getDisplayMetrics());
+        Objects.requireNonNull(getDialog()).getWindow().setLayout(size, size);
     }
 
 

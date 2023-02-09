@@ -89,8 +89,6 @@
         android:id="@+id/tv_ok"
         android:layout_width="70dp"
         android:layout_height="30dp"
-        android:layout_marginStart="180dp"
-        android:layout_marginTop="200dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/custom_dialog_button_shape"
@@ -98,9 +96,7 @@
         android:text="OK"
         android:textColor="#F63B2D"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tv_cancel"
