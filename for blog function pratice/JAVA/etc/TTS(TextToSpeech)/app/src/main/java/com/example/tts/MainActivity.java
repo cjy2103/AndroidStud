@@ -11,7 +11,7 @@ import com.example.tts.vm.MainViewModel;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private MainViewModel viewModel;
+    private MainViewModel viewModel = new MainViewModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void dataBinding(){
         binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-
+        binding.setViewModel(viewModel);
+        binding.setLifecycleOwner(this);
     }
 }

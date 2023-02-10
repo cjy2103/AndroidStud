@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.tts.MainActivity" />
+            type="com.example.tts.vm.MainViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_tts_test" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_tts_lower"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -74,6 +74,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_tts_high" />
+
+    <Button
+        android:id="@+id/btn_tts_fast"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="@+id/btn_tts_lower"
+        app:layout_constraintStart_toStartOf="@+id/btn_tts_lower"
+        app:layout_constraintTop_toBottomOf="@+id/btn_tts_lower" />
+
+    <Button
+        android:id="@+id/btn_tts_slow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="@+id/btn_tts_fast"
+        app:layout_constraintStart_toStartOf="@+id/btn_tts_fast"
+        app:layout_constraintTop_toBottomOf="@+id/btn_tts_fast" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
