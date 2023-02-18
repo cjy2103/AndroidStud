@@ -378,6 +378,8 @@ BindingAdapter Multi Parameter (다중 파라미터, 파라미터 여러개) ( v
 
 OS14 프리뷰 포스팅 ( v )
 
+Opacity 하위뷰 이벤트 관련 포스팅 ( v )
+
 
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
