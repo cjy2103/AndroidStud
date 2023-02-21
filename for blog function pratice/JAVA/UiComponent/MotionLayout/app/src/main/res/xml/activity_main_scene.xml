@@ -40,7 +40,7 @@
             app:attributeName="backgroundColor"
             app:customColorValue="#03A9F4" />
 
-
+        </Constraint>
 
 
     </ConstraintSet>
@@ -69,6 +69,7 @@
             app:attributeName="backgroundColor"
             app:customColorValue="#FF5722" />
 
+        </Constraint>
 
         <Constraint android:id="@id/widget" />
     </ConstraintSet>
