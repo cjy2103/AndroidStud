@@ -35,10 +35,8 @@ public class MainViewModel implements MotionLayout.TransitionListener {
         if(startId == R.id.start && endId == R.id.end){
             if(progress < 0.5) {
                 image.setValue(R.drawable.baknana);
-                Log.v("이거탐?","11111");
             } else {
                 image.setValue(R.drawable.djmax_clear_fail);
-                Log.v("이거탐?","22222");
             }
         }
     }

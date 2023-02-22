@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:showPaths="true"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Transition
         app:constraintSetStart="@id/start"
         app:constraintSetEnd="@id/end"
         app:duration="1000">
         <OnSwipe
-            app:dragDirection="dragRight"
-            app:touchAnchorId="@id/button"
-            app:touchAnchorSide="left" />
-    </Transition>
+            app:dragDirection="dragStart"
+            app:touchAnchorId="@id/button"/>
 
+    </Transition>
 
     <ConstraintSet android:id="@+id/start">
 
@@ -22,7 +19,6 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:id="@+id/imageView"
-            app:srcCompat="@drawable/baknana"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -51,7 +47,6 @@
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:id="@+id/imageView"
-            app:srcCompat="@drawable/mwama"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
