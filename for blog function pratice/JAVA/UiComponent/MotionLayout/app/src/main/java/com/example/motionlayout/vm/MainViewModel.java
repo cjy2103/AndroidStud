@@ -53,6 +53,11 @@ public class MainViewModel implements MotionLayout.TransitionListener {
 
     }
 
+    @BindingAdapter("app:layoutListener")
+    public static void setLayoutListener(MotionLayout motionLayout, MotionLayout.TransitionListener listener) {
+        motionLayout.setTransitionListener(listener);
+    }
+
     @BindingAdapter("app:srcCompat")
     public static void setImage(ImageView imageView, Drawable drawable) {
         imageView.setImageDrawable(drawable);
