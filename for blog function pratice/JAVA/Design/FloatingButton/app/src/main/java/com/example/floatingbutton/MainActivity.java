@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clickFabDiyap(){
-
         binding.fabDiyap.setOnClickListener(v->{
             animation();
             binding.imageView.setImageResource(R.drawable.uma_diyap);
