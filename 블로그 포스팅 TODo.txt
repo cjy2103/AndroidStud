@@ -383,6 +383,7 @@ OS14 프리뷰 포스팅 ( v )
 Opacity 하위뷰 이벤트 관련 포스팅 ( v )
 
 Kotlin BindingAdapter 사용법 ( v )
+HttpClient? / Apahce HttpClient 더이상 사용하지 않는 이유 ( v )
 
 
 ======= 오류 =======
