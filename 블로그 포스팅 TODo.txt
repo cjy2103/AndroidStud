@@ -261,7 +261,7 @@ RecyclerGrid (갤러리 특정폴더 이미지) ( v )
 리사이클러뷰 xml 에서 옵션 주기 ( v )
 
 DiffUtil ( v )
-DiffUitl 개선 -> ListAdpater로 
+ListAdapter ( v ) 
 DiffUtil 추가개선 -> Asyn ( v )
 
 =========== 리스트 뷰 (레거시) ===========
