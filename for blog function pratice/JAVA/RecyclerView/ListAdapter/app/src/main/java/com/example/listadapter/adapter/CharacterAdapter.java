@@ -41,8 +41,7 @@ public class CharacterAdapter extends ListAdapter<Character, CharacterAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.binding.setPosition(position);
-        holder.binding.executePendingBindings();
+        holder.bind(position);
     }
 
     public void setList(ArrayList<Character> list) {
@@ -57,7 +56,12 @@ public class CharacterAdapter extends ListAdapter<Character, CharacterAdapter.Vi
         public ViewHolder(RecyclerViewListBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+        }
+
+        public void bind(int position){
+            binding.setPosition(position);
             this.binding.setDataList(list);
+            binding.executePendingBindings();
         }
 
         @BindingAdapter("app:srcCompat")

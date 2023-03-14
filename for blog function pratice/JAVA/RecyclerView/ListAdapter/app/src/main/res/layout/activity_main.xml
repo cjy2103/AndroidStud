@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="추가"
-        android:onClick="@{(v) -> viewModel.itemAdd(v)}"
+        android:onClick="@{() -> viewModel.itemAdd()}"
         app:layout_constraintBottom_toTopOf="@+id/recycler_list"
         app:layout_constraintEnd_toStartOf="@+id/btn_delete" />
 
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="삭제"
-        android:onClick="@{(v) -> viewModel.deleteItem(v)}"
+        android:onClick="@{() -> viewModel.deleteItem()}"
         app:layout_constraintBottom_toTopOf="@+id/recycler_list"
         app:layout_constraintEnd_toEndOf="@+id/recycler_list" />
 

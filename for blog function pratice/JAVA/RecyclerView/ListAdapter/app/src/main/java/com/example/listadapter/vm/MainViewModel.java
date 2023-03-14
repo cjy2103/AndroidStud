@@ -1,6 +1,7 @@
 package com.example.listadapter.vm;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import androidx.lifecycle.MutableLiveData;
@@ -30,12 +31,12 @@ public class MainViewModel {
         adapter.setList(new ArrayList<>(Objects.requireNonNull(characterList.getValue())));
     }
 
-    public void itemAdd(View view){
+    public void itemAdd(){
         provider.clickBtnAdd();
         adapter.setList(new ArrayList<>(Objects.requireNonNull(characterList.getValue())));
     }
 
-    public void deleteItem(View view){
+    public void deleteItem(){
         provider.deleteItem();
         adapter.setList(new ArrayList<>(Objects.requireNonNull(characterList.getValue())));
     }

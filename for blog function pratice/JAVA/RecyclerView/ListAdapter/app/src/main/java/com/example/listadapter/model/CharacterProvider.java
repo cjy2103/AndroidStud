@@ -17,17 +17,12 @@ public class CharacterProvider {
         addItem(R.string.djmax,R.string.djmax_describe, R.drawable.djmax_clear_fail);
         addItem(R.string.djmax_falling_love,R.string.djmax_falling_love_describe, R.drawable.djmax_falling_in_love);
 
-//        addItem(R.string.mwamwa,R.string.mwamwa_describe, R.drawable.mwama);
-//        addItem(R.string.tamtam, R.string.tamtam_describe,  R.drawable.tamtam);
-
         characterList.setValue(list);
     }
 
     private void addItem(int title, int describe, int image) {
         Character character = new Character(title,describe, image);
-        if (!list.contains(character)) {
-            list.add(character);
-        }
+        list.add(character);
     }
 
     public void clickBtnAdd(){
@@ -42,7 +37,6 @@ public class CharacterProvider {
             }
         }
     }
-
     public MutableLiveData<ArrayList<Character>> getCharacterList() {
         return characterList;
     }
