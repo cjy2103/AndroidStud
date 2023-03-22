@@ -11,6 +11,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
+import android.util.Log;
 
 import com.example.sendapplication.databinding.ActivityMainBinding;
 
@@ -33,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
         clickSend();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(mServiceConnection);
+    }
+
     private void viewBinding(){
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -43,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 mServiceMessenger = new Messenger(service);
+                Log.v("ㄷㄷㄷㄷ","ㄷㄷㄷ");
             }
 
             @Override
             public void onServiceDisconnected(ComponentName name) {
                 mServiceMessenger = null;
+                Log.v("ㅁㅁㅁ","ㅁㅁㅁ");
             }
         };
 
