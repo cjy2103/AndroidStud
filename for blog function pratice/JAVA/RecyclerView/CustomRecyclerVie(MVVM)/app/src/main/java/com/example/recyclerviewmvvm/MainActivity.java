@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 
 import android.os.Bundle;
 
+import com.example.recyclerviewmvvm.adapter.CharacterAdapter;
 import com.example.recyclerviewmvvm.databinding.ActivityMainBinding;
 import com.example.recyclerviewmvvm.vm.MainViewModel;
 
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         dataBinding();
+//        CharacterAdapter adapter = new CharacterAdapter(viewModel.getCharacterList().getValue());
+//        binding.recyclerList.setAdapter(adapter);
     }
 
     private void dataBinding(){

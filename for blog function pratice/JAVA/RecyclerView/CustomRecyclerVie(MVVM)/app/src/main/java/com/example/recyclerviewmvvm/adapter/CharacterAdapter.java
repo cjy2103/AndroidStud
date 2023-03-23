@@ -55,9 +55,5 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
             this.binding.setDataList(list);
         }
 
-        @BindingAdapter("app:srcCompat")
-        public static void setImage(ImageView imageView, Drawable drawable) {
-            imageView.setImageDrawable(drawable);
-        }
     }
 }

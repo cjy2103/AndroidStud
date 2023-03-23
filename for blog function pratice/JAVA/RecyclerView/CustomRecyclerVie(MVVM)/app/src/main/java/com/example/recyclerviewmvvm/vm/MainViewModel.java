@@ -12,15 +12,9 @@ import java.util.ArrayList;
 
 public class MainViewModel {
     private MutableLiveData<ArrayList<Character>> characterList = new CharacterProvider().getCharacterList();
-    private CharacterAdapter adapter;
 
-    public CharacterAdapter getAdapter() {
-        return adapter;
+    public MutableLiveData<ArrayList<Character>> getCharacterList() {
+        return characterList;
     }
-
-    public MainViewModel() {
-        adapter = new CharacterAdapter( characterList.getValue());
-    }
-
 
 }
