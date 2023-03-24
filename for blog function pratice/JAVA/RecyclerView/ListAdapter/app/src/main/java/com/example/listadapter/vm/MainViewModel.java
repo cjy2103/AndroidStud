@@ -20,25 +20,18 @@ public class MainViewModel {
     private CharacterProvider provider = new CharacterProvider();
     private MutableLiveData<ArrayList<Character>> characterList = provider.getCharacterList();
 
-    private CharacterAdapter adapter;
-
-    public CharacterAdapter getAdapter() {
-        return adapter;
-    }
-
-    public MainViewModel() {
-        adapter = new CharacterAdapter();
-        adapter.setList(new ArrayList<>(Objects.requireNonNull(characterList.getValue())));
+    public MutableLiveData<ArrayList<Character>> getCharacterList() {
+        return characterList;
     }
 
     public void itemAdd(){
         provider.clickBtnAdd();
-        adapter.setList(new ArrayList<>(Objects.requireNonNull(characterList.getValue())));
+        characterList.setValue(provider.getCharacterList().getValue());
     }
 
     public void deleteItem(){
         provider.deleteItem();
-        adapter.setList(new ArrayList<>(Objects.requireNonNull(characterList.getValue())));
+        characterList.setValue(provider.getCharacterList().getValue());
     }
 
 

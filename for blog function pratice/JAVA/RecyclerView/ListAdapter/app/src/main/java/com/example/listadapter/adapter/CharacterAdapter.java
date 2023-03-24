@@ -1,15 +1,9 @@
 package com.example.listadapter.adapter;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
-import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,16 +13,11 @@ import com.example.listadapter.databinding.RecyclerViewListBinding;
 import com.example.listadapter.model.Character;
 import com.example.listadapter.util.CharacterDiffUtil;
 
-import java.util.ArrayList;
-
 
 public class CharacterAdapter extends ListAdapter<Character, CharacterAdapter.ViewHolder> {
 
-    private ArrayList<Character> list;
-
     public CharacterAdapter(){
         super(new CharacterDiffUtil());
-        this.list = new ArrayList<>();
     }
 
     @NonNull
@@ -41,12 +30,7 @@ public class CharacterAdapter extends ListAdapter<Character, CharacterAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bind(position);
-    }
-
-    public void setList(ArrayList<Character> list) {
-        this.list = list;
-        submitList(list);
+        holder.bind(getItem(position));
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -58,15 +42,9 @@ public class CharacterAdapter extends ListAdapter<Character, CharacterAdapter.Vi
             this.binding = binding;
         }
 
-        public void bind(int position){
-            binding.setPosition(position);
-            this.binding.setDataList(list);
+        public void bind(Character character){
+            binding.setCharacter(character);
             binding.executePendingBindings();
-        }
-
-        @BindingAdapter("app:srcCompat")
-        public static void setImage(ImageView imageView, Drawable drawable) {
-            imageView.setImageDrawable(drawable);
         }
     }
 }

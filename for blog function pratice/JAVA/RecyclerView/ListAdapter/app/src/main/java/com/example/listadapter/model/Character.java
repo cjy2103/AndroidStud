@@ -1,6 +1,5 @@
 package com.example.listadapter.model;
 
-import java.util.Objects;
 
 public class Character {
     private int title;
@@ -11,6 +10,18 @@ public class Character {
         this.title    = title;
         this.describe = describe;
         this.image    = image;
+    }
+
+    public void setTitle(int title) {
+        this.title = title;
+    }
+
+    public void setDescribe(int describe) {
+        this.describe = describe;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 
     public int getTitle() {

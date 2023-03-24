@@ -14,6 +14,10 @@
         <variable
             name="position"
             type="Integer" />
+
+        <variable
+            name="character"
+            type="com.example.listadapter.model.Character" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +32,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@{ContextCompat.getDrawable(context, dataList[position].image)}"
+        app:srcCompat="@{ContextCompat.getDrawable(context, character.image)}"
         />
 
     <View
@@ -46,7 +50,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:text="@{context.getString(dataList[position].title)}"
+        android:text="@{context.getString(character.title)}"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iv_art"
@@ -58,7 +62,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="@{context.getString(dataList[position].describe)}"
+        android:text="@{context.getString(character.describe)}"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/tv_title"
         app:layout_constraintStart_toStartOf="@+id/tv_title"
