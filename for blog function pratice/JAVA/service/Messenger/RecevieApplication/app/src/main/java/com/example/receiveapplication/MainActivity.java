@@ -13,6 +13,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
+import android.util.Log;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         init();
-        bindService(new Intent(this, MyService.class), serviceConnection, Context.BIND_AUTO_CREATE);
+        Intent intent = new Intent(this, MyService.class);
+        bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+        startService(intent);
     }
 
     @Override
@@ -34,14 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         Intent intent = new Intent(this, MyService.class);
         bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mServiceMessenger != null) {
-            unbindService(serviceConnection);
-        }
+        startService(intent);
     }
 
     private void init(){
@@ -49,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 mServiceMessenger = new Messenger(service);
+                Log.v("테스트","연결");
             }
 
             @Override
