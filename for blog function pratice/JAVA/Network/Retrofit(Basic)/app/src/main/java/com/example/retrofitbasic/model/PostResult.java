@@ -3,7 +3,6 @@ package com.example.retrofitbasic.model;
 import com.google.gson.annotations.SerializedName;
 
 public class PostResult {
-
     @SerializedName("userid")
     private int userId;
 

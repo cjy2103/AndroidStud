@@ -2,6 +2,7 @@ package com.example.retrofitbasic.vm;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.retrofitbasic.repository.RetrofitCallback;
 import com.example.retrofitbasic.repository.MainRepository;
 
 public class MainViewModel {
@@ -18,11 +19,21 @@ public class MainViewModel {
     }
 
     public void dataLoad(){
-        mainRepository.init(this);
-    }
+        mainRepository.init(new RetrofitCallback(){
+            @Override
+            public void onSuccess(String reuslt) {
+                data.setValue(reuslt);
+            }
 
-    public void dataResponse(String result){
-        data.setValue(result);
-    }
+            @Override
+            public void onFailed() {
+                data.setValue("데이터 받아오기 실패");
+            }
 
+            @Override
+            public void onError(Throwable throwable) {
+                data.setValue("오류발생:"+throwable);
+            }
+        });
+    }
 }
