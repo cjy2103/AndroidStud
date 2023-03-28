@@ -389,6 +389,8 @@ HttpClient? / Apahce HttpClient 더이상 사용하지 않는 이유 ( v )
 
 RecyclerView MVVM(DataBinding) 에서 Adapter는 어디에 위치해야 하는가? ( v )
 
+onTrimMemory ( v )
+
 
 ======= 오류 =======
 안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
