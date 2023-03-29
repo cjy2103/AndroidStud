@@ -316,6 +316,8 @@ EditText + Thread / EditText n초뒤 이벤트 실행 ( v )
 
 핸드폰 / 태블릿 xml 동적으로 적용하기 ( v )
 
+AppBar, ActionView, Toolbar, Action bar ( v )
+
 === 시스템 제어 ====
 
 최상단 영역 ( 시간, 와이파이 뜨는거 ) 사용할수 있게 설정
