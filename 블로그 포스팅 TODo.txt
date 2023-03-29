@@ -427,6 +427,7 @@ LiveData 관련 오류 - Cannot invoke setValue on a background thread ( v )
 
 안드로이드(Android) 오류 - SDK location not found. ( v )
 
+안드로이드(Android) 오류 - This Activity already has an action bar supplied by the window decor. ( v )
 
 
 ============ Firebase ================
