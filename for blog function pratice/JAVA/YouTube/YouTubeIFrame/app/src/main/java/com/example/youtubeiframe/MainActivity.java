@@ -10,6 +10,7 @@ import com.example.youtubeiframe.util.LogUtil;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.PlayerConstants;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.YouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.YouTubePlayerTracker;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView;
 
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private int fullTime = 0;
     private int currentTime = 0;
 
+    private YouTubePlayerListener listener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,8 +44,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void init(){
         videoId = "gt-v_YCkaMY"; // TODO : 바꾸세요~
+        youtubeUiCustom();
         youtubeInit();
     }
+
+    private void youtubeUiCustom(){
+        listener = new AbstractYouTubePlayerListener() {
+            @Override
+            public void onReady(@NonNull YouTubePlayer youTubePlayer) {
+                super.onReady(youTubePlayer);
+            }
+        };
+    }
+
 
     private void youtubeInit(){
         // viewBinding을 쓰든 DataBinding을 쓰든 꼭 처리해 줘야하는 작업입니다.
@@ -56,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void onReady(@NonNull YouTubePlayer youTubePlayer) {
                 youTubePlayer.cueVideo(videoId,0);
                 youTubePlayer.addListener(tracker);
+
             }
 
             @Override
@@ -71,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-            
+
 
             @Override
             public void onCurrentSecond(@NonNull YouTubePlayer youTubePlayer, float second) {
