@@ -39,7 +39,8 @@ Custom SearchView / SearchActivity ( v )
 YouTubeAPI APK 키 발급 
 YouTubePlayerView ( v )
 YouTubePlyaerView Deprecated 관련 내용 ( v )
-YouTubeIframe 듀토리얼 ( )
+YouTubeIframe 듀토리얼 ( v )
+YouTubeIFrame + SeekBar 커스텀 ( v )
 
 YouTube 검색 
 
