@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void youtubeInit(){
         // viewBinding을 쓰든 DataBinding을 쓰든 꼭 처리해 줘야하는 작업입니다.
-        youTubePlayerView = findViewById(R.id.youtube_player_view);
+        youTubePlayerView = binding.youtubePlayerView;
         getLifecycle().addObserver(youTubePlayerView);
 
         youTubePlayerSeekBar = binding.youtubePlayerSeekbar;
