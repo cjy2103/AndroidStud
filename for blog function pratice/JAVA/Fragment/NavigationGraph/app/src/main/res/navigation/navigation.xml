@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/djmax_fragment">
+    <fragment
+        android:id="@+id/djmax_fragment"
+        android:name="com.example.navigationgraph.fragment.DjMaxFragment"
+        android:label="fragment_dj_max"
+        tools:layout="@layout/fragment_dj_max" />
+    <fragment
+        android:id="@+id/momoi_fragment"
+        android:name="com.example.navigationgraph.fragment.MidoriFragment"
+        android:label="fragment_midori"
+        tools:layout="@layout/fragment_midori" />
+    <fragment
+        android:id="@+id/midori_fragment"
+        android:name="com.example.navigationgraph.fragment.MomoiFragment"
+        android:label="fragment_momoi"
+        tools:layout="@layout/fragment_momoi" />
+</navigation>
