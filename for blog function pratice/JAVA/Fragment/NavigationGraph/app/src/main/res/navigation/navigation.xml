@@ -10,12 +10,12 @@
         android:label="fragment_dj_max"
         tools:layout="@layout/fragment_dj_max" />
     <fragment
-        android:id="@+id/momoi_fragment"
+        android:id="@+id/midori_fragment"
         android:name="com.example.navigationgraph.fragment.MidoriFragment"
         android:label="fragment_midori"
         tools:layout="@layout/fragment_midori" />
     <fragment
-        android:id="@+id/midori_fragment"
+        android:id="@+id/momoi_fragment"
         android:name="com.example.navigationgraph.fragment.MomoiFragment"
         android:label="fragment_momoi"
         tools:layout="@layout/fragment_momoi" />
