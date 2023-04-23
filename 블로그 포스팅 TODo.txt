@@ -437,6 +437,10 @@ LiveData 관련 오류 - Cannot invoke setValue on a background thread ( v )
 
 안드로이드(Android) 오류 - This Activity already has an action bar supplied by the window decor. ( v )
 
+안드로이드(Android) 오류 - Material Design Rendering Error (렌더링 오류) / 탭 레이아웃 렌더링이 안됩니다. ( v )
+
+
+
 
 ============ Firebase ================
 Firebase Crashlitics ( v )
