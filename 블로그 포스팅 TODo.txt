@@ -441,6 +441,9 @@ LiveData 관련 오류 - Cannot invoke setValue on a background thread ( v )
 
 안드로이드(Android) 오류 - Execution failed for task ':app:checkDebugDuplicateClasses'. ( v )
 
+안드로이드(Android) 오류 - Cannot resolve method 'plant(DebugTree) / Timber 라이브러리 관련 이슈 ( v )
+
+
 
 
 ============ Firebase ================
