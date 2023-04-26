@@ -2,6 +2,7 @@ package com.example.navigationgraph.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.navigationgraph.R;
 import com.example.navigationgraph.databinding.FragmentDjMaxBinding;
@@ -33,7 +35,7 @@ public class DjMaxFragment extends Fragment {
     private String mParam2;
 
     private FragmentDjMaxBinding binding;
-    private DjmaxViewModel viewModel = new DjmaxViewModel();
+    private DjmaxViewModel viewModel;
 
     public DjMaxFragment() {
         // Required empty public constructor
@@ -72,6 +74,7 @@ public class DjMaxFragment extends Fragment {
         // Inflate the layout for this fragment
 //        return inflater.inflate(R.layout.fragment_dj_max, container, false);
         binding = FragmentDjMaxBinding.inflate(inflater, container, false);
+        viewModel = new ViewModelProvider(this).get(DjmaxViewModel.class);
         binding.setViewModel(viewModel);
         binding.setLifecycleOwner(this);
         return binding.getRoot();

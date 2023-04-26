@@ -1,10 +1,14 @@
 package com.example.navigationgraph.fragment.vm;
 
+import android.util.Log;
+
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.ViewModel;
 
 import com.example.navigationgraph.R;
 
-public class DjmaxViewModel {
+public class DjmaxViewModel extends ViewModel {
+
 
     private MutableLiveData<Integer> image;
 
@@ -24,7 +28,7 @@ public class DjmaxViewModel {
         if(currentIndex % 2 == 0){
             image.setValue(R.drawable.iv_djmax_x_mas);
         } else {
-            image.setValue(R.drawable.iv_alice);
+            image.setValue(R.drawable.iv_djmax_alice);
         }
     }
 }

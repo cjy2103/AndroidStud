@@ -1,5 +1,6 @@
 package com.example.navigationgraph.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment;
 
 
 import com.example.navigationgraph.R;
+import com.example.navigationgraph.databinding.FragmentMidoriBinding;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -27,6 +29,8 @@ public class MidoriFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private FragmentMidoriBinding binding;
 
     public MidoriFragment() {
         // Required empty public constructor
@@ -63,9 +67,11 @@ public class MidoriFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_midori, container, false);
+        binding = FragmentMidoriBinding.inflate(inflater, container, false);
+        return binding.getRoot();
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
