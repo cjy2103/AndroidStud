@@ -8,8 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.navigationgraph.R;
+import com.example.navigationgraph.databinding.FragmentMomoiBinding;
+import com.example.navigationgraph.fragment.vm.MomoiViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +29,9 @@ public class MomoiFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private FragmentMomoiBinding binding;
+    private MomoiViewModel viewModel;
 
     public MomoiFragment() {
         // Required empty public constructor
@@ -62,7 +68,11 @@ public class MomoiFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_momoi, container, false);
+        binding = FragmentMomoiBinding.inflate(inflater, container, false);
+        viewModel = new ViewModelProvider(this).get(MomoiViewModel.class);
+        binding.setViewModel(viewModel);
+        binding.setLifecycleOwner(this);
+        return binding.getRoot();
     }
 
     @Override

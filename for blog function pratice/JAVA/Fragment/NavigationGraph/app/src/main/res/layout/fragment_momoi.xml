@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.navigationgraph.fragment.vm.MomoiViewModel" />
+    </data>
+
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,7 +23,7 @@
             android:id="@+id/imageView"
             android:layout_width="310dp"
             android:layout_height="310dp"
-            android:src="@drawable/iv_momoi"
+            app:setImage="@{viewModel.image}"
             android:layout_marginTop="60dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +46,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/custom_button"
             android:text="Button"
+            android:onClick="@{()-> viewModel.changeImage()}"
             android:layout_marginTop="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

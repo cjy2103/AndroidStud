@@ -9,10 +9,12 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 
 import com.example.navigationgraph.R;
 import com.example.navigationgraph.databinding.FragmentMidoriBinding;
+import com.example.navigationgraph.fragment.vm.MidoriViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +33,7 @@ public class MidoriFragment extends Fragment {
     private String mParam2;
 
     private FragmentMidoriBinding binding;
+    private MidoriViewModel viewModel;
 
     public MidoriFragment() {
         // Required empty public constructor
@@ -68,6 +71,9 @@ public class MidoriFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentMidoriBinding.inflate(inflater, container, false);
+        viewModel = new ViewModelProvider(this).get(MidoriViewModel.class);
+        binding.setViewModel(viewModel);
+        binding.setLifecycleOwner(this);
         return binding.getRoot();
     }
 

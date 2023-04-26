@@ -9,7 +9,6 @@ import com.example.navigationgraph.R;
 
 public class DjmaxViewModel extends ViewModel {
 
-
     private MutableLiveData<Integer> image;
 
     public MutableLiveData<Integer> getImage() {

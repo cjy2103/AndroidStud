@@ -71,8 +71,6 @@ public class DjMaxFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_dj_max, container, false);
         binding = FragmentDjMaxBinding.inflate(inflater, container, false);
         viewModel = new ViewModelProvider(this).get(DjmaxViewModel.class);
         binding.setViewModel(viewModel);
@@ -86,8 +84,6 @@ public class DjMaxFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
-
-
 
 
 }
