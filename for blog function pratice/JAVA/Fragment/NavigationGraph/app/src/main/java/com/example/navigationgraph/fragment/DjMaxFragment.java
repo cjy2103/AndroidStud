@@ -1,5 +1,6 @@
 package com.example.navigationgraph.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,9 +8,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.example.navigationgraph.R;
+import com.example.navigationgraph.databinding.FragmentDjMaxBinding;
+import com.example.navigationgraph.fragment.vm.DjmaxViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +31,9 @@ public class DjMaxFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private FragmentDjMaxBinding binding;
+    private DjmaxViewModel viewModel = new DjmaxViewModel();
 
     public DjMaxFragment() {
         // Required empty public constructor
@@ -62,8 +70,14 @@ public class DjMaxFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dj_max, container, false);
+//        return inflater.inflate(R.layout.fragment_dj_max, container, false);
+        binding = FragmentDjMaxBinding.inflate(inflater, container, false);
+        binding.setViewModel(viewModel);
+        binding.setLifecycleOwner(this);
+        return binding.getRoot();
     }
+
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {

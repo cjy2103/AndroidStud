@@ -1,4 +1,4 @@
-package com.example.navigationgraph.vm;
+package com.example.navigationgraph.activity.vm;
 
 import android.annotation.SuppressLint;
 import android.view.Menu;

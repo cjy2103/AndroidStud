@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.navigationgraph.vm.MainViewModel" />
+            type="com.example.navigationgraph.activity.vm.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,28 +1,23 @@
 package com.example.navigationgraph.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 
 import com.example.navigationgraph.R;
 import com.example.navigationgraph.databinding.ActivityMainBinding;
 import com.example.navigationgraph.util.SystemUtil;
-import com.example.navigationgraph.vm.MainViewModel;
-import com.google.android.material.navigation.NavigationBarView;
+import com.example.navigationgraph.activity.vm.MainViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private MainViewModel viewModel = new MainViewModel();
+    private MainViewModel       viewModel = new MainViewModel();
     private NavController navController;
     private Menu menu;
 
