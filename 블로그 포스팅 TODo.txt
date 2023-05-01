@@ -349,104 +349,6 @@ Retrofit ( v )
 OkHttp ( v )
 학교급식 API 받아오기 ( )
 
-=== 기타 정보 ====
-
-BottomNavigation 아이콘 안보이는 이슈 ( v )
-
-SHA-1 서명키 확인 ( v )
-
-startActivityForResult deprecated ( v )
-
-안드로이드 개발언어 선택 Java/ Kotlin ( v )
-
-XML 특수문자 출력 ( v )
-
-TextUtils.isEmpty(str) ( v )
-
-DB Inspector ( v )
-
-DB 문자열 숫자 정렬 ( v )
-
-animation 관련 내용 
-
-DCLP(Double Checked Locking Pattern)? ( v )
-
-Resource Id DB 그대로 저장시 생기는 문제 -> 개선 ( v )
-
-Object 타입 -> Map 변환 ( v )
-
-안드로이드 돌핀 릴리즈 ( v )
-
-안드로이드 일렉트릭 엘 릴리즈  ( v )
-
-xml Left, Rigth 대신 Start, End 써야하는 이유 ( v )
-
-안드로이드 OS13 이후 광고 ID 관련 문제 ( v )
-
-string.xml (다국어 설정) ( v )
-
-Activity vs AppCompatActivity ( v )
-Activity, AppCompatActivity 차이 ( v )
-
-BindingAdapter Multi Parameter (다중 파라미터, 파라미터 여러개) ( v )
-
-OS14 프리뷰 포스팅 ( v )
-
-Opacity 하위뷰 이벤트 관련 포스팅 ( v )
-
-Kotlin BindingAdapter 사용법 ( v )
-HttpClient? / Apahce HttpClient 더이상 사용하지 않는 이유 ( v )
-
-RecyclerView MVVM(DataBinding) 에서 Adapter는 어디에 위치해야 하는가? ( v )
-
-onTrimMemory ( v )
-
-
-======= 오류 =======
-안드로이드(Android) 오류 / 파일 관련 -FileNotFoundException open failed: EPERM (Operation not permitted) ( v )
-
-ANR ( v )
-
-Facebook 로그인 관련 오류 / Targeting S+ (version 31 and above) requires that one of FLAG_IMMUTABLE or FLAG_MUTABLE be specified when creating a PendingIntent. ( v )
-
-Room Error Looks like you've changed schema but forgot to update the version number ( v )
-
-CameraX error - Failed to write temp file ( v )
-
-CameraX error - CameraX is not configured properly ( v )
-
-
-Firebase Crashlitics 오류 ( v )
-(the Crashlytics build ID is missing. This occurs when Crashlytics tooling is absent from your app's build configuration. Please review Crashlytics onboarding instructions and ensure you have a valid Crashlytics account.)
-
-안드로이드(Android) 오류 - Facebook 로그인 관련 / 로그인 오류 : 앱에 로그인 하시는데 오류가 발생했습니다. ( v )
-
- java.lang.RuntimeException: Can't toast on a thread that has not called Looper.prepare() ( v ) 
-
- Firebase Hosting - web.app 호스팅 안되는 문제. ( v )
-
-안드로이드(Android) - Room 관련 오류 / migration didn't properly handle ( v )
-
-안드로이드(Android) JDK 배포회사에 따른 라이브러리 implementation 안되는 이슈 ( v )
-
-안드로이드 돌핀이상 프리뷰 안보이는 문제 ( v )
-
-안드로이드 Electric Eel 이상 자바 프로젝트 신규생성, or java8 아래 기존 프로젝트 업데이트시 빌드 안되는 문제( v )
-
-LiveData 관련 오류 - Cannot invoke setValue on a background thread ( v )
-
-안드로이드(Android) 오류 - SDK location not found. ( v )
-
-안드로이드(Android) 오류 - This Activity already has an action bar supplied by the window decor. ( v )
-
-안드로이드(Android) 오류 - Material Design Rendering Error (렌더링 오류) / 탭 레이아웃 렌더링이 안됩니다. ( v )
-
-안드로이드(Android) 오류 - Execution failed for task ':app:checkDebugDuplicateClasses'. ( v )
-
-안드로이드(Android) 오류 - Cannot resolve method 'plant(DebugTree) / Timber 라이브러리 관련 이슈 ( v )
-
-
-
 
 ============ Firebase ================
 Firebase Crashlitics ( v )
@@ -461,10 +363,6 @@ MVC ( v )
 MVP ( v )
 MVVM ( v )
 
-
-================ 개발자 콘솔 관련 ==============
-구글출시 정보 / Android 13 API 33 광고 ID ( v )
-구글 출시 콘솔 play-services-safetynet 관련 경고 ( v )
 
 
 ===== 홍드로이드 예제 마이그레이션 ========
