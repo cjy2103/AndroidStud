@@ -19,6 +19,7 @@ import android.os.Looper;
 import android.provider.MediaStore;
 import android.widget.Toast;
 
+import com.example.myapplication.databinding.ActivityCameraBinding;
 import com.example.myapplication.util.LogUtil;
 import com.example.myapplication.util.SystemUtil;
 import com.google.common.util.concurrent.ListenableFuture;
