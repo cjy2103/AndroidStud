@@ -8,31 +8,22 @@ import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.core.content.ContextCompat;
-import androidx.lifecycle.LifecycleOwner;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaActionSound;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.widget.Toast;
 
-import com.example.myapplication.R;
-import com.example.myapplication.databinding.ActivityCameraBinding;
 import com.example.myapplication.util.LogUtil;
 import com.example.myapplication.util.SystemUtil;
 import com.google.common.util.concurrent.ListenableFuture;
 
-import java.io.File;
-import java.util.Date;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
 
 public class CameraActivity extends AppCompatActivity {
 
@@ -150,7 +141,7 @@ public class CameraActivity extends AppCompatActivity {
                         runOnUiThread(()->{
                             new Handler(Looper.myLooper()).postDelayed(() ->{
                                 cam.getCameraControl().enableTorch(false);
-                                Intent intent = new Intent(mContext, PreViewActivity.class);
+                                Intent intent = new Intent(mContext, PhotoResultActivity.class);
                                 intent.putExtra("photoUri", outputFileResults.getSavedUri().toString());
                                 startActivity(intent);
                             },100);

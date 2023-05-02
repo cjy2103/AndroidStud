@@ -2,18 +2,15 @@ package com.example.myapplication.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.R;
-import com.example.myapplication.databinding.ActivityMainBinding;
-import com.example.myapplication.databinding.ActivityPreViewBinding;
+import com.example.myapplication.databinding.ActivityPhotoResultBinding;
 
-public class PreViewActivity extends AppCompatActivity {
+public class PhotoResultActivity extends AppCompatActivity {
 
-    private ActivityPreViewBinding binding;
+    private ActivityPhotoResultBinding binding;
 
 
     @Override
@@ -27,7 +24,7 @@ public class PreViewActivity extends AppCompatActivity {
     }
 
     private void viewBinding(){
-        binding = ActivityPreViewBinding.inflate(getLayoutInflater());
+        binding = ActivityPhotoResultBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
     }
 
