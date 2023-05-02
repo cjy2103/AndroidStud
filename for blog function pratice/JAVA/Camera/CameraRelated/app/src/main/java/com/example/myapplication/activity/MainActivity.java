@@ -6,11 +6,13 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.example.myapplication.util.LogUtil;
 import com.example.myapplication.util.SystemUtil;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.normal.TedPermission;
@@ -98,12 +100,17 @@ public class MainActivity extends AppCompatActivity {
             public void onPermissionDenied(List<String> deniedPermissions) {
                 Toast.makeText(MainActivity.this
                         , "Permission Denied\n" + deniedPermissions.toString(), Toast.LENGTH_SHORT).show();
+                LogUtil.log("권한"+ deniedPermissions);
             }
         };
     }
 
     private void cameraPermission(){
-        checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            checkPermission(Manifest.permission.READ_MEDIA_IMAGES);
+        } else {
+            checkPermission(Manifest.permission.READ_EXTERNAL_STORAGE);
+        }
         checkPermission(Manifest.permission.CAMERA);
         checkPermission(Manifest.permission.RECORD_AUDIO);
     }

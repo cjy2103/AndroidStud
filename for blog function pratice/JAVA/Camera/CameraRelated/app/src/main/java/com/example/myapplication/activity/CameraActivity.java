@@ -13,6 +13,7 @@ import androidx.lifecycle.LifecycleOwner;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaActionSound;
 import android.os.Bundle;
 import android.os.Environment;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivityCameraBinding;
+import com.example.myapplication.util.LogUtil;
 import com.example.myapplication.util.SystemUtil;
 import com.google.common.util.concurrent.ListenableFuture;
 
@@ -97,13 +99,13 @@ public class CameraActivity extends AppCompatActivity {
     private void startCameraX(ProcessCameraProvider cameraProvider) {
         cameraProvider.unbindAll();
 
-//        CameraSelector cameraSelector = new CameraSelector.Builder()
-//                .requireLensFacing(CameraSelector.LENS_FACING_BACK)
-//                .build();
-
         CameraSelector cameraSelector = new CameraSelector.Builder()
-                .requireLensFacing(CameraSelector.LENS_FACING_FRONT)
+                .requireLensFacing(CameraSelector.LENS_FACING_BACK)
                 .build();
+//
+//        CameraSelector cameraSelector = new CameraSelector.Builder()
+//                .requireLensFacing(CameraSelector.LENS_FACING_FRONT)
+//                .build();
 
         Preview preview = new Preview.Builder().build();
 
@@ -144,11 +146,17 @@ public class CameraActivity extends AppCompatActivity {
                         if(cam.getCameraInfo().hasFlashUnit()){
                             cam.getCameraControl().enableTorch(true);
                         }
-                        sound.play(MediaActionSound.SHUTTER_CLICK);
+//                        sound.play(MediaActionSound.SHUTTER_CLICK);
                         runOnUiThread(()->{
                             new Handler(Looper.myLooper()).postDelayed(() ->{
                                 cam.getCameraControl().enableTorch(false);
+                                Intent intent = new Intent(mContext, PreViewActivity.class);
+                                intent.putExtra("photoUri", outputFileResults.getSavedUri().toString());
+                                startActivity(intent);
                             },100);
+                            LogUtil.log("사진 경로?"+outputFileResults);
+//                            Intent intent = new Intent(mContext, PreViewActivity.class);
+
                         });
 
 
