@@ -144,6 +144,7 @@ public class CameraActivity extends AppCompatActivity {
                                 cam.getCameraControl().enableTorch(false);
                                 Intent intent = new Intent(mContext, PhotoResultActivity.class);
                                 intent.putExtra("photoUri", outputFileResults.getSavedUri().toString());
+                                intent.putExtra("realPath", outputFileResults.getSavedUri().getPath());
                                 startActivity(intent);
                             },100);
                             LogUtil.log("사진 경로?"+outputFileResults);
