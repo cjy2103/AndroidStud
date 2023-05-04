@@ -72,6 +72,7 @@ TedPermission( v )
 CameraX ( 사진촬영 ) ( v )
 CameraX ( 비디오 촬영) ( v )
 CameraX - 사진촬영 결과 화면 ( v )
+CameraX - 사진삭제 ( v )
 
 BottomSheet ( v )
 
