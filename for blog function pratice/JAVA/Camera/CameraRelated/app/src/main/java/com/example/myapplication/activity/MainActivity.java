@@ -2,12 +2,14 @@ package com.example.myapplication.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.viewbinding.ViewBinding;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.widget.Toast;
 
 import com.example.myapplication.R;
@@ -18,19 +20,22 @@ import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.normal.TedPermission;
 
 import java.util.List;
+import java.util.function.Function;
 
-public class MainActivity extends AppCompatActivity {
-
-    private ActivityMainBinding binding;
+public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     private PermissionListener permissionlistener;
 
-    private SystemUtil systemUtil;
+    public MainActivity() {
+        super(ActivityMainBinding::inflate);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewBinding();
+
+        hideStatusBar(binding.consMain);
+        hideBottomBar();
 
         initialize();
 
@@ -80,15 +85,7 @@ public class MainActivity extends AppCompatActivity {
      ************************************** 일반 메서드 ****************************************
      *****************************************************************************************/
 
-    private void viewBinding(){
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-    }
-
     private void initialize(){
-        systemUtil = new SystemUtil();
-        systemUtil.sofNavigationBarHide(getWindow());
-        systemUtil.statusbarSetting(getWindow(),this,binding.consMain);
 
         permissionlistener = new PermissionListener() {
             @Override

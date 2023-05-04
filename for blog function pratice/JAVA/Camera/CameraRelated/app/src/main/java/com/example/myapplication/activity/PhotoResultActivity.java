@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -15,17 +16,20 @@ import com.example.myapplication.databinding.ActivityPhotoResultBinding;
 import com.example.myapplication.util.LogUtil;
 
 import java.io.File;
+import java.util.function.Function;
 
-public class PhotoResultActivity extends AppCompatActivity {
+public class PhotoResultActivity extends BaseActivity<ActivityPhotoResultBinding> {
 
-    private ActivityPhotoResultBinding binding;
     String imagePath = null;
+
+    public PhotoResultActivity() {
+        super(ActivityPhotoResultBinding::inflate);
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewBinding();
 
         init();
 
@@ -34,12 +38,10 @@ public class PhotoResultActivity extends AppCompatActivity {
         clickDelete();
     }
 
-    private void viewBinding(){
-        binding = ActivityPhotoResultBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-    }
 
     private void init(){
+        hideBottomBar();
+
         imagePath = getIntent().getStringExtra("photoUri");
         if(imagePath!=null) {
             Uri photoUri = Uri.parse(imagePath);

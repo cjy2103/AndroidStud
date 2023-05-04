@@ -16,6 +16,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.widget.Toast;
 
 import com.example.myapplication.databinding.ActivityVideoRecordingBinding;
@@ -24,10 +25,9 @@ import com.example.myapplication.util.SystemUtil;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
+import java.util.function.Function;
 
-public class VideoRecordingActivity extends AppCompatActivity {
-
-    private ActivityVideoRecordingBinding binding;
+public class VideoRecordingActivity extends BaseActivity<ActivityVideoRecordingBinding> {
 
     private Context mContext;
     private ListenableFuture<ProcessCameraProvider> cameraProviderListenableFuture;
@@ -35,10 +35,13 @@ public class VideoRecordingActivity extends AppCompatActivity {
     private VideoCapture videoCapture;
     private SystemUtil systemUtil;
 
+    public VideoRecordingActivity() {
+        super(ActivityVideoRecordingBinding::inflate);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewBinding();
 
         initialize();
 
@@ -47,16 +50,11 @@ public class VideoRecordingActivity extends AppCompatActivity {
         clickCancel();
     }
 
-    private void viewBinding(){
-        binding = ActivityVideoRecordingBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-    }
 
     private void initialize(){
         mContext = this;
 
-        systemUtil = new SystemUtil();
-        systemUtil.sofNavigationBarHide(getWindow());
+        hideBottomBar();
 
         cameraProviderListenableFuture = ProcessCameraProvider.getInstance(this);
 

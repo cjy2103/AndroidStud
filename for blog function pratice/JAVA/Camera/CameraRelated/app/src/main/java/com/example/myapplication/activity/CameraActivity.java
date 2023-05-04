@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.widget.Toast;
 
 import com.example.myapplication.databinding.ActivityCameraBinding;
@@ -25,23 +26,24 @@ import com.example.myapplication.util.SystemUtil;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.util.concurrent.ExecutionException;
+import java.util.function.Function;
 
-public class CameraActivity extends AppCompatActivity {
-
-    private ActivityCameraBinding binding;
+public class CameraActivity extends BaseActivity<ActivityCameraBinding> {
 
     private Context mContext;
     private ListenableFuture<ProcessCameraProvider> cameraProviderListenableFuture;
     private ImageCapture imageCapture;
-    private SystemUtil systemUtil;
     private Camera cam;
     private MediaActionSound sound;
+
+    public CameraActivity() {
+        super(ActivityCameraBinding::inflate);
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        viewBinding();
 
         initialize();
 
@@ -55,17 +57,13 @@ public class CameraActivity extends AppCompatActivity {
         super.onDestroy();
         cameraProviderListenableFuture = null;
         imageCapture = null;
-    }
-
-    private void viewBinding(){
-        binding = ActivityCameraBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        binding = null;
     }
 
     private void initialize(){
         mContext = this;
-        systemUtil = new SystemUtil();
-        systemUtil.sofNavigationBarHide(getWindow());
+
+        hideBottomBar();
 
         cameraProviderListenableFuture = ProcessCameraProvider.getInstance(this);
 
